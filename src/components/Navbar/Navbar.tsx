@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { getWordPressImageUrl } from "../../data/images";
 
 const navLinks = [
   { number: "01", label: "Inicio", href: "#home" },
@@ -61,11 +62,14 @@ const Navbar = () => {
         <div className="flex items-center justify-between px-4 py-3 sm:px-5 md:px-7">
           <a
             href="#home"
-            className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.26em] text-[#111111] transition-colors duration-300 hover:text-[#C1121F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            className="flex items-center transition-opacity duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             aria-label="Ir al inicio"
           >
-            <span className="inline-block text-[#C1121F]">P</span>
-            <span className="text-[#111111]">OWERHOUSE</span>
+            <img
+              src={getWordPressImageUrl("2022/01/logo-powerhouse-negro.png")}
+              alt="PowerHouse"
+              className="h-9 w-auto"
+            />
           </a>
 
           <ul className="hidden items-center gap-8 md:flex">

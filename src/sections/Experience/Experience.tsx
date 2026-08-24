@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { getWordPressImageUrl } from "../../data/images";
 
 const gallery = [
   {
@@ -6,18 +7,25 @@ const gallery = [
     title: "Imagen PowerHouse",
     className: "lg:row-span-2 lg:min-h-[560px]",
     aspectClass: "aspect-[4/5] lg:aspect-auto lg:h-full",
+    image: getWordPressImageUrl("2026/02/diferencia1-scaled.jpg"),
   },
   {
     id: "02",
     title: "Imagen PowerHouse",
     className: "",
     aspectClass: "aspect-[4/3]",
+    image: getWordPressImageUrl(
+      "2026/01/1b769ac1-b724-4eb4-8506-c0976afc41c2.jpg",
+    ),
   },
   {
     id: "03",
     title: "Imagen PowerHouse",
     className: "",
     aspectClass: "aspect-[4/3]",
+    image: getWordPressImageUrl(
+      "2022/01/189299167_4233682296695495_2672356163720843427_n.jpg",
+    ),
   },
 ];
 
@@ -62,11 +70,14 @@ const Experience = () => {
               <div
                 className={`relative overflow-hidden ${item.aspectClass}`}
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_42%),linear-gradient(135deg,#171717_0%,#2a2a2a_45%,#1b1b1b_100%)]" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
 
-                <div className="absolute inset-0 scale-105 transition-transform duration-700 ease-out group-hover:scale-100" />
-
-                <div className="absolute right-5 top-5 h-16 w-16 rounded-full border border-[#C1121F]/30 bg-white/5 backdrop-blur-sm" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/40 to-[#111111]/10" />
 
                 <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-6 md:p-8">
                   <div>

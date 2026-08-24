@@ -1,4 +1,9 @@
 import { motion } from "motion/react";
+import { getWordPressImageUrl } from "../../data/images";
+
+const pastorImageUrl = getWordPressImageUrl(
+  "2026/03/Gemini_Generated_Image_emh38temh38temh3-processedlightpdf.com_.png",
+);
 
 const pastor = {
   number: "01",
@@ -8,8 +13,13 @@ const pastor = {
 
 const Pastors = () => {
   return (
-    <section className="bg-[#111111] py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+    <section
+      className="relative overflow-hidden bg-[#111111] bg-cover bg-center py-24 md:py-32"
+      style={{ backgroundImage: `url(${pastorImageUrl})` }}
+    >
+      <div className="absolute inset-0 bg-[#111111]/90" />
+
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <motion.header
           className="mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -39,9 +49,14 @@ const Pastors = () => {
             viewport={{ once: true }}
           >
             <div className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#1f1f1f_0%,#2d2d2d_50%,#171717_100%)]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_38%)]" />
+              <img
+                src={pastorImageUrl}
+                alt="Fotografía PowerHouse"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
 
-              <div className="absolute left-6 top-6 h-20 w-20 rounded-full border border-[#C1121F]/30 bg-white/5" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/70 via-transparent to-transparent" />
 
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                 <div>
@@ -58,7 +73,6 @@ const Pastors = () => {
                 </div>
               </div>
 
-              <div className="absolute -bottom-12 -right-10 h-32 w-32 rounded-full border border-[#C1121F]/30 transition-transform duration-700 group-hover:scale-110" />
             </div>
           </motion.article>
 
@@ -84,9 +98,36 @@ const Pastors = () => {
 
               <div className="mt-8 h-px w-16 bg-[#C1121F]" />
 
-              <p className="mt-6 max-w-md text-sm leading-6 text-neutral-400 md:text-base">
-                Liderazgo cercano, acompañamiento espiritual y visión para fortalecer la comunidad.
-              </p>
+              <div className="mt-6 max-w-md space-y-4 text-sm leading-6 text-neutral-400 md:text-base">
+                <p>
+                  Pastores principales de la Iglesia PowerHouse en
+                  Latinoamérica. Hijos espirituales de G.F. Watkins y el Equipo
+                  Génesis. Líderes de la iglesia en Perú durante 14 años, han
+                  alcanzado a más de 500,000 personas en su región.
+                </p>
+
+                <p>
+                  En 2020, lanzaron Hombres Alfa Internacional, un ministerio
+                  de hombres enfocado en tres pilares principales: Identidad,
+                  Afirmación y Autoridad. Esto los ha impulsado a capacitar y
+                  discipular a más de 1,000 pastores y líderes hombres en
+                  Latinoamérica.
+                </p>
+
+                <p>
+                  Fundaron el modelo internacional de Hombres Alfa y lo han
+                  difundido por Latinoamérica, Europa y Sudáfrica.
+                </p>
+              </div>
+
+              <a
+                href="https://phckatytx.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center justify-center rounded-full bg-[#C1121F] px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
+              >
+                Conoce más
+              </a>
             </div>
           </motion.article>
         </div>

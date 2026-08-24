@@ -1,29 +1,43 @@
 import { motion } from "motion/react";
+import { getWordPressImageUrl } from "../../data/images";
 
-const missions = [
+interface MissionItem {
+  number: string;
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const missions: MissionItem[] = [
   {
     number: "01",
     title: "Conoce a Dios",
     description:
       "Descubre una relación con Dios que transforme tu manera de vivir.",
+    image: getWordPressImageUrl("2026/01/in1.jpg"),
   },
   {
     number: "02",
     title: "Encuentra Libertad",
     description:
       "Encuentra libertad y aprende a vivir una vida plena.",
+    image: getWordPressImageUrl("2026/02/proposito.jpg"),
   },
   {
     number: "03",
     title: "Descubre tu Propósito",
     description:
       "Descubre aquello para lo que fuiste llamado y desarrolla tu potencial.",
+    image: getWordPressImageUrl("2026/02/DOMINGO-13-08645-scaled.jpg"),
   },
   {
     number: "04",
     title: "Haz la Diferencia",
     description:
       "Pon tus dones al servicio de otros y genera un impacto positivo.",
+    image: getWordPressImageUrl(
+      "2022/02/89226359_1819160668217692_3004242886687457280_n.jpg",
+    ),
   },
 ];
 
@@ -70,6 +84,19 @@ const Mission = () => {
               transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
             >
+
+              {/* Background image */}
+              {mission.image && (
+                <>
+                  <img
+                    src={mission.image}
+                    alt=""
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/95 via-[#111111]/55 to-[#111111]/25" />
+                </>
+              )}
 
               {/* Number */}
               <span className="text-sm font-medium text-[#C1121F]/90">
