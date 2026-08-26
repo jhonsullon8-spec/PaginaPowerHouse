@@ -86,7 +86,7 @@ const ArrowIcon = ({ className }: { className?: string }) => (
 
 const MapLocation = () => {
   return (
-    <section className="relative overflow-hidden bg-[#111111] py-24 md:py-32">
+    <section className="relative overflow-hidden bg-[#180F10] py-24 md:py-32">
       {/* Subtle background glow */}
       <div className="pointer-events-none absolute -left-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[#C1121F]/[0.04] blur-[120px]" />
       <div className="pointer-events-none absolute -right-40 top-0 h-[400px] w-[400px] rounded-full bg-[#C1121F]/[0.03] blur-[100px]" />
@@ -139,16 +139,27 @@ const MapLocation = () => {
             </div>
 
             {/* Info card */}
-            <div className="rounded-[1.5rem] border border-white/[0.07] bg-white/[0.03] p-6 sm:p-8">
-              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.28em] text-white/40">
-                Información
-              </p>
+            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/[0.09] bg-[#151515] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.16)] sm:p-8">
+              <div className="absolute inset-x-0 top-0 h-1 bg-[#C1121F]" aria-hidden="true" />
+              <div className="mb-8 flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C1121F]">
+                    Tu visita
+                  </p>
+                  <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                    Planifica tu visita
+                  </h3>
+                </div>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#C1121F]/25 bg-[#C1121F]/10 text-[#C1121F]">
+                  <LocationPin className="h-5 w-5" />
+                </span>
+              </div>
 
-              <ul className="space-y-5" role="list">
+              <ul className="divide-y divide-white/[0.08]" role="list">
                 {infoItems.map((item, index) => (
                   <motion.li
                     key={item.label}
-                    className="flex items-start gap-4"
+                    className="flex items-start gap-4 py-5 first:pt-0 last:pb-0"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{
@@ -158,7 +169,7 @@ const MapLocation = () => {
                     }}
                     viewport={{ once: true }}
                   >
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#C1121F]/10 text-[#C1121F]">
+                    <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-[#0D0D0D] text-[#C1121F]">
                       {index === 0 && (
                         <LocationPin className="h-4 w-4" />
                       )}
@@ -182,7 +193,7 @@ const MapLocation = () => {
                 ))}
               </ul>
 
-              <div className="my-6 h-px w-full bg-white/[0.06]" />
+              <div className="my-7 h-px w-full bg-white/[0.06]" />
 
               {/* Mobile-only description (shown below info on small screens) */}
               <p className="mb-6 text-sm leading-7 text-neutral-400 lg:hidden">
@@ -207,12 +218,23 @@ const MapLocation = () => {
 
           {/* ─── RIGHT: Map ─── */}
           <motion.div
-            className="relative"
+            className="relative rounded-[1.75rem] border border-white/[0.1] bg-[#0A0A0A] p-4 pt-7 sm:p-5 sm:pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-8"
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.1 }}
             viewport={{ once: true }}
           >
+            <div className="mb-5 flex items-center justify-between gap-4 px-1">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C1121F]">
+                  Ubicación
+                </p>
+                <h3 className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                  Encuéntranos en el mapa
+                </h3>
+              </div>
+              <LocationPin className="h-5 w-5 shrink-0 text-[#C1121F]" />
+            </div>
             <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.07] shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
               {/* Map iframe */}
               <iframe

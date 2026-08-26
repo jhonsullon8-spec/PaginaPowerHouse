@@ -1,11 +1,11 @@
 import { getWordPressImageUrl } from "../../data/images";
 
 const primaryLinks = [
-	{ label: "Inicio", href: "#home" },
-	{ label: "Nosotros", href: "#about" },
-	{ label: "Misión", href: "#mission" },
-	{ label: "Experiencia", href: "#experience" },
-	{ label: "Ministerios", href: "#ministries" },
+	{ label: "Inicio", href: "/" },
+	{ label: "Nosotros", href: "/nosotros" },
+	{ label: "Creencias", href: "/creencias" },
+	{ label: "Servicios", href: "/servicios" },
+	{ label: "Ministerios", href: "/ministerios" },
 ];
 
 const TikTokIcon = () => (
@@ -65,7 +65,7 @@ const Footer = () => {
 				<div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-[1.35fr_1fr_1fr] lg:gap-16 lg:pb-16">
 					<div className="max-w-md">
 						<a
-							href="#home"
+							href="/"
 							aria-label="PowerHouse, volver al inicio"
 							className="inline-flex rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#101010]"
 						>
@@ -135,7 +135,7 @@ const Footer = () => {
 							¿Tienes alguna consulta? Estamos aquí para recibirte y acompañarte.
 						</p>
 						<a
-							href="#contact"
+							href="/contacto"
 							className="group mt-6 inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#E3424D] hover:shadow-[0_10px_25px_rgba(193,18,31,0.25)] active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#101010]"
 						>
 							Contáctanos
@@ -147,7 +147,7 @@ const Footer = () => {
 				<div className="flex flex-col gap-4 pt-7 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
 					<p>© {new Date().getFullYear()} PowerHouse. Todos los derechos reservados.</p>
 					<a
-						href="#home"
+						href="/"
 						className="group inline-flex w-fit items-center gap-2 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#101010]"
 					>
 						Volver al inicio

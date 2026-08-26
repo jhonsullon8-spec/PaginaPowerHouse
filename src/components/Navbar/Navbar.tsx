@@ -3,16 +3,21 @@ import { useEffect, useState } from "react";
 import { getWordPressImageUrl } from "../../data/images";
 
 const navLinks = [
-  { number: "01", label: "Inicio", href: "#home" },
-  { number: "02", label: "Nosotros", href: "#about" },
-  { number: "03", label: "Misión", href: "#mission" },
-  { number: "04", label: "Experiencia", href: "#experience" },
-  { number: "05", label: "Ministerios", href: "#ministries" },
+  { number: "01", label: "Inicio", href: "/" },
+  { number: "02", label: "Nosotros", href: "/nosotros" },
+  { number: "03", label: "Creencias", href: "/creencias" },
+  { number: "04", label: "Servicios", href: "/servicios" },
+  { number: "05", label: "Ministerios", href: "/ministerios" },
 ];
+
+const darkPaths = ["/nosotros", "/servicios", "/contacto"];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkView, setIsDarkView] = useState(() =>
+    darkPaths.includes(window.location.pathname),
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +30,15 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setIsDarkView(darkPaths.includes(window.location.pathname));
+    };
+
+    window.addEventListener("popstate", handleHashChange);
+    return () => window.removeEventListener("popstate", handleHashChange);
   }, []);
 
   useEffect(() => {
@@ -42,6 +56,8 @@ const Navbar = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
+
+  const useLightHeader = isDarkView && !isScrolled;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-4 sm:px-4 md:px-6">
@@ -61,14 +77,16 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between px-4 py-3 sm:px-5 md:px-7">
           <a
-            href="#home"
-            className="flex items-center transition-opacity duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              href="/"
+            className={`flex items-center transition-opacity duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 ${
+              useLightHeader ? "focus-visible:ring-offset-[#111111]" : "focus-visible:ring-offset-white"
+            }`}
             aria-label="Ir al inicio"
           >
             <img
               src={getWordPressImageUrl("2022/01/logo-powerhouse-negro.png")}
               alt="PowerHouse"
-              className="h-9 w-auto"
+              className={`h-9 w-auto ${useLightHeader ? "brightness-0 invert" : ""}`}
             />
           </a>
 
@@ -77,7 +95,9 @@ const Navbar = () => {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="group relative inline-flex items-center gap-2 text-sm font-medium text-[#111111]/80 transition-colors duration-300 hover:text-[#C1121F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                  className={`group relative inline-flex items-center gap-2 text-sm font-medium transition-colors duration-300 hover:text-[#C1121F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 ${
+                    useLightHeader ? "text-white/85 focus-visible:ring-offset-[#111111]" : "text-[#111111]/80 focus-visible:ring-offset-white"
+                  }`}
                 >
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C1121F] opacity-0 transition-all duration-300 group-hover:opacity-100" />
                   <span>{link.label}</span>
@@ -88,7 +108,7 @@ const Navbar = () => {
 
           <div className="hidden items-center md:flex">
             <a
-              href="#contact"
+              href="/contacto"
               className="inline-flex items-center justify-center rounded-full bg-[#C1121F] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
               VISÍTANOS
@@ -97,7 +117,11 @@ const Navbar = () => {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full border border-[#111111]/10 bg-white/80 p-2.5 text-[#111111] transition-colors duration-300 hover:border-[#C1121F]/50 hover:text-[#C1121F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-white md:hidden"
+            className={`inline-flex items-center justify-center rounded-full border p-2.5 transition-colors duration-300 hover:border-[#C1121F]/50 hover:text-[#C1121F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 md:hidden ${
+              useLightHeader
+                ? "border-white/20 bg-[#111111]/60 text-white focus-visible:ring-offset-[#111111]"
+                : "border-[#111111]/10 bg-white/80 text-[#111111] focus-visible:ring-offset-white"
+            }`}
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -138,7 +162,7 @@ const Navbar = () => {
             <div className="flex min-h-screen flex-col px-5 py-6">
               <div className="flex items-center justify-between border-b border-white/10 pb-5">
                 <a
-                  href="#home"
+                  href="/"
                   className="text-base font-black uppercase tracking-[0.22em] text-white"
                   onClick={() => setIsOpen(false)}
                 >
@@ -182,7 +206,7 @@ const Navbar = () => {
                 </ul>
 
                 <motion.a
-                  href="#contact"
+                  href="/contacto"
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.3 }}
