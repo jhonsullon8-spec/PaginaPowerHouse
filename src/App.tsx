@@ -6,6 +6,7 @@ import MapLocation from "./sections/MapLocation/MapLocation";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/footer";
 import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
+import DonationButton from "./components/DonationButton/DonationButton";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <MapLocation />
       </main>
       <Footer />
+      <DonationButton />
       <WhatsAppButton />
     </>
   );

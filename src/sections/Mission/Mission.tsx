@@ -21,63 +21,55 @@ const missions: MissionCard[] = [
       "Dios no improvisó contigo. Tienes dones, talentos y una personalidad única creada con intención. Te ayudamos a descubrir cómo usar todo eso para algo que realmente importe, creciendo en propósito, identidad y dirección para tu vida diaria.",
     coverImage: getWordPressImageUrl("2026/01/in1.jpg"),
     gallery: [
-      getWordPressImageUrl("2026/01/in1.jpg"),
-      getWordPressImageUrl("2026/02/proposito.jpg"),
-      getWordPressImageUrl(
-        "2022/02/89226359_1819160668217692_3004242886687457280_n.jpg",
-      ),
+      getWordPressImageUrl("2026/02/4-1-scaled.jpg"),
+      getWordPressImageUrl("2026/02/5-scaled.jpg"),
+      getWordPressImageUrl("2026/02/3-scaled.jpg"),
     ],
   },
   {
     number: "02",
     title: "Encuentra Libertad",
     shortDescription:
-      "Deja atrás aquello que te limita y descubre la libertad que existe en Cristo.",
+      "La verdadera libertad no es hacer lo que quieras, sino vivir sin cadenas emocionales...",
     expandedDescription:
-      "No tienes que cargar solo con tus miedos, errores o pasado. En Dios puedes encontrar perdón, restauración y una nueva manera de vivir.",
+      "La verdadera libertad no es hacer lo que quieras, sino vivir sin cadenas emocionales, mentales y espirituales. Aquí aprenderás a soltar el pasado, sanar heridas y caminar con una identidad firme y segura.",
     coverImage: getWordPressImageUrl("2026/02/proposito.jpg"),
     gallery: [
-      getWordPressImageUrl("2026/02/proposito.jpg"),
-      getWordPressImageUrl("2026/01/in1.jpg"),
-      getWordPressImageUrl(
-        "2026/02/DOMINGO-13-08645-scaled.jpg",
-      ),
+      getWordPressImageUrl("2026/02/libertad5.jpg"),
+      getWordPressImageUrl("2026/02/libertad4-scaled.jpg"),
+      getWordPressImageUrl("2026/02/libertad3-scaled.jpg"),
     ],
   },
   {
     number: "03",
     title: "Descubre tu Propósito",
     shortDescription:
-      "Descubre tus dones, desarrolla tus talentos y encuentra la manera de hacer la diferencia.",
+      "No fuiste creado por accidente. Hay un propósito específico diseñado para tu vida...",
     expandedDescription:
-      "Dios te creó con dones, talentos y una personalidad única. Tu historia tiene valor y puedes utilizar aquello que recibiste para impactar positivamente a otras personas y hacer la diferencia.",
+      "No fuiste creado por accidente. Hay un propósito específico diseñado para tu vida. Aquí te ayudamos a identificar tus dones, desarrollar tu liderazgo y caminar con claridad hacia aquello para lo que realmente fuiste llamado.",
     coverImage: getWordPressImageUrl(
       "2026/02/DOMINGO-13-08645-scaled.jpg",
     ),
     gallery: [
-      getWordPressImageUrl(
-        "2026/02/DOMINGO-13-08645-scaled.jpg",
-      ),
-      getWordPressImageUrl("2026/02/proposito.jpg"),
-      getWordPressImageUrl("2026/01/in1.jpg"),
+      getWordPressImageUrl("2026/02/proposito3.jpg"),
+      getWordPressImageUrl("2026/02/proposito2.jpg"),
+      getWordPressImageUrl("2026/02/Proposito5-scaled.jpg"),
     ],
   },
   {
     number: "04",
     title: "Haz la Diferencia",
     shortDescription:
-      "Pon tus dones al servicio de otros y genera un impacto positivo.",
+      "No solo fuimos llamados a crecer personalmente, sino a impactar el mundo que nos rodea...",
     expandedDescription:
-      "Cada persona tiene algo valioso que ofrecer. Cuando decides usar tus dones, talentos y tiempo para servir a otros, tu vida cobra un significado profundo y transformas el mundo que te rodea.",
+      "No solo fuimos llamados a crecer personalmente, sino a impactar el mundo que nos rodea. Aquí descubrirás cómo servir, liderar y marcar una diferencia real en tu comunidad, usando tus dones para transformar vidas.",
     coverImage: getWordPressImageUrl(
       "2022/02/89226359_1819160668217692_3004242886687457280_n.jpg",
     ),
     gallery: [
-      getWordPressImageUrl(
-        "2022/02/89226359_1819160668217692_3004242886687457280_n.jpg",
-      ),
-      getWordPressImageUrl("2026/02/DOMINGO-13-08645-scaled.jpg"),
-      getWordPressImageUrl("2026/01/in1.jpg"),
+      getWordPressImageUrl("2026/02/diferencia3-scaled.jpg"),
+      getWordPressImageUrl("2026/02/diferencia4-scaled.jpg"),
+      getWordPressImageUrl("2026/02/diferencia5-scaled.jpg"),
     ],
   },
 ];
@@ -129,38 +121,51 @@ const Mission = () => {
 
         {/* Header */}
         <motion.div
-          className="mb-16 grid gap-8 md:grid-cols-[1fr_1fr] md:items-end"
+          className="mb-16 flex flex-col gap-6 md:flex-row md:items-center md:gap-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
         >
 
-          <div>
+          {/* All texts in one box */}
+          <div className="flex-1">
             <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#737373]">
               Nuestra misión
             </span>
 
-            <h2 className="mt-5 max-w-xl text-4xl font-semibold leading-[1.05] tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
+            <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-[1.05] tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
               Una vida transformada puede transformar otras.
             </h2>
-          </div>
 
-          <div className="md:ml-auto md:max-w-md">
-            <p className="text-lg font-medium leading-7 text-[#111111] md:text-xl">
+            <p className="mt-6 text-lg font-medium leading-7 text-[#111111] md:text-xl">
               Dios no improvisó contigo.
             </p>
-            <p className="mt-3 text-base leading-7 text-[#737373] md:text-lg">
+
+            <p className="mt-1 text-base leading-7 text-[#737373] md:text-lg">
               Tienes dones, talentos y una personalidad única creada con
               intención. Hay un propósito para tu vida, y queremos ayudarte a
               descubrirlo.
             </p>
           </div>
 
+          {/* Video */}
+          <div className="w-full shrink-0 overflow-hidden rounded-2xl shadow-[0_16px_48px_rgba(17,17,17,0.12)] md:w-[42%]">
+            <div className="relative w-full pt-[56.25%]">
+              <iframe
+                src="https://www.youtube.com/embed/NGWDnF3hL-c"
+                title="PowerHouse Church Peru"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </div>
+
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2.5 md:grid-cols-2">
 
           {missions.map((mission, index) => (
             <motion.button
