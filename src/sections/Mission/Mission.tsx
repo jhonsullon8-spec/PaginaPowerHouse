@@ -256,16 +256,24 @@ const Mission = () => {
           viewport={{ once: true }}
         >
           <div className="grid md:grid-cols-[0.8fr_1.2fr]">
-            <div className="bg-[#111111] p-7 text-white sm:p-9 md:p-10">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#E3424D]">
+            <div className="relative overflow-hidden bg-[#111111] p-7 text-white sm:p-9 md:p-10">
+              <img
+                src="https://perupowerhouse.com/wp-content/uploads/2026/03/colegio1.jpg"
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-[#111111]/75" />
+              <div className="relative">
+              <span className="relative text-xs font-semibold uppercase tracking-[0.24em] text-[#E3424D]">
                 De las palabras a la acción
               </span>
-              <h2 id="impact-title" className="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                Reinserción y desarrollo juvenil.
-              </h2>
-              <p className="mt-6 text-sm leading-6 text-white/55">
+              <h2 id="impact-title" className="relative mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+                Power Kids
+              </h2>              <p className="relative mt-6 text-sm leading-6 text-white/55">
                 Una oportunidad también puede abrir un camino para el futuro.
               </p>
+              </div>
             </div>
 
             <div className="p-7 sm:p-9 md:p-10">
@@ -273,17 +281,12 @@ const Mission = () => {
                 Iniciativa en Piura · 2025
               </p>
               <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-[#111111] sm:text-3xl">
-                Centro Juvenil de Diagnóstico y Rehabilitación Miguel Grau
+                Power Kids: Aprendiendo, Creciendo y Disfrutando Juntos
               </h3>
               <p className="mt-5 text-base leading-7 text-[#737373]">
-                PowerHouse Servolución Perú participa en un acuerdo orientado
-                a contribuir con la reinserción social, educativa y laboral de
-                adolescentes mediante el fortalecimiento de capacidades.
-              </p>
-              <p className="mt-4 border-l-2 border-[#C1121F] pl-4 text-sm leading-6 text-[#737373]">
-                Entre las acciones contempladas está el fortalecimiento del
-                taller de confección textil, con capacitación en sublimado y
-                estampado de telas.
+                Nuestro objetivo es que cada niño desarrolle valores, identidad y una base sólida desde temprana edad, a través de enseñanzas, juegos y actividades diseñadas especialmente para ellos.
+
+                Contamos con espacios donde podrán aprender, divertirse y crecer en un ambiente seguro y lleno de amor, siendo cuidados y guiados por un equipo preparado, mientras tú disfrutas del servicio con tranquilidad.
               </p>
             </div>
           </div>
