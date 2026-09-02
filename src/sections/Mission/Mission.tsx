@@ -114,6 +114,7 @@ const Mission = () => {
   const [selectedMission, setSelectedMission] = useState<MissionCard | null>(
     null,
   );
+  const videoUrl = `https://www.youtube.com/embed/NGWDnF3hL-c?feature=oembed&rel=0&origin=${encodeURIComponent(window.location.origin)}`;
 
   return (
     <section className="bg-[#F5F5F3] py-24 md:py-32">
@@ -130,16 +131,16 @@ const Mission = () => {
 
           {/* All texts in one box */}
           <div className="flex-1">
-            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#737373]">
-              Nuestra misión
+            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#C1121F]">
+              PowerHouse Servolución Perú · Nuestra misión
             </span>
 
             <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-[1.05] tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
-              Una vida transformada puede transformar otras.
+              Transformamos oportunidades en nuevos caminos.
             </h2>
 
             <p className="mt-6 text-lg font-medium leading-7 text-[#111111] md:text-xl">
-              Dios no improvisó contigo.
+              Una vida transformada puede transformar otras.
             </p>
 
             <p className="mt-1 text-base leading-7 text-[#737373] md:text-lg">
@@ -147,19 +148,42 @@ const Mission = () => {
               intención. Hay un propósito para tu vida, y queremos ayudarte a
               descubrirlo.
             </p>
+
+            <p className="mt-5 max-w-xl text-sm leading-6 text-[#737373] md:text-base">
+              Somos una organización sin fines de lucro vinculada a la
+              educación, la inclusión social y el desarrollo de capacidades.
+              Creemos que una oportunidad puede cambiar una historia.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#C1121F]">
+              <span>Educación</span>
+              <span aria-hidden="true">·</span>
+              <span>Inclusión social</span>
+              <span aria-hidden="true">·</span>
+              <span>Desarrollo de capacidades</span>
+            </div>
           </div>
 
           {/* Video */}
           <div className="w-full shrink-0 overflow-hidden rounded-2xl shadow-[0_16px_48px_rgba(17,17,17,0.12)] md:w-[42%]">
             <div className="relative w-full pt-[56.25%]">
               <iframe
-                src="https://www.youtube.com/embed/NGWDnF3hL-c"
-                title="PowerHouse Church Peru"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                src={videoUrl}
+                title="Video introductorio de PowerHouse Church Peru"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 className="absolute inset-0 h-full w-full"
               />
             </div>
+            <a
+              href="https://www.youtube.com/watch?v=NGWDnF3hL-c"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-[#111111] px-4 py-2 text-center text-xs font-medium text-white/70 transition-colors hover:text-white"
+            >
+              Ver video directamente en YouTube
+            </a>
           </div>
 
         </motion.div>
@@ -222,6 +246,48 @@ const Mission = () => {
             ))}
 
         </div>
+
+        <motion.section
+          className="mt-16 overflow-hidden rounded-[2rem] border border-[#D8D8D3] bg-white md:mt-20"
+          aria-labelledby="impact-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <div className="grid md:grid-cols-[0.8fr_1.2fr]">
+            <div className="bg-[#111111] p-7 text-white sm:p-9 md:p-10">
+              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#E3424D]">
+                De las palabras a la acción
+              </span>
+              <h2 id="impact-title" className="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+                Reinserción y desarrollo juvenil.
+              </h2>
+              <p className="mt-6 text-sm leading-6 text-white/55">
+                Una oportunidad también puede abrir un camino para el futuro.
+              </p>
+            </div>
+
+            <div className="p-7 sm:p-9 md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C1121F]">
+                Iniciativa en Piura · 2025
+              </p>
+              <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-[#111111] sm:text-3xl">
+                Centro Juvenil de Diagnóstico y Rehabilitación Miguel Grau
+              </h3>
+              <p className="mt-5 text-base leading-7 text-[#737373]">
+                PowerHouse Servolución Perú participa en un acuerdo orientado
+                a contribuir con la reinserción social, educativa y laboral de
+                adolescentes mediante el fortalecimiento de capacidades.
+              </p>
+              <p className="mt-4 border-l-2 border-[#C1121F] pl-4 text-sm leading-6 text-[#737373]">
+                Entre las acciones contempladas está el fortalecimiento del
+                taller de confección textil, con capacitación en sublimado y
+                estampado de telas.
+              </p>
+            </div>
+          </div>
+        </motion.section>
       </div>
 
       {/* ─── Modal ─── */}

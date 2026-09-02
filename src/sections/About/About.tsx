@@ -11,10 +11,10 @@ const pastor = {
   info: "Información del pastor",
 };
 
-const Pastors = () => {
+const Nosotros = () => {
   return (
     <section
-      className="relative overflow-hidden bg-[#111111] bg-cover bg-center py-24 md:py-32"
+      className="relative overflow-hidden bg-[#111111] bg-cover bg-[position:50%_35%] py-24 md:bg-center md:py-32"
       style={{ backgroundImage: `url(${pastorImageUrl})` }}
     >
       <div className="absolute inset-0 bg-[#111111]/90" />
@@ -28,7 +28,7 @@ const Pastors = () => {
           viewport={{ once: true }}
         >
           <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#C1121F]">
-            NUESTROS PASTORES
+            NOSOTROS
           </span>
 
           <h2 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
@@ -53,7 +53,7 @@ const Pastors = () => {
                 src={pastorImageUrl}
                 alt="Fotografía PowerHouse"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover object-[50%_42%] transition-transform duration-700 ease-out group-hover:scale-105 md:object-center"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/70 via-transparent to-transparent" />
@@ -136,4 +136,4 @@ const Pastors = () => {
   );
 };
 
-export default Pastors;
+export default Nosotros;

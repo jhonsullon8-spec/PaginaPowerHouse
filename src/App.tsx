@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Mission from "./sections/Mission/Mission";
-import Pastors from "./sections/Pastors/Pastors";
+import Home from "./pages/Home/Home";
+import Nosotros from "./sections/About/About";
 import Ministries from "./sections/Ministries/Ministries";
-import Services from "./sections/Services/Services";
+import Services from "./sections/Services/Services.tsx";
 import Contact from "./sections/Contact/Contact";
 import Beliefs from "./sections/Beliefs/Beliefs";
 import Navbar from "./components/Navbar/Navbar";
@@ -57,8 +57,8 @@ function App() {
   }, []);
 
   const views = {
-    home: <Mission />,
-    about: <Pastors />,
+    home: <Home />,
+    about: <Nosotros />,
     beliefs: <Beliefs />,
     services: <Services />,
     ministries: <Ministries />,
