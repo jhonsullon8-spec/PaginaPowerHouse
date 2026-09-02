@@ -1,4 +1,5 @@
 import { useState, type FormEvent, type ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 const GOOGLE_MAPS_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.06849040459!2d-80.635!3d-5.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a1008c1a636fb%3A0x28a04e6724afb097!2sPowerHouse%20Church%20Peru!5e0!3m2!1ses!2spe!4v1";
@@ -17,6 +18,7 @@ const discoveryOptions = [
 const fieldControlClasses = "mt-1 w-full rounded-xl border border-[#DADAD6] bg-[#FAFAF8] px-4 py-3 text-sm text-[#222222] outline-none transition-colors placeholder:text-[#A0A0A0] focus:border-[#C1121F] focus:ring-2 focus:ring-[#C1121F]/10";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
 
@@ -55,10 +57,10 @@ const Contact = () => {
     <section className="min-h-screen bg-[#F5F5F3] px-6 pb-24 pt-36 text-[#111111] md:px-10 md:pb-32 md:pt-44">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <header className="max-w-md">
-          <span className="text-sm font-semibold uppercase tracking-[0.32em] text-[#C1121F]">BIENVENID@ A POWERHOUSE</span>
-          <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">Queremos conocerte.</h1>
+          <span className="text-sm font-semibold uppercase tracking-[0.32em] text-[#C1121F]">{t("common.contactEyebrow")}</span>
+          <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">{t("common.contactTitle")}</h1>
           <p className="mt-6 text-base leading-7 text-[#737373] md:text-lg">
-            Gracias por tomarte este tiempo. Responde estas preguntas para acompañarte mejor en tu primer paso con nuestra comunidad.
+            {t("common.contactDescription")}
           </p>
           <div className="mt-10 border-l-2 border-[#C1121F] pl-5 text-sm leading-7 text-[#737373]">
             Dios te bendiga grandemente.
@@ -67,8 +69,8 @@ const Contact = () => {
 
         <form onSubmit={handleSubmit} className="rounded-[1.75rem] border border-[#E2E2DF] bg-white p-6 shadow-[0_24px_70px_rgba(17,17,17,0.08)] sm:p-8 md:p-10">
           <div className="mb-9 border-b border-[#E5E5E2] pb-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#737373]">Formulario de bienvenida</p>
-            <p className="mt-2 text-sm text-[#A0A0A0]">Los campos marcados con * son obligatorios.</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#737373]">{t("common.formTitle")}</p>
+            <p className="mt-2 text-sm text-[#A0A0A0]">{t("common.required")}</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
@@ -130,7 +132,7 @@ const Contact = () => {
           {sent && <p className="mt-6 rounded-xl border border-[#18864B]/20 bg-[#18864B]/5 p-4 text-sm text-[#126A3B]" role="status">Tu correo está listo para enviarse.</p>}
 
           <button type="submit" className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 sm:w-auto">
-            Enviar información
+            {t("common.send")}
           </button>
         </form>
       </div>

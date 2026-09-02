@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { getWordPressImageUrl } from "../../data/images";
 
 const pastorImageUrl = getWordPressImageUrl(
@@ -12,6 +13,7 @@ const pastor = {
 };
 
 const Nosotros = () => {
+  const { t } = useTranslation();
   return (
     <section
       className="relative overflow-hidden bg-[#111111] bg-cover bg-[position:50%_35%] py-24 md:bg-center md:py-32"
@@ -19,7 +21,7 @@ const Nosotros = () => {
     >
       <div className="absolute inset-0 bg-[#111111]/90" />
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10"> 
         <motion.header
           className="mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -28,15 +30,15 @@ const Nosotros = () => {
           viewport={{ once: true }}
         >
           <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#C1121F]">
-            NOSOTROS
+            {t("common.aboutEyebrow")}
           </span>
 
           <h2 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
-            Personas que acompañan y guían nuestra comunidad.
+            {t("common.aboutTitle")}
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-neutral-300 md:text-lg">
-            Acompañamos a personas, familias y líderes con una visión de fe, servicio y comunidad.
+            {t("common.aboutDescription")}
           </p>
         </motion.header>
 
@@ -126,7 +128,7 @@ const Nosotros = () => {
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center justify-center rounded-full bg-[#C1121F] px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
               >
-                Conoce más
+                {t("common.learnMore")}
               </a>
             </div>
           </motion.article>

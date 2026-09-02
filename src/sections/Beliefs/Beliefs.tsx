@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 const beliefGroups = [
   {
@@ -113,7 +114,10 @@ const beliefGroups = [
   },
 ];
 
-const Beliefs = () => (
+const Beliefs = () => {
+  const { t } = useTranslation();
+
+  return (
   <section className="relative overflow-hidden bg-[#F5F5F3] pb-24 pt-36 text-[#111111] md:pb-32 md:pt-44">
     <div className="pointer-events-none absolute right-0 top-0 h-[32rem] w-[32rem] translate-x-1/3 -translate-y-1/3 rounded-full bg-[#C1121F]/[0.06] blur-[110px]" />
     <div className="relative mx-auto max-w-7xl px-6 md:px-10">
@@ -123,9 +127,9 @@ const Beliefs = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <span className="text-sm font-semibold uppercase tracking-[0.32em] text-[#C1121F]">NUESTRA IDENTIDAD DOCTRINAL</span>
-        <h1 className="mt-5 text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">Nuestras creencias.</h1>
-        <p className="mt-6 max-w-2xl text-base leading-7 text-[#737373] md:text-lg">El fundamento sagrado que guía nuestra fe y vida en comunidad.</p>
+        <span className="text-sm font-semibold uppercase tracking-[0.32em] text-[#C1121F]">{t("common.beliefsEyebrow")}</span>
+        <h1 className="mt-5 text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">{t("common.beliefsTitle")}</h1>
+        <p className="mt-6 max-w-2xl text-base leading-7 text-[#737373] md:text-lg">{t("common.beliefsDescription")}</p>
       </motion.header>
 
       <div className="mt-16 space-y-20 md:mt-24 md:space-y-28">
@@ -165,6 +169,7 @@ const Beliefs = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default Beliefs;

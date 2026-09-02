@@ -1,9 +1,18 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import type { Service, ServiceCategory, ServiceIcon as ServiceIconName } from "../../data/services";
 import { servicesData } from "../../data/services";
 
 const categories: Array<"Todos" | ServiceCategory> = ["Todos", "Comunidad", "Formación", "Familias", "Impacto"];
+
+const categoryKeys: Record<(typeof categories)[number], string> = {
+  Todos: "all",
+  Comunidad: "community",
+  Formación: "formation",
+  Familias: "families",
+  Impacto: "impact",
+};
 
 const ArrowUpRight = () => (
   <svg aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 16 16">
@@ -28,7 +37,10 @@ const ServiceIcon = ({ icon }: { icon: ServiceIconName }) => {
   return <svg aria-hidden="true" className="h-6 w-6" fill="none" viewBox="0 0 24 24"><path d={paths[icon]} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" /></svg>;
 };
 
-const ServiceCard = ({ service, index, onSelect }: { service: Service; index: number; onSelect: (service: Service) => void }) => (
+const ServiceCard = ({ service, index, onSelect }: { service: Service; index: number; onSelect: (service: Service) => void }) => {
+  const { t } = useTranslation();
+
+  return (
   <motion.article className="group flex flex-col bg-[#171717] p-7 transition-colors duration-300 hover:bg-[#1D1D1D] sm:p-9 md:p-10" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}>
     <div className="flex items-start justify-between gap-5">
       <span className="text-sm font-semibold tracking-[0.2em] text-[#C1121F]">{service.number}</span>
@@ -38,12 +50,14 @@ const ServiceCard = ({ service, index, onSelect }: { service: Service; index: nu
     <h2 className="mt-3 max-w-xs text-2xl font-semibold tracking-tight md:text-3xl">{service.title}</h2>
     <p className="mt-4 max-w-md text-sm leading-7 text-white/50 md:text-base">{service.description}</p>
     <button type="button" onClick={() => onSelect(service)} className="group mt-8 inline-flex min-h-11 w-fit items-center gap-3 border-b border-[#C1121F]/50 pb-2 text-sm font-semibold text-white transition-colors hover:border-[#E3424D] hover:text-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#171717]" aria-label={`Ver detalles de ${service.title}`}>
-      Ver detalles <ArrowUpRight />
+      {t("services.details")} <ArrowUpRight />
     </button>
   </motion.article>
-);
+  );
+};
 
 const ServiceModal = ({ service, onClose }: { service: Service; onClose: () => void }) => {
+  const { t } = useTranslation();
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -60,7 +74,7 @@ const ServiceModal = ({ service, onClose }: { service: Service; onClose: () => v
   return (
     <motion.div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#111111]/80 px-4 py-8 backdrop-blur-sm" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}>
       <motion.div role="dialog" aria-modal="true" aria-labelledby="service-modal-title" className="relative w-full max-w-lg rounded-[1.75rem] border border-white/10 bg-[#171717] p-7 shadow-[0_30px_80px_rgba(0,0,0,0.45)] sm:p-10" initial={{ opacity: 0, y: 24, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 18, scale: 0.97 }} onClick={(event) => event.stopPropagation()}>
-        <button type="button" onClick={onClose} aria-label="Cerrar detalles" className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/60 transition-colors hover:border-[#C1121F] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#171717]"><CloseIcon /></button>
+        <button type="button" onClick={onClose} aria-label={t("services.close")} className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/60 transition-colors hover:border-[#C1121F] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#171717]"><CloseIcon /></button>
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#C1121F]/15 text-[#E3424D]"><ServiceIcon icon={service.icon} /></span>
         <p className="mt-7 text-xs font-semibold uppercase tracking-[0.2em] text-[#E3424D]">{service.category}</p>
         <h2 id="service-modal-title" className="mt-3 pr-10 text-3xl font-semibold tracking-tight text-white">{service.title}</h2>
@@ -72,6 +86,7 @@ const ServiceModal = ({ service, onClose }: { service: Service; onClose: () => v
 };
 
 const Services = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>("Todos");
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const filteredServices = useMemo(() => activeCategory === "Todos" ? servicesData : servicesData.filter((service) => service.category === activeCategory), [activeCategory]);
@@ -81,22 +96,26 @@ const Services = () => {
       <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 translate-x-1/3 -translate-y-1/3 rounded-full bg-[#C1121F]/[0.08] blur-[100px]" />
       <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <motion.header className="mb-10 max-w-3xl md:mb-14" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }}>
-          <span className="text-sm font-semibold uppercase tracking-[0.32em] text-[#E3424D]">LO QUE HACEMOS</span>
-          <h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">Un lugar para crecer, servir y conectar.</h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-white/55 md:text-lg">PowerHouse existe para acompañarte en cada etapa y ayudarte a vivir una fe con propósito.</p>
+          <span className="text-sm font-semibold uppercase tracking-[0.32em] text-[#E3424D]">{t("services.eyebrow")}</span>
+          <h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">{t("services.title")}</h1>
+          <p className="mt-6 max-w-xl text-base leading-7 text-white/55 md:text-lg">{t("services.description")}</p>
         </motion.header>
 
         <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filtrar servicios por categoría">
-          {categories.map((category) => <button key={category} type="button" onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category} className={`rounded-full border px-4 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] ${activeCategory === category ? "border-[#C1121F] bg-[#C1121F] text-white" : "border-white/15 text-white/55 hover:border-white/35 hover:text-white"}`}>{category}</button>)}
+          {categories.map((category) => <button key={category} type="button" onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category} className={`rounded-full border px-4 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] ${activeCategory === category ? "border-[#C1121F] bg-[#C1121F] text-white" : "border-white/15 text-white/55 hover:border-white/35 hover:text-white"}`}>{t(`services.${categoryKeys[category]}`)}</button>)}
         </div>
 
         <div className="grid gap-px overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/10 sm:grid-cols-2">
-          {filteredServices.map((service, index) => <ServiceCard key={service.id} service={service} index={index} onSelect={setSelectedService} />)}
+          {filteredServices.map((service, index) => {
+            const serviceKey = service.id;
+            const translatedService: Service = { ...service, title: t(`services.items.${serviceKey}.title`), description: t(`services.items.${serviceKey}.description`), details: t(`services.items.${serviceKey}.details`), actionLabel: t(`services.items.${serviceKey}.action`), category: t(`services.category.${service.icon === "purpose" ? "purpose" : service.icon}`) as ServiceCategory };
+            return <ServiceCard key={service.id} service={translatedService} index={index} onSelect={setSelectedService} />;
+          })}
         </div>
 
         <div className="mt-10 flex flex-col gap-5 border-t border-white/10 pt-7 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-lg text-sm leading-6 text-white/45">Da el siguiente paso y conoce cómo puedes ser parte de PowerHouse.</p>
-          <a href="/contacto" className="group inline-flex min-h-12 w-fit items-center justify-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#111111]">Hablemos <ArrowUpRight /></a>
+          <p className="max-w-lg text-sm leading-6 text-white/45">{t("services.nextStep")}</p>
+          <a href="/contacto" className="group inline-flex min-h-12 w-fit items-center justify-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#111111]">{t("services.talk")} <ArrowUpRight /></a>
         </div>
       </div>
 

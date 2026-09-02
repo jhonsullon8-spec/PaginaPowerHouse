@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 const ministries = [
   { id: "01", name: "Power Kids" },
@@ -8,6 +9,7 @@ const ministries = [
 ];
 
 const Ministries = () => {
+  const { t } = useTranslation();
   return (
     <section className="bg-[#F5F5F3] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -19,15 +21,15 @@ const Ministries = () => {
           viewport={{ once: true }}
         >
           <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#737373]">
-            NUESTROS MINISTERIOS
+            {t("common.ministriesEyebrow")}
           </span>
 
           <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
-            Hay un lugar para ti.
+            {t("common.ministriesTitle")}
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-[#737373] md:text-lg">
-            Descubre diferentes espacios para conectar, crecer y formar parte de la comunidad.
+            {t("common.ministriesDescription")}
           </p>
         </motion.header>
 
