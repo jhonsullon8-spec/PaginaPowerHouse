@@ -134,7 +134,7 @@ const carouselItems = [
 ];
 
 const Ministries = () => {
-<<<<<<< HEAD
+  const { t } = useTranslation();
   const [paused, setPaused] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const pauseTimer = useRef<number | null>(null);
@@ -158,19 +158,16 @@ const Ministries = () => {
     const maxScroll = scroller.scrollWidth - scroller.clientWidth;
     const setWidth = singleSetWidth.current;
 
-    // Cuando estamos a un set del final, saltamos un set hacia atrás (idéntico visualmente)
     if (scroller.scrollLeft > maxScroll - setWidth) {
       setCounter.current -= 1;
       scroller.scrollLeft -= setWidth;
     }
-    // Cuando estamos en el inicio, saltamos un set hacia delante (idéntico visualmente)
     if (scroller.scrollLeft < setWidth) {
       setCounter.current += 1;
       scroller.scrollLeft += setWidth;
     }
   };
 
-  // Inicialización y recálculo en resize (solo una vez + resize)
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
@@ -187,16 +184,13 @@ const Ministries = () => {
     return () => window.removeEventListener("resize", doReset);
   }, []);
 
-  // Loop de animación continua. Se pausa/reanuda según `paused`.
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
     let animationId: number;
-    const speed = 45; // px por segundo
+    const speed = 45;
 
-    // Al entrar aquí (montaje o reanudación), marcamos el instante actual
-    // para que el primer delta sea ~0 y no haya salto al retomar el movimiento.
     lastRef.current = performance.now();
 
     const step = (now: number) => {
@@ -228,7 +222,6 @@ const Ministries = () => {
       scroller.scrollLeft -= step;
     }
 
-    // Reajustamos para nunca quedar en blanco al llegar a los extremos
     advance();
   };
 
@@ -241,9 +234,6 @@ const Ministries = () => {
     pauseTimer.current = window.setTimeout(() => setPaused(false), 300);
   };
 
-=======
-  const { t } = useTranslation();
->>>>>>> d53e3962eeca8061e31bfe332838cbc590b3f632
   return (
     <section className="overflow-hidden bg-[#F5F5F3] py-24 md:py-32">
       <div className="mx-auto mb-12 max-w-7xl px-6 md:mb-16 md:px-10">

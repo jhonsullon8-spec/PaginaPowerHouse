@@ -11,7 +11,7 @@ const LanguageSelector = () => {
   };
 
   return (
-    <label className="fixed left-3 top-4 z-[70] inline-flex h-10 min-w-[5.75rem] items-center rounded-full bg-white/90 p-1 text-left text-[#111111] shadow-[0_8px_24px_rgba(17,17,17,0.16)] backdrop-blur-md sm:left-5 md:left-7">
+    <label className="fixed left-4 top-4 z-[70] inline-flex h-10 min-w-[5.75rem] items-center rounded-full bg-white/90 p-1 text-left text-[#111111] shadow-[0_8px_24px_rgba(17,17,17,0.16)] backdrop-blur-md sm:left-6 md:left-8 md:top-5">
       <span className="sr-only">{t("nav.language")}</span>
       <span aria-hidden="true" className="pointer-events-none flex w-full items-center justify-start gap-2 px-2 text-left text-xs font-semibold">
         <img src={selectedLanguage.flagSrc} alt="" className="h-4 w-6 rounded-[2px] object-cover shadow-sm" />

@@ -73,13 +73,7 @@ function App() {
       <Footer />
       <DonationButton />
       <WhatsAppButton />
-      <div className="pointer-events-none fixed inset-x-0 top-[4.5rem] z-50 px-3 sm:top-20 sm:px-4 md:px-6 min-[1400px]:top-4">
-        <div className="relative mx-auto h-10 max-w-7xl">
-          <div className="pointer-events-auto absolute right-0 top-0 rounded-full bg-white/90 p-1 text-[#111111] shadow-[0_8px_24px_rgba(17,17,17,0.16)] backdrop-blur-md min-[1400px]:right-0 min-[1400px]:translate-x-[calc(100%+0.75rem)]">
-            <LanguageSelector />
-          </div>
-        </div>
-      </div>
+      <LanguageSelector />
     </>
   );
 }
