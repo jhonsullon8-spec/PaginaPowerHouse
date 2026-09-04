@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Home from "./pages/Home/Home";
 import Nosotros from "./sections/About/About";
-import Ministries from "./sections/Ministries/Ministries";
+import GruposDeConexion from "./sections/GruposDeConexion/GruposDeConexion";
 import Services from "./sections/Services/Services.tsx";
 import Contact from "./sections/Contact/Contact";
 import Beliefs from "./sections/Beliefs/Beliefs";
@@ -11,14 +11,14 @@ import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
 import DonationButton from "./components/DonationButton/DonationButton";
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 
-type View = "home" | "about" | "beliefs" | "services" | "ministries" | "contact";
+type View = "home" | "about" | "beliefs" | "services" | "grupos" | "contact";
 
 const paths: Record<View, string> = {
   home: "/",
   about: "/nosotros",
   beliefs: "/creencias",
   services: "/servicios",
-  ministries: "/ministerios",
+  grupos: "/grupos-de-conexion",
   contact: "/contacto",
 };
 
@@ -62,7 +62,7 @@ function App() {
     about: <Nosotros />,
     beliefs: <Beliefs />,
     services: <Services />,
-    ministries: <Ministries />,
+    grupos: <GruposDeConexion />,
     contact: <Contact />,
   };
 

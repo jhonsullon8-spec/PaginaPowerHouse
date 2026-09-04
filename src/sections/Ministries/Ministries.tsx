@@ -1,33 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-
-const ministries = [
-  {
-    id: "01",
-    name: "Power Kids",
-    description:
-      "Los más pequeños aprenden, se divierten y crecen en un ambiente seguro y lleno de amor.",
-  },
-  {
-    id: "02",
-    name: "Jóvenes",
-    description:
-      "Conecta, descubre tu propósito y desarrolla liderazgo junto a otros jóvenes.",
-  },
-  {
-    id: "03",
-    name: "Comunidad",
-    description:
-      "Grupos de conexión para caminar juntos, compartir la vida y apoyarnos.",
-  },
-  {
-    id: "04",
-    name: "Servicio",
-    description:
-      "Descubre cómo servir y marcar una diferencia real usando tus dones.",
-  },
-];
 
 const cardStyles: {
   card: string;
@@ -125,16 +98,22 @@ const ArrowRightIcon = () => (
   </svg>
 );
 
-// Duplicamos el set de tarjetas 4 veces para tener buffer infinito en ambos sentidos
-const carouselItems = [
-  ...ministries,
-  ...ministries,
-  ...ministries,
-  ...ministries,
-];
-
 const Ministries = () => {
   const { t } = useTranslation();
+
+  const ministries = useMemo(() => [
+    { id: "01", name: t("common.ministryName0"), description: t("common.ministryDesc0") },
+    { id: "02", name: t("common.ministryName1"), description: t("common.ministryDesc1") },
+    { id: "03", name: t("common.ministryName2"), description: t("common.ministryDesc2") },
+    { id: "04", name: t("common.ministryName4"), description: t("common.ministryDesc3") },
+  ], [t]);
+
+  const carouselItems = useMemo(() => [
+    ...ministries,
+    ...ministries,
+    ...ministries,
+    ...ministries,
+  ], [ministries]);
   const [paused, setPaused] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const pauseTimer = useRef<number | null>(null);
@@ -318,7 +297,7 @@ const Ministries = () => {
           <button
             type="button"
             onClick={() => scroll("left")}
-            aria-label="Anterior"
+            aria-label={t("common.ariaPrev")}
             className="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#111111]/10 bg-white/90 text-[#111111] shadow-[0_8px_30px_rgba(17,17,17,0.15)] backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-[#C1121F] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F]"
           >
             <ArrowLeftIcon />
@@ -328,7 +307,7 @@ const Ministries = () => {
           <button
             type="button"
             onClick={() => scroll("right")}
-            aria-label="Siguiente"
+            aria-label={t("common.ariaNext")}
             className="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#111111]/10 bg-white/90 text-[#111111] shadow-[0_8px_30px_rgba(17,17,17,0.15)] backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-[#C1121F] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F]"
           >
             <ArrowRightIcon />

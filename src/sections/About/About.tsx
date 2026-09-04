@@ -6,14 +6,14 @@ const pastorImageUrl = getWordPressImageUrl(
   "2026/03/Gemini_Generated_Image_emh38temh38temh3-processedlightpdf.com_.png",
 );
 
-const pastor = {
-  number: "01",
-  name: "Nombre del pastor",
-  info: "Información del pastor",
-};
-
 const Nosotros = () => {
   const { t } = useTranslation();
+
+  const pastor = {
+    number: "01",
+    name: t("about.pastorName"),
+    info: t("about.pastorInfo"),
+  };
   return (
     <section
       className="relative overflow-hidden bg-[#111111] bg-cover bg-[position:50%_35%] py-24 md:bg-center md:py-32"
@@ -53,7 +53,7 @@ const Nosotros = () => {
             <div className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#1f1f1f_0%,#2d2d2d_50%,#171717_100%)]">
               <img
                 src={pastorImageUrl}
-                alt="Fotografía PowerHouse"
+                alt={t("about.photoCaption")}
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover object-[50%_42%] transition-transform duration-700 ease-out group-hover:scale-105 md:object-center"
               />
@@ -66,7 +66,7 @@ const Nosotros = () => {
                     {pastor.number}
                   </span>
                   <p className="mt-3 text-xs font-medium uppercase tracking-[0.3em] text-white/70">
-                    Fotografía PowerHouse
+                    {t("about.photoCaption")}
                   </p>
                 </div>
 
@@ -102,23 +102,15 @@ const Nosotros = () => {
 
               <div className="mt-6 max-w-md space-y-4 text-sm leading-6 text-neutral-400 md:text-base">
                 <p>
-                  Pastores principales de la Iglesia PowerHouse en
-                  Latinoamérica. Hijos espirituales de G.F. Watkins y el Equipo
-                  Génesis. Líderes de la iglesia en Perú durante 14 años, han
-                  alcanzado a más de 500,000 personas en su región.
+                  {t("about.bio1")}
                 </p>
 
                 <p>
-                  En 2020, lanzaron Hombres Alfa Internacional, un ministerio
-                  de hombres enfocado en tres pilares principales: Identidad,
-                  Afirmación y Autoridad. Esto los ha impulsado a capacitar y
-                  discipular a más de 1,000 pastores y líderes hombres en
-                  Latinoamérica.
+                  {t("about.bio2")}
                 </p>
 
                 <p>
-                  Fundaron el modelo internacional de Hombres Alfa y lo han
-                  difundido por Latinoamérica, Europa y Sudáfrica.
+                  {t("about.bio3")}
                 </p>
               </div>
 

@@ -2,16 +2,17 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { getWordPressImageUrl } from "../../data/images";
 import { useTranslation } from "react-i18next";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 const navLinks = [
   { number: "01", key: "home", href: "/" },
   { number: "02", key: "about", href: "/nosotros" },
   { number: "03", key: "beliefs", href: "/creencias" },
   { number: "04", key: "services", href: "/servicios" },
-  { number: "05", key: "ministries", href: "/ministerios" },
+  { number: "05", key: "grupos", href: "/grupos-de-conexion" },
 ];
 
-const darkPaths = ["/nosotros", "/servicios", "/contacto"];
+const darkPaths = ["/nosotros", "/servicios", "/contacto", "/grupos-de-conexion"];
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -64,7 +65,7 @@ const Navbar = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-4 sm:px-4 md:px-6">
       <motion.nav
-        aria-label="Navegación principal"
+        aria-label={t("nav.ariaMain")}
         initial={{ opacity: 1, y: 0 }}
         animate={{
           opacity: 1,
@@ -83,7 +84,7 @@ const Navbar = () => {
             className={`flex items-center transition-opacity duration-300 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 ${
               useLightHeader ? "focus-visible:ring-offset-[#111111]" : "focus-visible:ring-offset-white"
             }`}
-            aria-label="Ir al inicio"
+            aria-label={t("nav.ariaHome")}
           >
             <img
               src={getWordPressImageUrl("2022/01/logo-powerhouse-negro.png")}
@@ -129,7 +130,7 @@ const Navbar = () => {
             aria-controls="mobile-menu"
             onClick={() => setIsOpen((prev) => !prev)}
           >
-            <span className="sr-only">Menú</span>
+            <span className="sr-only">{t("nav.menu")}</span>
             <div className="flex h-5 w-5 flex-col items-center justify-center gap-1.5">
               <span
                 className={`block h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
@@ -174,7 +175,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-xl text-white transition-colors duration-300 hover:border-[#C1121F]/60 hover:text-[#C1121F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
-                  aria-label="Cerrar menú"
+                  aria-label={t("nav.closeMenu")}
                   aria-expanded={isOpen}
                   onClick={() => setIsOpen(false)}
                 >
@@ -206,6 +207,10 @@ const Navbar = () => {
                     </motion.li>
                   ))}
                 </ul>
+
+                <div className="mt-6">
+                  <LanguageSelector className="relative left-auto top-auto z-auto inline-flex min-w-[5.75rem] items-center rounded-full bg-white/10 p-1 text-left text-white shadow-none backdrop-blur-md" />
+                </div>
 
                 <motion.a
                   href="/contacto"

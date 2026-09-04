@@ -5,7 +5,6 @@ import { getWordPressImageUrl } from "../../data/images";
 
 interface MissionCard {
   number: string;
-  key: string;
   title: string;
   shortDescription: string;
   expandedDescription: string;
@@ -13,72 +12,7 @@ interface MissionCard {
   gallery: string[];
 }
 
-const missions: MissionCard[] = [
-  {
-    number: "01",
-    key: "knowGod",
-    title: "Conoce a Dios",
-    shortDescription:
-      "Dios no improvisó contigo. Tienes dones, talentos y una personalidad única creada con intención.",
-    expandedDescription:
-      "Dios no improvisó contigo. Tienes dones, talentos y una personalidad única creada con intención. Te ayudamos a descubrir cómo usar todo eso para algo que realmente importe, creciendo en propósito, identidad y dirección para tu vida diaria.",
-    coverImage: getWordPressImageUrl("2026/01/in1.jpg"),
-    gallery: [
-      getWordPressImageUrl("2026/02/4-1-scaled.jpg"),
-      getWordPressImageUrl("2026/02/5-scaled.jpg"),
-      getWordPressImageUrl("2026/02/3-scaled.jpg"),
-    ],
-  },
-  {
-    number: "02",
-    key: "findFreedom",
-    title: "Encuentra Libertad",
-    shortDescription:
-      "La verdadera libertad no es hacer lo que quieras, sino vivir sin cadenas emocionales...",
-    expandedDescription:
-      "La verdadera libertad no es hacer lo que quieras, sino vivir sin cadenas emocionales, mentales y espirituales. Aquí aprenderás a soltar el pasado, sanar heridas y caminar con una identidad firme y segura.",
-    coverImage: getWordPressImageUrl("2026/02/proposito.jpg"),
-    gallery: [
-      getWordPressImageUrl("2026/02/libertad5.jpg"),
-      getWordPressImageUrl("2026/02/libertad4-scaled.jpg"),
-      getWordPressImageUrl("2026/02/libertad3-scaled.jpg"),
-    ],
-  },
-  {
-    number: "03",
-    key: "discoverPurpose",
-    title: "Descubre tu Propósito",
-    shortDescription:
-      "No fuiste creado por accidente. Hay un propósito específico diseñado para tu vida...",
-    expandedDescription:
-      "No fuiste creado por accidente. Hay un propósito específico diseñado para tu vida. Aquí te ayudamos a identificar tus dones, desarrollar tu liderazgo y caminar con claridad hacia aquello para lo que realmente fuiste llamado.",
-    coverImage: getWordPressImageUrl(
-      "2026/02/DOMINGO-13-08645-scaled.jpg",
-    ),
-    gallery: [
-      getWordPressImageUrl("2026/02/proposito3.jpg"),
-      getWordPressImageUrl("2026/02/proposito2.jpg"),
-      getWordPressImageUrl("2026/02/Proposito5-scaled.jpg"),
-    ],
-  },
-  {
-    number: "04",
-    key: "makeDifference",
-    title: "Haz la Diferencia",
-    shortDescription:
-      "No solo fuimos llamados a crecer personalmente, sino a impactar el mundo que nos rodea...",
-    expandedDescription:
-      "No solo fuimos llamados a crecer personalmente, sino a impactar el mundo que nos rodea. Aquí descubrirás cómo servir, liderar y marcar una diferencia real en tu comunidad, usando tus dones para transformar vidas.",
-    coverImage: getWordPressImageUrl(
-      "2022/02/89226359_1819160668217692_3004242886687457280_n.jpg",
-    ),
-    gallery: [
-      getWordPressImageUrl("2026/02/diferencia3-scaled.jpg"),
-      getWordPressImageUrl("2026/02/diferencia4-scaled.jpg"),
-      getWordPressImageUrl("2026/02/diferencia5-scaled.jpg"),
-    ],
-  },
-];
+
 
 const CloseIcon = () => (
   <svg
@@ -118,8 +52,58 @@ const PlusIcon = () => (
 
 const Mission = () => {
   const { t } = useTranslation();
-  const missionText = (mission: MissionCard, field: "title" | "shortDescription" | "expandedDescription") =>
-    t(`mission.cards.${mission.key}.${field}`, { defaultValue: mission[field] });
+
+  const missions: MissionCard[] = [
+    {
+      number: "01",
+      title: t("mission.missionCard1Title"),
+      shortDescription: t("mission.missionCard1Short"),
+      expandedDescription: t("mission.missionCard1Expanded"),
+      coverImage: getWordPressImageUrl("2026/01/in1.jpg"),
+      gallery: [
+        getWordPressImageUrl("2026/02/4-1-scaled.jpg"),
+        getWordPressImageUrl("2026/02/5-scaled.jpg"),
+        getWordPressImageUrl("2026/02/3-scaled.jpg"),
+      ],
+    },
+    {
+      number: "02",
+      title: t("mission.missionCard2Title"),
+      shortDescription: t("mission.missionCard2Short"),
+      expandedDescription: t("mission.missionCard2Expanded"),
+      coverImage: getWordPressImageUrl("2026/02/proposito.jpg"),
+      gallery: [
+        getWordPressImageUrl("2026/02/libertad5.jpg"),
+        getWordPressImageUrl("2026/02/libertad4-scaled.jpg"),
+        getWordPressImageUrl("2026/02/libertad3-scaled.jpg"),
+      ],
+    },
+    {
+      number: "03",
+      title: t("mission.missionCard3Title"),
+      shortDescription: t("mission.missionCard3Short"),
+      expandedDescription: t("mission.missionCard3Expanded"),
+      coverImage: getWordPressImageUrl("2026/02/DOMINGO-13-08645-scaled.jpg"),
+      gallery: [
+        getWordPressImageUrl("2026/02/proposito3.jpg"),
+        getWordPressImageUrl("2026/02/proposito2.jpg"),
+        getWordPressImageUrl("2026/02/Proposito5-scaled.jpg"),
+      ],
+    },
+    {
+      number: "04",
+      title: t("mission.missionCard4Title"),
+      shortDescription: t("mission.missionCard4Short"),
+      expandedDescription: t("mission.missionCard4Expanded"),
+      coverImage: getWordPressImageUrl("2022/02/89226359_1819160668217692_3004242886687457280_n.jpg"),
+      gallery: [
+        getWordPressImageUrl("2026/02/diferencia3-scaled.jpg"),
+        getWordPressImageUrl("2026/02/diferencia4-scaled.jpg"),
+        getWordPressImageUrl("2026/02/diferencia5-scaled.jpg"),
+      ],
+    },
+  ];
+
   const [selectedMission, setSelectedMission] = useState<MissionCard | null>(
     null,
   );
@@ -174,7 +158,7 @@ const Mission = () => {
             <div className="relative w-full pt-[56.25%]">
               <iframe
                 src={videoUrl}
-                title="Video introductorio de PowerHouse Church Peru"
+                title={t("mission.videoTitle")}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -187,7 +171,7 @@ const Mission = () => {
               rel="noopener noreferrer"
               className="block bg-[#111111] px-4 py-2 text-center text-xs font-medium text-white/70 transition-colors hover:text-white"
             >
-              Ver video directamente en YouTube
+              {t("mission.viewYouTube")}
             </a>
           </div>
 
@@ -232,11 +216,11 @@ const Mission = () => {
                   <div className="mb-4 mt-2 h-px w-12 bg-[#C1121F] transition-all duration-500 group-hover:w-24" />
 
                   <h3 className="text-3xl font-semibold tracking-tight md:text-4xl">
-                    {missionText(mission, "title")}
+                    {mission.title}
                   </h3>
 
                   <p className="mt-4 max-w-sm text-sm leading-6 text-white/60 md:text-base">
-                    {missionText(mission, "expandedDescription")}
+                    {mission.shortDescription}
                   </p>
 
                   <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/70 transition-all duration-300 group-hover:border-[#C1121F]/30 group-hover:bg-[#C1121F]/10 group-hover:text-[#C1121F]">
@@ -271,25 +255,27 @@ const Mission = () => {
               <div className="absolute inset-0 bg-[#111111]/75" />
               <div className="relative">
               <span className="relative text-xs font-semibold uppercase tracking-[0.24em] text-[#E3424D]">
-                {t("common.action")}
+                {t("mission.actionTitle")}
               </span>
               <h2 id="impact-title" className="relative mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                Power Kids
+                {t("mission.powerKids")}
               </h2>              <p className="relative mt-6 text-sm leading-6 text-white/55">
-                {t("common.impactLead")}
+                {t("mission.powerKidsSubtitle")}
               </p>
               </div>
             </div>
 
             <div className="p-7 sm:p-9 md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C1121F]">
-                {t("common.initiative")}
+                {t("mission.powerKidsInitiative")}
               </p>
               <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-[#111111] sm:text-3xl">
-                {t("common.impactTitle")}
+                {t("mission.powerKidsTitle")}
               </h3>
               <p className="mt-5 text-base leading-7 text-[#737373]">
-                {t("common.impactDescription")}
+                {t("mission.powerKidsText1")}
+                {" "}
+                {t("mission.powerKidsText2")}
               </p>
             </div>
           </div>
@@ -320,7 +306,7 @@ const Mission = () => {
             <motion.div
               role="dialog"
               aria-modal="true"
-              aria-label={missionText(selectedMission, "title")}
+              aria-label={selectedMission.title}
               className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#111111] shadow-[0_40px_100px_rgba(0,0,0,0.5)]"
               initial={{ opacity: 0, y: 40, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -341,7 +327,7 @@ const Mission = () => {
               <div className="relative h-[240px] w-full overflow-hidden sm:h-[320px]">
                 <img
                   src={selectedMission.coverImage}
-                  alt={missionText(selectedMission, "title")}
+                  alt={selectedMission.title}
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/30 to-transparent" />
@@ -356,17 +342,17 @@ const Mission = () => {
               <div className="px-8 pb-10 sm:px-10">
                 {/* Title */}
                 <span className="inline-flex items-center gap-2 rounded-full border border-[#C1121F]/20 bg-[#C1121F]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C1121F]">
-                  {selectedMission.number} — Etapa
+                  {selectedMission.number} — {t("mission.stage")}
                 </span>
 
                 <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
-                  {missionText(selectedMission, "title")}
+                  {selectedMission.title}
                 </h3>
 
                 <div className="mt-5 h-px w-16 bg-[#C1121F]" />
 
                 <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-300 md:text-lg">
-                  {missionText(selectedMission, "expandedDescription")}
+                  {selectedMission.expandedDescription}
                 </p>
 
                 {/* Gallery */}
@@ -391,7 +377,7 @@ const Mission = () => {
                         >
                           <img
                             src={img}
-                            alt={`${missionText(selectedMission, "title")} — imagen ${imgIndex + 1}`}
+                            alt={`${selectedMission.title} — ${t("mission.imageLabel")} ${imgIndex + 1}`}
                             loading="lazy"
                             className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/img:scale-105"
                           />

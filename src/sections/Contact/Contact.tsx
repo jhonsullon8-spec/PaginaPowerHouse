@@ -6,8 +6,6 @@ const GOOGLE_MAPS_EMBED_SRC =
 
 const COMPANY_EMAIL = "";
 
-const discoveryOptions = ["friends", "social", "family", "flyer", "group", "other"] as const;
-
 const fieldControlClasses = "mt-1 w-full rounded-xl border border-[#DADAD6] bg-[#FAFAF8] px-4 py-3 text-sm text-[#222222] outline-none transition-colors placeholder:text-[#A0A0A0] focus:border-[#C1121F] focus:ring-2 focus:ring-[#C1121F]/10";
 
 const Contact = () => {
@@ -15,13 +13,22 @@ const Contact = () => {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
 
+  const discoveryOptions = [
+    t("contact.discoveryOption1"),
+    t("contact.discoveryOption2"),
+    t("contact.discoveryOption3"),
+    t("contact.discoveryOption4"),
+    t("contact.discoveryOption5"),
+    t("contact.discoveryOption6"),
+  ];
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSent(false);
     setError("");
 
     if (!COMPANY_EMAIL) {
-      setError(t("contact.emailNotConfigured"));
+      setError(t("contact.emailNotConfig"));
       return;
     }
 
@@ -30,7 +37,7 @@ const Contact = () => {
     const body = [
       `${t("contact.firstVisit")}: ${formData.get("firstVisit")}`,
       `${t("contact.discovery")}: ${formData.get("discovery")}`,
-      `${t("contact.name")}: ${formData.get("name")}`,
+      `${t("contact.fullName")}: ${formData.get("name")}`,
       `${t("contact.faithDecision")}: ${formData.get("faithDecision")}`,
       `${t("contact.age")}: ${formData.get("age")}`,
       `${t("contact.maritalStatus")}: ${formData.get("maritalStatus")}`,
@@ -56,7 +63,7 @@ const Contact = () => {
             {t("common.contactDescription")}
           </p>
           <div className="mt-10 border-l-2 border-[#C1121F] pl-5 text-sm leading-7 text-[#737373]">
-            {t("contact.blessing")}
+            {t("contact.greeting")}
           </div>
         </header>
 
@@ -77,39 +84,47 @@ const Contact = () => {
             <Field label={t("contact.discovery")} name="discovery" required>
               <select name="discovery" required className={fieldControlClasses}>
                 <option value="">{t("contact.selectOption")}</option>
-                {discoveryOptions.map((option) => <option key={option}>{t(`contact.discoveryOptions.${option}`)}</option>)}
+                {discoveryOptions.map((option) => <option key={option}>{option}</option>)}
               </select>
             </Field>
-            <Field label={t("contact.name")} name="name" required>
-              <input name="name" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
+            <Field label={t("contact.fullName")} name="name" required>
+              <input name="name" required className={fieldControlClasses} placeholder={t("contact.placeholder")} />
             </Field>
             <Field label={t("contact.faithDecision")} name="faithDecision" required>
               <select name="faithDecision" required className={fieldControlClasses}>
                 <option value="">{t("contact.selectOption")}</option>
-                <option>{t("contact.yes")}</option><option>{t("contact.no")}</option><option>{t("contact.christian")}</option>
+                <option>{t("contact.yes")}</option>
+                <option>{t("contact.no")}</option>
+                <option>{t("contact.iamChristian")}</option>
               </select>
             </Field>
             <Field label={t("contact.age")} name="age" required>
-              <input name="age" type="number" min="1" max="120" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
+              <input name="age" type="number" min="1" max="120" required className={fieldControlClasses} placeholder={t("contact.placeholder")} />
             </Field>
             <Field label={t("contact.maritalStatus")} name="maritalStatus" required>
               <select name="maritalStatus" required className={fieldControlClasses}>
-                <option value="">{t("contact.selectOption")}</option><option>{t("contact.single")}</option><option>{t("contact.married")}</option><option>{t("contact.other")}</option>
+                <option value="">{t("contact.selectOption")}</option>
+                <option>{t("contact.single")}</option>
+                <option>{t("contact.married")}</option>
+                <option>{t("contact.other")}</option>
               </select>
             </Field>
             <Field label={t("contact.phone")} name="phone" required>
-              <input name="phone" type="tel" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
+              <input name="phone" type="tel" required className={fieldControlClasses} placeholder={t("contact.placeholder")} />
             </Field>
             <Field label={t("contact.address")} name="address" required>
-              <input name="address" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
+              <input name="address" required className={fieldControlClasses} placeholder={t("contact.placeholder")} />
             </Field>
             <Field label={t("contact.growCourse")} name="growCourse" required>
               <select name="growCourse" required className={fieldControlClasses}>
-                <option value="">{t("contact.selectOption")}</option><option>{t("contact.yes")}</option><option>{t("contact.no")}</option><option>{t("contact.later")}</option>
+                <option value="">{t("contact.selectOption")}</option>
+                <option>{t("contact.yes")}</option>
+                <option>{t("contact.no")}</option>
+                <option>{t("contact.later")}</option>
               </select>
             </Field>
             <Field label={t("contact.volunteer")} name="volunteer" required>
-              <input name="volunteer" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
+              <input name="volunteer" required className={fieldControlClasses} placeholder={t("contact.placeholder")} />
             </Field>
           </div>
 
@@ -131,7 +146,7 @@ const Contact = () => {
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        title="Ubicación de PowerHouse Church Peru en Google Maps"
+        title={t("contact.ariaMaps")}
         className="h-[400px] w-full md:h-[500px]"
       />
     </div>

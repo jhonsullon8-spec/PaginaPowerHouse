@@ -1,14 +1,6 @@
 import { getWordPressImageUrl } from "../../data/images";
 import { useTranslation } from "react-i18next";
 
-const primaryLinks = [
-	{ label: "Inicio", href: "/" },
-	{ label: "Nosotros", href: "/nosotros" },
-	{ label: "Creencias", href: "/creencias" },
-	{ label: "Servicios", href: "/servicios" },
-	{ label: "Ministerios", href: "/ministerios" },
-];
-
 const TikTokIcon = () => (
 	<svg aria-hidden="true" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
 		<path d="M16.7 3c.3 2.4 1.6 3.8 4 4v3.2a9 9 0 0 1-4-.9v6.1a6.6 6.6 0 1 1-5.7-6.5v3.3a3.4 3.4 0 1 0 2.5 3.2V3h3.2Z" />
@@ -61,6 +53,15 @@ const ArrowUpRight = () => (
 
 const Footer = () => {
 	const { t } = useTranslation();
+
+	const primaryLinks = [
+		{ label: t("nav.home"), href: "/" },
+		{ label: t("nav.about"), href: "/nosotros" },
+		{ label: t("nav.beliefs"), href: "/creencias" },
+		{ label: t("nav.services"), href: "/servicios" },
+		{ label: t("nav.ministries"), href: "/ministerios" },
+	];
+
 	return (
 		<footer className="overflow-hidden bg-[#101010] text-white" aria-labelledby="footer-title">
 			<div className="mx-auto max-w-7xl px-5 pb-8 pt-16 sm:px-8 md:px-10 md:pt-20 lg:px-12">

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 const ClockIcon = () => (
   <svg aria-hidden="true" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24">
@@ -18,64 +19,66 @@ interface Day {
   events: CalendarEvent[];
 }
 
-const weekDays: Day[] = [
-  {
-    day: "Lunes",
-    date: "LUN",
-    events: [
-      { time: "07:00 PM", title: "Oración Familiar", description: "Un espacio para orar por nuestras familias y comunidad." },
-    ],
-  },
-  {
-    day: "Martes",
-    date: "MAR",
-    events: [
-      { time: "07:00 PM", title: "Estudio Bíblico", description: "Profundizamos en la Palabra de una manera práctica." },
-      { time: "08:30 PM", title: "Ensayos de Adoración", description: "Practicamos las canciones para el fin de semana." },
-    ],
-  },
-  {
-    day: "Miércoles",
-    date: "MIÉ",
-    events: [
-      { time: "06:30 PM", title: "Power Kids", description: "Los más pequeños aprenden y se divierten." },
-      { time: "08:00 PM", title: "Reunión de Líderes", description: "Formación y seguimiento del equipo de ministerios." },
-    ],
-  },
-  {
-    day: "Jueves",
-    date: "JUE",
-    events: [
-      { time: "07:00 PM", title: "Jóvenes", description: "Conectamos, crecemos y compartimos la fe." },
-    ],
-  },
-  {
-    day: "Viernes",
-    date: "VIE",
-    events: [
-      { time: "07:30 PM", title: "Grupos de Conexión", description: "Pequeños grupos en casas para crecer juntos." },
-    ],
-  },
-  {
-    day: "Sábado",
-    date: "SÁB",
-    events: [
-      { time: "09:00 AM", title: "Servicio Comunitario", description: "Impactamos nuestra comunidad con acciones concretas." },
-      { time: "04:00 PM", title: "Ensayo General", description: "Preparación final para la celebración." },
-    ],
-  },
-  {
-    day: "Domingo",
-    date: "DOM",
-    events: [
-      { time: "09:00 AM", title: "Primer Servicio", description: "Celebración con la comunidad." },
-      { time: "11:15 AM", title: "Segundo Servicio", description: "Celebración en vivo para todos." },
-      { time: "05:00 PM", title: "Servicio de la Tarde", description: "Cierre de la semana con adoración." },
-    ],
-  },
-];
-
 const WeeklyCalendar = () => {
+  const { t } = useTranslation();
+
+  const weekDays: Day[] = [
+    {
+      day: t("calendar.monday"),
+      date: t("calendar.mon"),
+      events: [
+        { time: "07:00 PM", title: t("calendar.event_prayer"), description: t("calendar.event_prayer_desc") },
+      ],
+    },
+    {
+      day: t("calendar.tuesday"),
+      date: t("calendar.tue"),
+      events: [
+        { time: "07:00 PM", title: t("calendar.event_bible"), description: t("calendar.event_bible_desc") },
+        { time: "08:30 PM", title: t("calendar.event_worship"), description: t("calendar.event_worship_desc") },
+      ],
+    },
+    {
+      day: t("calendar.wednesday"),
+      date: t("calendar.wed"),
+      events: [
+        { time: "06:30 PM", title: t("calendar.event_kids"), description: t("calendar.event_kids_desc") },
+        { time: "08:00 PM", title: t("calendar.event_leaders"), description: t("calendar.event_leaders_desc") },
+      ],
+    },
+    {
+      day: t("calendar.thursday"),
+      date: t("calendar.thu"),
+      events: [
+        { time: "07:00 PM", title: t("calendar.event_youth"), description: t("calendar.event_youth_desc") },
+      ],
+    },
+    {
+      day: t("calendar.friday"),
+      date: t("calendar.fri"),
+      events: [
+        { time: "07:30 PM", title: t("calendar.event_groups"), description: t("calendar.event_groups_desc") },
+      ],
+    },
+    {
+      day: t("calendar.saturday"),
+      date: t("calendar.sat"),
+      events: [
+        { time: "09:00 AM", title: t("calendar.event_community"), description: t("calendar.event_community_desc") },
+        { time: "04:00 PM", title: t("calendar.event_rehearsal"), description: t("calendar.event_rehearsal_desc") },
+      ],
+    },
+    {
+      day: t("calendar.sunday"),
+      date: t("calendar.sun"),
+      events: [
+        { time: "09:00 AM", title: t("calendar.event_service1"), description: t("calendar.event_service1_desc") },
+        { time: "11:15 AM", title: t("calendar.event_service2"), description: t("calendar.event_service2_desc") },
+        { time: "05:00 PM", title: t("calendar.event_service3"), description: t("calendar.event_service3_desc") },
+      ],
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-[#F5F5F3] py-24 md:py-32">
       <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C1121F]/[0.06] blur-[100px]" />
@@ -88,13 +91,13 @@ const WeeklyCalendar = () => {
           viewport={{ once: true }}
         >
           <span className="text-sm font-semibold uppercase tracking-[0.32em] text-[#C1121F]">
-            NUESTRA SEMANA
+            {t("calendar.eyebrow")}
           </span>
           <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
-            Calendario Semanal de Actividades.
+            {t("calendar.title")}
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-7 text-[#737373] md:text-lg">
-            Hay un espacio para cada etapa y momento de tu semana. Míralo, agenda y acompáñanos.
+            {t("calendar.description")}
           </p>
         </motion.header>
 
@@ -161,7 +164,7 @@ const WeeklyCalendar = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Los horarios pueden variar por temporada. Te esperamos, ¡hay un lugar para ti!
+          {t("calendar.notice")}
         </motion.p>
       </div>
     </section>

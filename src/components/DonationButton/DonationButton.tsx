@@ -4,19 +4,6 @@ import { useTranslation } from "react-i18next";
 
 const QR_IMAGE = "https://perupowerhouse.com/wp-content/uploads/2026/03/QR-yape-plin.jpeg";
 
-const bankAccounts = [
-  {
-    currency: "Soles (S/.)",
-    accountNumber: "001-0667-0100005066",
-    cci: "011-667-00010000506634",
-  },
-  {
-    currency: "Dólares ($)",
-    accountNumber: "001-0667-010000507438",
-    cci: "011-667-00010000507438",
-  },
-];
-
 const HeartIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -50,6 +37,19 @@ const CloseIcon = () => (
 const DonationButton = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+
+  const bankAccounts = [
+    {
+      currency: t("donate.currencySoles"),
+      accountNumber: "001-0667-0100005066",
+      cci: "011-667-00010000506634",
+    },
+    {
+      currency: t("donate.currencyDollars"),
+      accountNumber: "001-0667-010000507438",
+      cci: "011-667-00010000507438",
+    },
+  ];
   const [imageExpanded, setImageExpanded] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -84,14 +84,14 @@ const DonationButton = () => {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          title={t("common.donate")}
-          aria-label={t("common.openDonation")}
+          title={t("donate.ariaOpen")}
+          aria-label={t("donate.ariaOpen")}
           className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#C1121F] text-white shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition-all duration-300 hover:scale-105 hover:bg-[#8F0D17] hover:shadow-[0_12px_30px_rgba(193,18,31,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:h-16 sm:w-16"
         >
           <span className="absolute inset-0 -z-10 rounded-full bg-[#C1121F]/35 motion-safe:animate-ping motion-safe:[animation-duration:2.5s]" />
           <HeartIcon />
           <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md bg-[#101010] px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 md:block">
-           {t("common.donate")}
+           {t("donate.tooltipDonate")}
           </span>
         </button>
       </div>
@@ -121,7 +121,7 @@ const DonationButton = () => {
               ref={modalRef}
               role="dialog"
               aria-modal="true"
-              aria-label={t("common.donation")}
+              aria-label={t("donate.title")}
               className="relative z-10 w-full max-w-lg overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#111111] shadow-[0_40px_100px_rgba(0,0,0,0.5)]"
               initial={{ opacity: 0, y: 40, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -133,7 +133,7 @@ const DonationButton = () => {
                 type="button"
                 onClick={() => setIsOpen(false)}
                 className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#111111]/60 text-white/70 backdrop-blur-md transition-all duration-300 hover:border-[#C1121F]/40 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] sm:right-6 sm:top-6"
-                aria-label="Cerrar"
+                aria-label={t("donate.close")}
               >
                 <CloseIcon />
               </button>
@@ -142,11 +142,11 @@ const DonationButton = () => {
               <div className="px-8 pt-8 sm:px-10 sm:pt-10">
                 <span className="inline-flex items-center gap-2 rounded-full border border-[#C1121F]/20 bg-[#C1121F]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C1121F]">
                   <HeartIcon />
-                  {t("common.donation")}
+                  {t("donate.title")}
                 </span>
 
                 <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  {t("common.supportProject")}
+                  {t("donate.subtitle")}
                 </h3>
 
                 <div className="mt-4 h-px w-12 bg-[#C1121F]" />
@@ -158,11 +158,11 @@ const DonationButton = () => {
                   type="button"
                   onClick={() => setImageExpanded(true)}
                   className="group mx-auto block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-white/[0.06] bg-white p-3 transition-transform duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] sm:p-4"
-                  aria-label={t("common.expandQr")}
+                  aria-label={t("donate.ariaExpand")}
                 >
                   <img
                     src={QR_IMAGE}
-                    alt={t("common.donationQrAlt")}
+                    alt={t("donate.title")}
                     className="h-auto w-full object-contain"
                   />
                 </button>
@@ -171,7 +171,7 @@ const DonationButton = () => {
               {/* Bank accounts */}
               <div className="px-8 pb-8 pt-6 sm:px-10 sm:pb-10">
                 <p className="mb-6 text-center text-sm leading-6 text-neutral-400">
-                  {t("common.bankTransfer")}
+                  {t("donate.bankTransfer")}
                 </p>
 
                 <div className="space-y-4">
@@ -181,13 +181,13 @@ const DonationButton = () => {
                       className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-5"
                     >
                       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#C1121F]">
-                        Cuenta {account.currency}
+                        {t("donate.accountLabel")} {account.currency}
                       </p>
 
                       <div className="space-y-2 text-sm text-white/80">
                         <div className="flex justify-between gap-4">
                           <span className="shrink-0 text-white/40">
-                            N° de cuenta
+                            {t("donate.accountNumber")}
                           </span>
                           <span className="text-right font-mono">
                             {account.accountNumber}
@@ -211,7 +211,7 @@ const DonationButton = () => {
                     onClick={() => setIsOpen(false)}
                     className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-sm font-semibold tracking-wide text-white/70 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
                   >
-                    Cerrar
+                    {t("donate.close")}
                   </button>
                 </div>
               </div>
@@ -244,7 +244,7 @@ const DonationButton = () => {
                 type="button"
                 onClick={() => setImageExpanded(false)}
                 className="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white/70 backdrop-blur-md transition-all duration-300 hover:border-[#C1121F]/40 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] sm:-top-14"
-                aria-label="Cerrar imagen"
+                aria-label={t("donate.closeImage")}
               >
                 <CloseIcon />
               </button>
@@ -252,7 +252,7 @@ const DonationButton = () => {
               <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-white p-4 shadow-[0_40px_100px_rgba(0,0,0,0.5)] sm:p-6">
                 <img
                   src={QR_IMAGE}
-                  alt="Códigos QR para donación — vista ampliada"
+                  alt={t("donate.title")}
                   className="h-auto w-full object-contain"
                 />
               </div>

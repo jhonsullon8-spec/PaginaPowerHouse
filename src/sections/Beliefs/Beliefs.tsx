@@ -1,121 +1,57 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
-const beliefGroups = [
-  {
-    number: "01",
-    title: "Fundamentos de la verdad",
-    beliefs: [
-      {
-        title: "La Santa Biblia",
-        description: "Es la Palabra de Dios con autoridad. Única autoridad final para determinar toda verdad doctrinal. Inspirada, infalible e inerrante.",
-        references: "2 TIMOTEO 3:16 · 2 PEDRO 1:20-21 · PROVERBIOS 30:5",
-      },
-      {
-        title: "La Trinidad",
-        description: "Un solo Dios, eternamente existente en tres personas: Padre, Hijo y Espíritu Santo. Iguales y eternas en poder y gloria.",
-        references: "1 JUAN 5:7 · MATEO 28:19 · LUCAS 1:35",
-      },
-      {
-        title: "El Nacimiento Virginal",
-        description: "Jesucristo fue concebido por Dios Padre mediante el Espíritu Santo en el vientre de la virgen María; por lo tanto, Él es el Hijo de Dios.",
-        references: "MATEO 1:18, 23-25 · ISAÍAS 7:14",
-      },
-    ],
-  },
-  {
-    number: "02",
-    title: "Redención y salvación",
-    beliefs: [
-      {
-        title: "Jesucristo — Señor y Salvador",
-        description: "Dios Hijo, 100% Dios y 100% hombre. Vivió sin pecado, realizó milagros y murió en la cruz para expiar nuestros pecados. Resucitó al tercer día, ascendió y volverá con poder.",
-        references: "JUAN 1:1, 14 · FILIPENSES 2:5-6 · 1 TIMOTEO 2:5",
-      },
-      {
-        title: "Salvación por Gracia",
-        description: "Somos salvos por gracia mediante la fe en Su obra terminada. Es un don de Dios, no resultado de esfuerzos humanos o buenas obras.",
-        references: "EFESIOS 2:8-9 · ROMANOS 10:9-10 · TITO 3:5",
-      },
-      {
-        title: "Arrepentimiento y Regeneración",
-        description: "Compromiso de apartarnos del pecado para seguir a Cristo. Esencial para recibir redención y ser regenerados por el Espíritu Santo.",
-        references: "HECHOS 2:21 · 1 JUAN 1:9 · JUAN 6:44",
-      },
-      {
-        title: "Santificación",
-        description: "Proceso continuo de someterse a la Palabra y al Espíritu para desarrollar el carácter de Cristo y vivir una vida piadosa.",
-        references: "1 TESALONICENSES 4:3 · ROMANOS 12:1-2",
-      },
-    ],
-  },
-  {
-    number: "03",
-    title: "Espíritu Santo e iglesia",
-    beliefs: [
-      {
-        title: "Bautismo en el Espíritu",
-        description: "La promesa del Padre para capacitar a la Iglesia en la predicación del Evangelio con poder por toda la tierra.",
-        references: "HECHOS 1:5, 2:1-4 · JOEL 2:28-29",
-      },
-      {
-        title: "Dones del Espíritu",
-        description: "Manifestaciones para edificar la iglesia y confirmar el Evangelio. Operan siempre en armonía con las Escrituras.",
-        references: "1 CORINTIOS 12:1-31 · HEBREOS 2:4",
-      },
-      {
-        title: "La Iglesia",
-        description: "El Cuerpo de Cristo y morada de Dios, unida espiritualmente para cumplir la gran comisión de Jesús.",
-        references: "EFESIOS 1:22 · JUAN 17:11, 20-23",
-      },
-    ],
-  },
-  {
-    number: "04",
-    title: "Sacramentos y provisión",
-    beliefs: [
-      {
-        title: "Bautismo y Santa Cena",
-        description: "Bautismo por inmersión como ordenanza y la Cena del Señor como comunión única en memoria de Su sacrificio.",
-        references: "MATEO 28:19 · 1 CORINTIOS 11:23-25",
-      },
-      {
-        title: "Sanidad Divina",
-        description: "La sanación de enfermos forma parte de la obra de Jesús en la cruz y es una señal que acompaña a los creyentes.",
-        references: "ISAÍAS 53:5 · SANTIAGO 5:14-16 · MATEO 8:16-17",
-      },
-      {
-        title: "Plenitud y Provisión",
-        description: "La voluntad del Padre es que alcancemos salud, éxito y plenitud espiritual, mental y financiera para servir mejor a los demás.",
-        references: "3 JUAN 1:2 · 2 CORINTIOS 9:6-10 · JOSUÉ 1:8",
-      },
-    ],
-  },
-  {
-    number: "05",
-    title: "Eternidad y valores",
-    beliefs: [
-      {
-        title: "Resurrección y Eternidad",
-        description: "Resurrección física de los salvos para vida eterna (Cielo) y de los incrédulos para condenación eterna (Infierno).",
-        references: "JUAN 5:29 · APOCALIPSIS 20:12-15 · MATEO 25:34",
-      },
-      {
-        title: "Segunda Venida",
-        description: "Jesucristo regresará física y visiblemente por segunda vez para establecer Su Reino en la tierra.",
-        references: "HECHOS 1:9-11 · APOCALIPSIS 1:7",
-      },
-      {
-        title: "Matrimonio y Sexualidad",
-        description: "Pacto reservado únicamente para un hombre y una mujer. La expresión sexual se limita exclusivamente al matrimonio.",
-        references: "GÉNESIS 2:18-24 · EFESIOS 5:31 · 1 CORINTIOS 6:18",
-      },
-    ],
-  },
-];
-
 const Beliefs = () => {
   const { t } = useTranslation();
+
+  const beliefGroups = [
+    {
+      number: "01",
+      title: t("beliefs.group1"),
+      beliefs: [
+        { title: t("beliefs.belief1_1_title"), description: t("beliefs.belief1_1_desc"), references: t("beliefs.belief1_1_ref") },
+        { title: t("beliefs.belief1_2_title"), description: t("beliefs.belief1_2_desc"), references: t("beliefs.belief1_2_ref") },
+        { title: t("beliefs.belief1_3_title"), description: t("beliefs.belief1_3_desc"), references: t("beliefs.belief1_3_ref") },
+      ],
+    },
+    {
+      number: "02",
+      title: t("beliefs.group2"),
+      beliefs: [
+        { title: t("beliefs.belief2_1_title"), description: t("beliefs.belief2_1_desc"), references: t("beliefs.belief2_1_ref") },
+        { title: t("beliefs.belief2_2_title"), description: t("beliefs.belief2_2_desc"), references: t("beliefs.belief2_2_ref") },
+        { title: t("beliefs.belief2_3_title"), description: t("beliefs.belief2_3_desc"), references: t("beliefs.belief2_3_ref") },
+        { title: t("beliefs.belief2_4_title"), description: t("beliefs.belief2_4_desc"), references: t("beliefs.belief2_4_ref") },
+      ],
+    },
+    {
+      number: "03",
+      title: t("beliefs.group3"),
+      beliefs: [
+        { title: t("beliefs.belief3_1_title"), description: t("beliefs.belief3_1_desc"), references: t("beliefs.belief3_1_ref") },
+        { title: t("beliefs.belief3_2_title"), description: t("beliefs.belief3_2_desc"), references: t("beliefs.belief3_2_ref") },
+        { title: t("beliefs.belief3_3_title"), description: t("beliefs.belief3_3_desc"), references: t("beliefs.belief3_3_ref") },
+      ],
+    },
+    {
+      number: "04",
+      title: t("beliefs.group4"),
+      beliefs: [
+        { title: t("beliefs.belief4_1_title"), description: t("beliefs.belief4_1_desc"), references: t("beliefs.belief4_1_ref") },
+        { title: t("beliefs.belief4_2_title"), description: t("beliefs.belief4_2_desc"), references: t("beliefs.belief4_2_ref") },
+        { title: t("beliefs.belief4_3_title"), description: t("beliefs.belief4_3_desc"), references: t("beliefs.belief4_3_ref") },
+      ],
+    },
+    {
+      number: "05",
+      title: t("beliefs.group5"),
+      beliefs: [
+        { title: t("beliefs.belief5_1_title"), description: t("beliefs.belief5_1_desc"), references: t("beliefs.belief5_1_ref") },
+        { title: t("beliefs.belief5_2_title"), description: t("beliefs.belief5_2_desc"), references: t("beliefs.belief5_2_ref") },
+        { title: t("beliefs.belief5_3_title"), description: t("beliefs.belief5_3_desc"), references: t("beliefs.belief5_3_ref") },
+      ],
+    },
+  ];
 
   return (
   <section className="relative overflow-hidden bg-[#F5F5F3] pb-24 pt-36 text-[#111111] md:pb-32 md:pt-44">
@@ -164,7 +100,7 @@ const Beliefs = () => {
       </div>
 
       <div className="mt-20 border-t-2 border-[#C1121F] pt-7 md:mt-28 md:flex md:items-center md:justify-between md:gap-10">
-        <p className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">{t("common.beliefsClosing")}</p>
+        <p className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">{t("beliefs.beliefPassion")}</p>
         <a href="/contacto" className="group mt-6 inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F5F5F3] md:mt-0">{t("common.talk")} <span aria-hidden="true">↗</span></a>
       </div>
     </div>
