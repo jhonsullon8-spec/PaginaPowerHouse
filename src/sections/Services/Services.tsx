@@ -22,6 +22,7 @@ interface Service {
   icon: ServiceIconName;
   actionLabel: string;
   href: string;
+  backgroundImage?: string;
   kidsStages?: KidsStage[];
 }
 
@@ -47,6 +48,7 @@ const servicesData: Service[] = [
     icon: "purpose",
     actionLabel: "Unirme a la oración",
     href: "/contacto",
+    backgroundImage: "https://perupowerhouse.com/wp-content/uploads/2022/01/253184222_4855759124448726_4295176513677466460_n.jpg",
   },
   {
     id: "man-church",
@@ -58,6 +60,7 @@ const servicesData: Service[] = [
     icon: "impact",
     actionLabel: "Conocer Man Church",
     href: "/contacto",
+    backgroundImage: "https://perupowerhouse.com/wp-content/uploads/2026/02/proposito3.jpg",
   },
   {
     id: "connection-groups",
@@ -69,6 +72,7 @@ const servicesData: Service[] = [
     icon: "community",
     actionLabel: "Unirme a un grupo",
     href: "/contacto",
+    backgroundImage: "https://perupowerhouse.com/wp-content/uploads/2022/02/89226359_1819160668217692_3004242886687457280_n.jpg",
   },
   {
     id: "powerhouse-kids",
@@ -80,6 +84,7 @@ const servicesData: Service[] = [
     icon: "family",
     actionLabel: "Conocer Powerhouse Kids",
     href: "/contacto",
+    backgroundImage: "https://perupowerhouse.com/wp-content/uploads/2026/01/1b769ac1-b724-4eb4-8506-c0976afc41c2-1.jpg",
     kidsStages: [
       { title: "Cuna", ageRange: "0-5 años", description: "Un espacio para acercarse a Dios mediante actividades apropiadas para la primera infancia, dentro de un ambiente preparado para aprender y desarrollarse." },
       { title: "Párvulos", ageRange: "1.º a 3.º grado", description: "Una etapa para aprender principios y valores basados en la Palabra de Dios mediante actividades y experiencias apropiadas para su edad." },
@@ -148,15 +153,21 @@ const ServiceCard = ({ service, index, isFullWidth = false, onSelect }: { servic
   const { t } = useTranslation();
 
   return (
-  <motion.article className={`group flex flex-col bg-[#171717] p-7 transition-colors duration-300 hover:bg-[#1D1D1D] sm:p-9 md:p-10 ${isFullWidth ? "sm:col-span-2" : ""}`} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}>
-    <div className="flex items-start justify-between gap-5">
+  <motion.article className={`group relative flex flex-col overflow-hidden bg-[#171717] p-7 transition-colors duration-300 hover:bg-[#1D1D1D] sm:p-9 md:p-10 ${isFullWidth ? "sm:col-span-2" : ""}`} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}>
+    {service.backgroundImage && (
+      <>
+        <img src={service.backgroundImage} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-[#111111]/80 transition-colors duration-300 group-hover:bg-[#111111]/60" />
+      </>
+    )}
+    <div className="relative flex items-start justify-between gap-5">
       <span className="text-sm font-semibold tracking-[0.2em] text-[#C1121F]">{service.number}</span>
       <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all duration-300 group-hover:border-[#C1121F]/60 group-hover:text-[#E3424D]"><ServiceIcon icon={service.icon} /></span>
     </div>
-    <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">{service.category}</p>
-    <h2 className="mt-3 max-w-xs text-2xl font-semibold tracking-tight md:text-3xl">{service.title}</h2>
-    <p className="mt-4 max-w-md text-sm leading-7 text-white/50 md:text-base">{service.description}</p>
-    <button type="button" onClick={() => onSelect(service)} className="group mt-8 inline-flex min-h-11 w-fit items-center gap-3 border-b border-[#C1121F]/50 pb-2 text-sm font-semibold text-white transition-colors hover:border-[#E3424D] hover:text-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#171717]" aria-label={`Ver detalles de ${service.title}`}>
+    <p className="relative mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">{service.category}</p>
+    <h2 className="relative mt-3 max-w-xs text-2xl font-semibold tracking-tight md:text-3xl">{service.title}</h2>
+    <p className="relative mt-4 max-w-md text-sm leading-7 text-white/50 md:text-base">{service.description}</p>
+    <button type="button" onClick={() => onSelect(service)} className="group relative mt-8 inline-flex min-h-11 w-fit items-center gap-3 border-b border-[#C1121F]/50 pb-2 text-sm font-semibold text-white transition-colors hover:border-[#E3424D] hover:text-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#171717]" aria-label={`Ver detalles de ${service.title}`}>
       {t("services.details")} <ArrowUpRight />
     </button>
   </motion.article>

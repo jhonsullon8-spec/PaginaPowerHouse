@@ -237,13 +237,19 @@ const Mission = () => {
         </div>
 
         <motion.section
-          className="mt-16 overflow-hidden rounded-[2rem] border border-[#D8D8D3] bg-white md:mt-20"
+          className="relative mt-16 overflow-hidden rounded-[2rem] border border-[#D8D8D3] bg-white md:mt-20"
           aria-labelledby="impact-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
         >
+          <img
+            src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2834-copia.png"
+            alt=""
+            loading="lazy"
+            className="absolute right-2 top-2 z-10 w-28 object-contain sm:right-3 sm:top-3 md:w-36"
+          />
           <div className="grid md:grid-cols-[0.8fr_1.2fr]">
             <div className="relative overflow-hidden bg-[#111111] p-7 text-white sm:p-9 md:p-10">
               <img

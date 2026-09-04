@@ -55,21 +55,65 @@ const WeeklyAgenda = () => {
           </DayColumn>
 
           <DayColumn shortLabel={t("agenda.wednesday_short")} label={t("agenda.wednesday_full")}>
-            <div className="flex flex-col gap-2">
-              <h4 className="font-semibold uppercase leading-snug text-white/90">{t("agenda.wed_men")}</h4>
-              <img src="https://perupowerhouse.com/wp-content/uploads/2022/01/manchurch.jpg" alt="Manchurch" className="w-full rounded-xl object-cover" />
-              <img src="https://perupowerhouse.com/wp-content/uploads/2026/01/descarga-4.jpg" alt="" className="mt-2 w-full rounded-xl object-cover" />
+            <div className="flex h-full w-full flex-col justify-center gap-2">
+              <h4 className="text-center text-2xl font-bold uppercase leading-tight tracking-tight text-white">
+                <span className="block">Noche de</span>
+                <span className="block">Hombres</span>
+              </h4>
+              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2836-copia.png" alt="Manchurch" className="w-full rounded-xl object-cover" />
+              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2848-1.png" alt="" className="mt-2 w-full rounded-xl object-cover" />
               <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">7 PM</span>
             </div>
           </DayColumn>
 
           <DayColumn shortLabel={t("agenda.thursday_short")} label={t("agenda.thursday_full")}>
+            <div className="flex h-full w-full flex-col justify-center gap-2">
+              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2842.png" alt="" className="w-full rounded-xl object-cover" />
+              <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">8 PM</span>
+              <span className="text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">Piura 26 de</span>
+              <span className="text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">Obtubre Castilla</span>
+              <span className="text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">Virtual</span>
+            </div>
           </DayColumn>
 
           <DayColumn shortLabel={t("agenda.saturday_short")} label={t("agenda.saturday_full")}>
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2838.png" alt="" className="w-full rounded-xl object-cover" />
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Jóvenes Adolescentes</span>
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">4-6pm</span>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <img src="https://perupowerhouse.com/wp-content/uploads/2022/02/LOGO.png" alt="" className="w-full rounded-xl object-cover" />
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Jóvenes Universitarios</span>
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">6-8pm</span>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2830.png" alt="" className="w-full rounded-xl object-cover" />
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Jóvenes Adultos</span>
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">8-10pm</span>
+              </div>
+            </div>
           </DayColumn>
 
           <DayColumn shortLabel={t("agenda.sunday_short")} label={t("agenda.sunday_full")}>
+            <div className="flex h-full w-full flex-col items-center justify-center gap-5">
+              <h4 className="-mt-12 text-center text-2xl font-bold uppercase leading-tight tracking-tight text-white">Servicios</h4>
+              <div className="flex w-full max-w-[14rem] flex-col items-center gap-8">
+                <div className="flex w-full flex-col items-center gap-1 rounded-2xl border border-white/10 bg-[#2563EB] px-5 py-4 text-center shadow-[0_10px_30px_rgba(37,99,235,0.25)]">
+                  <span className="block w-full text-sm font-bold uppercase tracking-[0.18em] text-white">Primera</span>
+                  <span className="block w-full text-sm font-bold uppercase tracking-[0.18em] text-white/80">Reunión</span>
+                  <span className="mt-1 block w-full text-sm font-bold uppercase tracking-[0.2em] text-white">9AM</span>
+                </div>
+                <div className="flex w-full flex-col items-center gap-1 rounded-2xl border border-white/10 bg-[#2563EB] px-5 py-4 text-center shadow-[0_10px_30px_rgba(37,99,235,0.25)]">
+                  <span className="block w-full text-sm font-bold uppercase tracking-[0.18em] text-white">Segunda</span>
+                  <span className="block w-full text-sm font-bold uppercase tracking-[0.18em] text-white/80">Reunión</span>
+                  <span className="mt-1 block w-full text-sm font-bold uppercase tracking-[0.2em] text-white">11AM</span>
+                </div>
+              </div>
+            </div>
           </DayColumn>
 
         </div>
