@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import type { Service, ServiceCategory, ServiceIcon as ServiceIconName } from "../../data/services";
 import { servicesData } from "../../data/services";
+import WeeklyCalendar from "./WeeklyCalendar";
 
 const categories: Array<"Todos" | ServiceCategory> = ["Todos", "Comunidad", "Formación", "Familias", "Impacto"];
 
@@ -77,6 +78,7 @@ const Services = () => {
   const filteredServices = useMemo(() => activeCategory === "Todos" ? servicesData : servicesData.filter((service) => service.category === activeCategory), [activeCategory]);
 
   return (
+    <>
     <section className="relative overflow-hidden bg-[#111111] py-28 text-white md:py-36">
       <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 translate-x-1/3 -translate-y-1/3 rounded-full bg-[#C1121F]/[0.08] blur-[100px]" />
       <div className="relative mx-auto max-w-7xl px-6 md:px-10">
@@ -102,6 +104,8 @@ const Services = () => {
 
       <AnimatePresence>{selectedService && <ServiceModal service={selectedService} onClose={() => setSelectedService(null)} />}</AnimatePresence>
     </section>
+    <WeeklyCalendar />
+  </>
   );
 };
 
