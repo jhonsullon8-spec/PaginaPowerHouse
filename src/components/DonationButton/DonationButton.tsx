@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 const QR_IMAGE = "https://perupowerhouse.com/wp-content/uploads/2026/03/QR-yape-plin.jpeg";
 
@@ -47,6 +48,7 @@ const CloseIcon = () => (
 );
 
 const DonationButton = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [imageExpanded, setImageExpanded] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -82,14 +84,14 @@ const DonationButton = () => {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          title="Realizar una donación"
-          aria-label="Abrir modal de donación"
+          title={t("common.donate")}
+          aria-label={t("common.openDonation")}
           className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#C1121F] text-white shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition-all duration-300 hover:scale-105 hover:bg-[#8F0D17] hover:shadow-[0_12px_30px_rgba(193,18,31,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:h-16 sm:w-16"
         >
           <span className="absolute inset-0 -z-10 rounded-full bg-[#C1121F]/35 motion-safe:animate-ping motion-safe:[animation-duration:2.5s]" />
           <HeartIcon />
           <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md bg-[#101010] px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 md:block">
-           Realizar donación
+           {t("common.donate")}
           </span>
         </button>
       </div>
@@ -119,7 +121,7 @@ const DonationButton = () => {
               ref={modalRef}
               role="dialog"
               aria-modal="true"
-              aria-label="Donación"
+              aria-label={t("common.donation")}
               className="relative z-10 w-full max-w-lg overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#111111] shadow-[0_40px_100px_rgba(0,0,0,0.5)]"
               initial={{ opacity: 0, y: 40, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -140,11 +142,11 @@ const DonationButton = () => {
               <div className="px-8 pt-8 sm:px-10 sm:pt-10">
                 <span className="inline-flex items-center gap-2 rounded-full border border-[#C1121F]/20 bg-[#C1121F]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C1121F]">
                   <HeartIcon />
-                  Donación
+                  {t("common.donation")}
                 </span>
 
                 <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  Apoya nuestro proyecto
+                  {t("common.supportProject")}
                 </h3>
 
                 <div className="mt-4 h-px w-12 bg-[#C1121F]" />
@@ -156,11 +158,11 @@ const DonationButton = () => {
                   type="button"
                   onClick={() => setImageExpanded(true)}
                   className="group mx-auto block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-white/[0.06] bg-white p-3 transition-transform duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] sm:p-4"
-                  aria-label="Ampliar códigos QR"
+                  aria-label={t("common.expandQr")}
                 >
                   <img
                     src={QR_IMAGE}
-                    alt="Códigos QR para donación"
+                    alt={t("common.donationQrAlt")}
                     className="h-auto w-full object-contain"
                   />
                 </button>
@@ -169,8 +171,7 @@ const DonationButton = () => {
               {/* Bank accounts */}
               <div className="px-8 pb-8 pt-6 sm:px-10 sm:pb-10">
                 <p className="mb-6 text-center text-sm leading-6 text-neutral-400">
-                  También puedes realizar tu donación mediante transferencia
-                  bancaria
+                  {t("common.bankTransfer")}
                 </p>
 
                 <div className="space-y-4">

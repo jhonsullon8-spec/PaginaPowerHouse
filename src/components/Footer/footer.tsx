@@ -124,7 +124,7 @@ const Footer = () => {
 										className="group inline-flex items-center gap-2 text-sm text-white/70 transition-colors duration-300 hover:text-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#101010] sm:text-base"
 									>
 										<span className="h-px w-0 bg-[#E3424D] transition-all duration-300 group-hover:w-3" />
-										{link.label}
+																							{link.label}
 									</a>
 								</li>
 							))}

@@ -1,8 +1,7 @@
 import type { MouseEvent } from "react";
+import { useTranslation } from "react-i18next";
 
 const WHATSAPP_NUMBER = "51951690209";
-const WHATSAPP_MESSAGE =
-	"Hola PowerHouse 😄 Deseo más información sobre ustedes, sus áreas de servicios, cursos, etc. Dios los bendiga.";
 
 const WhatsAppIcon = () => (
 	<svg aria-hidden="true" className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
@@ -11,8 +10,10 @@ const WhatsAppIcon = () => (
 );
 
 const WhatsAppButton = () => {
+	const { t } = useTranslation();
+	const whatsappMessage = t("common.whatsappMessage");
 	const whatsappUrl = WHATSAPP_NUMBER
-		? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
+		? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`
 		: undefined;
 
 	const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -27,8 +28,8 @@ const WhatsAppButton = () => {
 				href={whatsappUrl}
 				target="_blank"
 				rel="noopener noreferrer"
-				title="Contáctanos por WhatsApp"
-				aria-label="Contactar con Power House por WhatsApp"
+				title={t("common.whatsappTitle")}
+				aria-label={t("common.whatsappLabel")}
 				aria-disabled={!whatsappUrl}
 				onClick={handleClick}
 				className={`group relative flex h-14 w-14 items-center justify-center rounded-full text-white shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:h-16 sm:w-16 ${
@@ -40,7 +41,7 @@ const WhatsAppButton = () => {
 				<span className="absolute inset-0 -z-10 rounded-full bg-[#25D366]/35 motion-safe:animate-ping motion-safe:[animation-duration:2.5s]" />
 				<WhatsAppIcon />
 				<span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md bg-[#101010] px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 md:block">
-					Contáctanos por WhatsApp
+					{t("common.whatsappTitle")}
 				</span>
 			</a>
 		</div>

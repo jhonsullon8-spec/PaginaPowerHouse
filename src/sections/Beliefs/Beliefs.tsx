@@ -164,8 +164,8 @@ const Beliefs = () => {
       </div>
 
       <div className="mt-20 border-t-2 border-[#C1121F] pt-7 md:mt-28 md:flex md:items-center md:justify-between md:gap-10">
-        <p className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">Nuestra pasión es ver a las familias salvadas por Jesús.</p>
-        <a href="/contacto" className="group mt-6 inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F5F5F3] md:mt-0">Conversemos <span aria-hidden="true">↗</span></a>
+        <p className="max-w-2xl text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">{t("common.beliefsClosing")}</p>
+        <a href="/contacto" className="group mt-6 inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F5F5F3] md:mt-0">{t("common.talk")} <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>

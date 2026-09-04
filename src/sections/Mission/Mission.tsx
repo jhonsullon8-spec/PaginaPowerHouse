@@ -5,6 +5,7 @@ import { getWordPressImageUrl } from "../../data/images";
 
 interface MissionCard {
   number: string;
+  key: string;
   title: string;
   shortDescription: string;
   expandedDescription: string;
@@ -15,6 +16,7 @@ interface MissionCard {
 const missions: MissionCard[] = [
   {
     number: "01",
+    key: "knowGod",
     title: "Conoce a Dios",
     shortDescription:
       "Dios no improvisó contigo. Tienes dones, talentos y una personalidad única creada con intención.",
@@ -29,6 +31,7 @@ const missions: MissionCard[] = [
   },
   {
     number: "02",
+    key: "findFreedom",
     title: "Encuentra Libertad",
     shortDescription:
       "La verdadera libertad no es hacer lo que quieras, sino vivir sin cadenas emocionales...",
@@ -43,6 +46,7 @@ const missions: MissionCard[] = [
   },
   {
     number: "03",
+    key: "discoverPurpose",
     title: "Descubre tu Propósito",
     shortDescription:
       "No fuiste creado por accidente. Hay un propósito específico diseñado para tu vida...",
@@ -59,6 +63,7 @@ const missions: MissionCard[] = [
   },
   {
     number: "04",
+    key: "makeDifference",
     title: "Haz la Diferencia",
     shortDescription:
       "No solo fuimos llamados a crecer personalmente, sino a impactar el mundo que nos rodea...",
@@ -113,6 +118,8 @@ const PlusIcon = () => (
 
 const Mission = () => {
   const { t } = useTranslation();
+  const missionText = (mission: MissionCard, field: "title" | "shortDescription" | "expandedDescription") =>
+    t(`mission.cards.${mission.key}.${field}`, { defaultValue: mission[field] });
   const [selectedMission, setSelectedMission] = useState<MissionCard | null>(
     null,
   );
@@ -225,11 +232,11 @@ const Mission = () => {
                   <div className="mb-4 mt-2 h-px w-12 bg-[#C1121F] transition-all duration-500 group-hover:w-24" />
 
                   <h3 className="text-3xl font-semibold tracking-tight md:text-4xl">
-                    {mission.title}
+                    {missionText(mission, "title")}
                   </h3>
 
                   <p className="mt-4 max-w-sm text-sm leading-6 text-white/60 md:text-base">
-                    {mission.shortDescription}
+                    {missionText(mission, "expandedDescription")}
                   </p>
 
                   <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/70 transition-all duration-300 group-hover:border-[#C1121F]/30 group-hover:bg-[#C1121F]/10 group-hover:text-[#C1121F]">
@@ -264,27 +271,25 @@ const Mission = () => {
               <div className="absolute inset-0 bg-[#111111]/75" />
               <div className="relative">
               <span className="relative text-xs font-semibold uppercase tracking-[0.24em] text-[#E3424D]">
-                De las palabras a la acción
+                {t("common.action")}
               </span>
               <h2 id="impact-title" className="relative mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
                 Power Kids
               </h2>              <p className="relative mt-6 text-sm leading-6 text-white/55">
-                Una oportunidad también puede abrir un camino para el futuro.
+                {t("common.impactLead")}
               </p>
               </div>
             </div>
 
             <div className="p-7 sm:p-9 md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C1121F]">
-                Iniciativa en Piura · 2025
+                {t("common.initiative")}
               </p>
               <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-[#111111] sm:text-3xl">
-                Power Kids: Aprendiendo, Creciendo y Disfrutando Juntos
+                {t("common.impactTitle")}
               </h3>
               <p className="mt-5 text-base leading-7 text-[#737373]">
-                Nuestro objetivo es que cada niño desarrolle valores, identidad y una base sólida desde temprana edad, a través de enseñanzas, juegos y actividades diseñadas especialmente para ellos.
-
-                Contamos con espacios donde podrán aprender, divertirse y crecer en un ambiente seguro y lleno de amor, siendo cuidados y guiados por un equipo preparado, mientras tú disfrutas del servicio con tranquilidad.
+                {t("common.impactDescription")}
               </p>
             </div>
           </div>
@@ -315,7 +320,7 @@ const Mission = () => {
             <motion.div
               role="dialog"
               aria-modal="true"
-              aria-label={selectedMission.title}
+              aria-label={missionText(selectedMission, "title")}
               className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#111111] shadow-[0_40px_100px_rgba(0,0,0,0.5)]"
               initial={{ opacity: 0, y: 40, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -327,7 +332,7 @@ const Mission = () => {
                 type="button"
                 onClick={() => setSelectedMission(null)}
                 className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#111111]/60 text-white/70 backdrop-blur-md transition-all duration-300 hover:border-[#C1121F]/40 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] sm:right-6 sm:top-6"
-                aria-label="Cerrar"
+                aria-label={t("common.close")}
               >
                 <CloseIcon />
               </button>
@@ -336,7 +341,7 @@ const Mission = () => {
               <div className="relative h-[240px] w-full overflow-hidden sm:h-[320px]">
                 <img
                   src={selectedMission.coverImage}
-                  alt={selectedMission.title}
+                  alt={missionText(selectedMission, "title")}
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/30 to-transparent" />
@@ -355,13 +360,13 @@ const Mission = () => {
                 </span>
 
                 <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
-                  {selectedMission.title}
+                  {missionText(selectedMission, "title")}
                 </h3>
 
                 <div className="mt-5 h-px w-16 bg-[#C1121F]" />
 
                 <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-300 md:text-lg">
-                  {selectedMission.expandedDescription}
+                  {missionText(selectedMission, "expandedDescription")}
                 </p>
 
                 {/* Gallery */}
@@ -386,7 +391,7 @@ const Mission = () => {
                         >
                           <img
                             src={img}
-                            alt={`${selectedMission.title} — imagen ${imgIndex + 1}`}
+                            alt={`${missionText(selectedMission, "title")} — imagen ${imgIndex + 1}`}
                             loading="lazy"
                             className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/img:scale-105"
                           />

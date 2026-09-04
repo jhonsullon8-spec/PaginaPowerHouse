@@ -6,14 +6,7 @@ const GOOGLE_MAPS_EMBED_SRC =
 
 const COMPANY_EMAIL = "";
 
-const discoveryOptions = [
-  "Amig@s",
-  "Redes Sociales",
-  "Familiares",
-  "Volante (Tarjeta de invitación)",
-  "Grupo de Conexión",
-  "Otro",
-];
+const discoveryOptions = ["friends", "social", "family", "flyer", "group", "other"] as const;
 
 const fieldControlClasses = "mt-1 w-full rounded-xl border border-[#DADAD6] bg-[#FAFAF8] px-4 py-3 text-sm text-[#222222] outline-none transition-colors placeholder:text-[#A0A0A0] focus:border-[#C1121F] focus:ring-2 focus:ring-[#C1121F]/10";
 
@@ -28,23 +21,23 @@ const Contact = () => {
     setError("");
 
     if (!COMPANY_EMAIL) {
-      setError("El formulario está listo. Configura el correo empresarial para poder enviarlo.");
+      setError(t("contact.emailNotConfigured"));
       return;
     }
 
     const formData = new FormData(event.currentTarget);
-    const subject = "Nueva bienvenida a PowerHouse";
+    const subject = t("contact.emailSubject");
     const body = [
-      `¿Nos visita por primera vez?: ${formData.get("firstVisit")}`,
-      `¿Cómo se enteró de PowerHouse o quién le invitó?: ${formData.get("discovery")}`,
-      `Nombre y apellidos: ${formData.get("name")}`,
-      `¿Decidió seguir a Jesús?: ${formData.get("faithDecision")}`,
-      `Edad: ${formData.get("age")}`,
-      `Estado civil: ${formData.get("maritalStatus")}`,
-      `Número celular: ${formData.get("phone")}`,
-      `Dirección de domicilio: ${formData.get("address")}`,
-      `¿Desea llevar CRECER?: ${formData.get("growCourse")}`,
-      `Voluntario que registró: ${formData.get("volunteer")}`,
+      `${t("contact.firstVisit")}: ${formData.get("firstVisit")}`,
+      `${t("contact.discovery")}: ${formData.get("discovery")}`,
+      `${t("contact.name")}: ${formData.get("name")}`,
+      `${t("contact.faithDecision")}: ${formData.get("faithDecision")}`,
+      `${t("contact.age")}: ${formData.get("age")}`,
+      `${t("contact.maritalStatus")}: ${formData.get("maritalStatus")}`,
+      `${t("contact.phone")}: ${formData.get("phone")}`,
+      `${t("contact.address")}: ${formData.get("address")}`,
+      `${t("contact.growCourse")}: ${formData.get("growCourse")}`,
+      `${t("contact.volunteer")}: ${formData.get("volunteer")}`,
     ].join("\n");
 
     window.location.href = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -63,7 +56,7 @@ const Contact = () => {
             {t("common.contactDescription")}
           </p>
           <div className="mt-10 border-l-2 border-[#C1121F] pl-5 text-sm leading-7 text-[#737373]">
-            Dios te bendiga grandemente.
+            {t("contact.blessing")}
           </div>
         </header>
 
@@ -74,62 +67,54 @@ const Contact = () => {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
-            <Field label="¿Nos visitas por primera vez?" name="firstVisit" required>
+            <Field label={t("contact.firstVisit")} name="firstVisit" required>
               <select name="firstVisit" required className={fieldControlClasses}>
-                <option value="">Selecciona una opción</option>
-                <option>Sí</option>
-                <option>No</option>
+                <option value="">{t("contact.selectOption")}</option>
+                <option>{t("contact.yes")}</option>
+                <option>{t("contact.no")}</option>
               </select>
             </Field>
-            <Field label="¿Cómo te enteraste de PowerHouse o quién te invitó?" name="discovery" required>
+            <Field label={t("contact.discovery")} name="discovery" required>
               <select name="discovery" required className={fieldControlClasses}>
-                <option value="">Selecciona una opción</option>
-                {discoveryOptions.map((option) => <option key={option}>{option}</option>)}
+                <option value="">{t("contact.selectOption")}</option>
+                {discoveryOptions.map((option) => <option key={option}>{t(`contact.discoveryOptions.${option}`)}</option>)}
               </select>
             </Field>
-            <Field label="Nombre y apellidos" name="name" required>
-              <input name="name" required className={fieldControlClasses} placeholder="Tu respuesta" />
+            <Field label={t("contact.name")} name="name" required>
+              <input name="name" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
             </Field>
-            <Field label="¿Decidiste hoy seguir a Jesús?" name="faithDecision" required>
+            <Field label={t("contact.faithDecision")} name="faithDecision" required>
               <select name="faithDecision" required className={fieldControlClasses}>
-                <option value="">Selecciona una opción</option>
-                <option>Sí</option>
-                <option>No</option>
-                <option>Soy Cristiano</option>
+                <option value="">{t("contact.selectOption")}</option>
+                <option>{t("contact.yes")}</option><option>{t("contact.no")}</option><option>{t("contact.christian")}</option>
               </select>
             </Field>
-            <Field label="Edad" name="age" required>
-              <input name="age" type="number" min="1" max="120" required className={fieldControlClasses} placeholder="Tu respuesta" />
+            <Field label={t("contact.age")} name="age" required>
+              <input name="age" type="number" min="1" max="120" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
             </Field>
-            <Field label="Estado civil" name="maritalStatus" required>
+            <Field label={t("contact.maritalStatus")} name="maritalStatus" required>
               <select name="maritalStatus" required className={fieldControlClasses}>
-                <option value="">Selecciona una opción</option>
-                <option>Soltero(a)</option>
-                <option>Casado(a)</option>
-                <option>Otro</option>
+                <option value="">{t("contact.selectOption")}</option><option>{t("contact.single")}</option><option>{t("contact.married")}</option><option>{t("contact.other")}</option>
               </select>
             </Field>
-            <Field label="Número celular" name="phone" required>
-              <input name="phone" type="tel" required className={fieldControlClasses} placeholder="Tu respuesta" />
+            <Field label={t("contact.phone")} name="phone" required>
+              <input name="phone" type="tel" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
             </Field>
-            <Field label="Dirección de domicilio" name="address" required>
-              <input name="address" required className={fieldControlClasses} placeholder="Tu respuesta" />
+            <Field label={t("contact.address")} name="address" required>
+              <input name="address" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
             </Field>
-            <Field label="¿Te gustaría llevar CRECER?" name="growCourse" required>
+            <Field label={t("contact.growCourse")} name="growCourse" required>
               <select name="growCourse" required className={fieldControlClasses}>
-                <option value="">Selecciona una opción</option>
-                <option>Sí</option>
-                <option>No</option>
-                <option>Más adelante</option>
+                <option value="">{t("contact.selectOption")}</option><option>{t("contact.yes")}</option><option>{t("contact.no")}</option><option>{t("contact.later")}</option>
               </select>
             </Field>
-            <Field label="Voluntario que registró" name="volunteer" required>
-              <input name="volunteer" required className={fieldControlClasses} placeholder="Tu respuesta" />
+            <Field label={t("contact.volunteer")} name="volunteer" required>
+              <input name="volunteer" required className={fieldControlClasses} placeholder={t("contact.answerPlaceholder")} />
             </Field>
           </div>
 
           {error && <p className="mt-6 rounded-xl border border-[#C1121F]/20 bg-[#C1121F]/5 p-4 text-sm text-[#8F0D17]" role="alert">{error}</p>}
-          {sent && <p className="mt-6 rounded-xl border border-[#18864B]/20 bg-[#18864B]/5 p-4 text-sm text-[#126A3B]" role="status">Tu correo está listo para enviarse.</p>}
+          {sent && <p className="mt-6 rounded-xl border border-[#18864B]/20 bg-[#18864B]/5 p-4 text-sm text-[#126A3B]" role="status">{t("contact.emailReady")}</p>}
 
           <button type="submit" className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 sm:w-auto">
             {t("common.send")}

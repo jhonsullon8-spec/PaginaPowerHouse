@@ -31,7 +31,7 @@ void i18n.use(initReactI18next).init({
   interpolation: { escapeValue: false },
 });
 
-i18n.on("languageChanged", (language) => {
+i18n.on("languageChanged", (language: string) => {
   if (supportedLanguages.includes(language as SupportedLanguage)) {
     localStorage.setItem("powerhouse-language", language);
     document.documentElement.lang = language;
