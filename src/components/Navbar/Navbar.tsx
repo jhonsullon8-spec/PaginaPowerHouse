@@ -1,18 +1,20 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { getWordPressImageUrl } from "../../data/images";
+import { useTranslation } from "react-i18next";
 
 const navLinks = [
-  { number: "01", label: "Inicio", href: "/" },
-  { number: "02", label: "Nosotros", href: "/nosotros" },
-  { number: "03", label: "Creencias", href: "/creencias" },
-  { number: "04", label: "Servicios", href: "/servicios" },
-  { number: "05", label: "Ministerios", href: "/ministerios" },
+  { number: "01", key: "home", href: "/" },
+  { number: "02", key: "about", href: "/nosotros" },
+  { number: "03", key: "beliefs", href: "/creencias" },
+  { number: "04", key: "services", href: "/servicios" },
+  { number: "05", key: "ministries", href: "/ministerios" },
 ];
 
 const darkPaths = ["/nosotros", "/servicios", "/contacto"];
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkView, setIsDarkView] = useState(() =>
@@ -92,7 +94,7 @@ const Navbar = () => {
 
           <ul className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <li key={link.label}>
+              <li key={link.key}>
                 <a
                   href={link.href}
                   className={`group relative inline-flex items-center gap-2 text-sm font-medium transition-colors duration-300 hover:text-[#C1121F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 ${
@@ -100,7 +102,7 @@ const Navbar = () => {
                   }`}
                 >
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C1121F] opacity-0 transition-all duration-300 group-hover:opacity-100" />
-                  <span>{link.label}</span>
+                  <span>{t(`nav.${link.key}`)}</span>
                 </a>
               </li>
             ))}
@@ -111,7 +113,7 @@ const Navbar = () => {
               href="/contacto"
               className="inline-flex items-center justify-center rounded-full bg-[#C1121F] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
-              VISÍTANOS
+              {t("nav.visit")}
             </a>
           </div>
 
@@ -122,7 +124,7 @@ const Navbar = () => {
                 ? "border-white/20 bg-[#111111]/60 text-white focus-visible:ring-offset-[#111111]"
                 : "border-[#111111]/10 bg-white/80 text-[#111111] focus-visible:ring-offset-white"
             }`}
-            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={isOpen ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             onClick={() => setIsOpen((prev) => !prev)}
@@ -184,7 +186,7 @@ const Navbar = () => {
                 <ul className="space-y-3">
                   {navLinks.map((link, index) => (
                     <motion.li
-                      key={link.label}
+                      key={link.key}
                       initial={{ opacity: 0, x: 18 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.25, delay: index * 0.06 }}
@@ -198,7 +200,7 @@ const Navbar = () => {
                           {link.number}
                         </span>
                         <span className="text-2xl font-medium uppercase tracking-tight">
-                          {link.label}
+                          {t(`nav.${link.key}`)}
                         </span>
                       </a>
                     </motion.li>
@@ -213,7 +215,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className="inline-flex w-full items-center justify-center rounded-full bg-[#C1121F] px-5 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
                 >
-                  VISÍTANOS
+                  {t("nav.visit")}
                 </motion.a>
               </div>
             </div>

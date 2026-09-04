@@ -1,0 +1,24 @@
+{
+  "nav": { "home": "Inicio", "about": "Nosotros", "beliefs": "Creencias", "services": "Servicios", "ministries": "Ministerios", "visit": "Visítanos", "openMenu": "Abrir menú", "closeMenu": "Cerrar menú", "language": "Idioma" },
+  "services": {
+    "eyebrow": "Lo que hacemos",
+    "title": "Un lugar para crecer, servir y conectar.",
+    "description": "PowerHouse existe para acompañarte en cada etapa y ayudarte a vivir una fe con propósito.",
+    "all": "Todos", "community": "Comunidad", "formation": "Formación", "families": "Familias", "impact": "Impacto", "details": "Ver detalles", "talk": "Hablemos", "nextStep": "Da el siguiente paso y conoce cómo puedes ser parte de PowerHouse.", "category": { "community": "Comunidad", "purpose": "Formación", "family": "Familias", "impact": "Impacto" },
+    "items": { "community": { "title": "Conecta con la comunidad", "description": "Encuentra un espacio para compartir, crecer y construir vínculos que trascienden el domingo.", "details": "Participa en grupos y encuentros donde puedes conocer personas, compartir tu historia y caminar acompañado durante la semana.", "action": "Conocer la comunidad" }, "purpose": { "title": "Descubre tu propósito", "description": "Reconoce tus dones y encuentra formas concretas de ponerlos al servicio de algo mayor.", "details": "Te ayudamos a identificar tus talentos y a darles dirección mediante espacios de orientación, formación y acompañamiento.", "action": "Hablar sobre mi propósito" }, "family": { "title": "Crece en familia", "description": "Experiencias pensadas para que cada generación encuentre un lugar donde sentirse parte.", "details": "Hay espacios para niños, jóvenes, adultos y familias, diseñados para que cada persona pueda crecer a su ritmo y relacionarse con otros.", "action": "Encontrar mi espacio" }, "impact": { "title": "Sirve e impacta", "description": "Participa en iniciativas que convierten la fe en acciones concretas para nuestra ciudad.", "details": "Súmate a iniciativas de servicio y voluntariado que responden a necesidades reales y generan cambios concretos en nuestra ciudad.", "action": "Quiero servir" } },
+    "close": "Cerrar detalles"
+  },
+  "common": {
+    "missionEyebrow": "PowerHouse Servolución Perú · Nuestra misión",
+    "missionTitle": "Transformamos oportunidades en nuevos caminos.",
+    "missionLead": "Una vida transformada puede transformar otras.",
+    "missionText": "Tienes dones, talentos y una personalidad única creada con intención. Hay un propósito para tu vida, y queremos ayudarte a descubrirlo.",
+    "missionOrganization": "Somos una organización sin fines de lucro vinculada a la educación, la inclusión social y el desarrollo de capacidades. Creemos que una oportunidad puede cambiar una historia.",
+    "education": "Educación", "inclusion": "Inclusión social", "skills": "Desarrollo de capacidades", "action": "De las palabras a la acción", "gallery": "Galería", "close": "Cerrar",
+    "aboutEyebrow": "Nosotros", "aboutTitle": "Personas que acompañan y guían nuestra comunidad.", "aboutDescription": "Acompañamos a personas, familias y líderes con una visión de fe, servicio y comunidad.", "learnMore": "Conoce más",
+    "beliefsEyebrow": "Nuestra identidad doctrinal", "beliefsTitle": "Nuestras creencias.", "beliefsDescription": "El fundamento sagrado que guía nuestra fe y vida en comunidad.",
+    "ministriesEyebrow": "Nuestros ministerios", "ministriesTitle": "Hay un lugar para ti.", "ministriesDescription": "Descubre diferentes espacios para conectar, crecer y formar parte de la comunidad.",
+    "contactEyebrow": "Bienvenid@ a PowerHouse", "contactTitle": "Queremos conocerte.", "contactDescription": "Gracias por tomarte este tiempo. Responde estas preguntas para acompañarte mejor en tu primer paso con nuestra comunidad.", "formTitle": "Formulario de bienvenida", "required": "Los campos marcados con * son obligatorios.", "send": "Enviar información",
+    "footerTitle": "Un lugar para vivir tu propósito.", "footerDescription": "Una comunidad que cree en las personas, la fe y el impacto que podemos generar juntos.", "explore": "Explora", "talk": "Conversemos", "contactUs": "Contáctanos", "backHome": "Volver al inicio"
+  }
+}

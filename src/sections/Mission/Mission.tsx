@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { getWordPressImageUrl } from "../../data/images";
 
 interface MissionCard {
@@ -111,6 +112,7 @@ const PlusIcon = () => (
 );
 
 const Mission = () => {
+  const { t } = useTranslation();
   const [selectedMission, setSelectedMission] = useState<MissionCard | null>(
     null,
   );
@@ -132,35 +134,31 @@ const Mission = () => {
           {/* All texts in one box */}
           <div className="flex-1">
             <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#C1121F]">
-              PowerHouse Servolución Perú · Nuestra misión
+              {t("common.missionEyebrow")}
             </span>
 
             <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-[1.05] tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
-              Transformamos oportunidades en nuevos caminos.
+              {t("common.missionTitle")}
             </h2>
 
             <p className="mt-6 text-lg font-medium leading-7 text-[#111111] md:text-xl">
-              Una vida transformada puede transformar otras.
+              {t("common.missionLead")}
             </p>
 
             <p className="mt-1 text-base leading-7 text-[#737373] md:text-lg">
-              Tienes dones, talentos y una personalidad única creada con
-              intención. Hay un propósito para tu vida, y queremos ayudarte a
-              descubrirlo.
+              {t("common.missionText")}
             </p>
 
             <p className="mt-5 max-w-xl text-sm leading-6 text-[#737373] md:text-base">
-              Somos una organización sin fines de lucro vinculada a la
-              educación, la inclusión social y el desarrollo de capacidades.
-              Creemos que una oportunidad puede cambiar una historia.
+              {t("common.missionOrganization")}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#C1121F]">
-              <span>Educación</span>
+              <span>{t("common.education")}</span>
               <span aria-hidden="true">·</span>
-              <span>Inclusión social</span>
+              <span>{t("common.inclusion")}</span>
               <span aria-hidden="true">·</span>
-              <span>Desarrollo de capacidades</span>
+              <span>{t("common.skills")}</span>
             </div>
           </div>
 
@@ -236,7 +234,7 @@ const Mission = () => {
 
                   <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/70 transition-all duration-300 group-hover:border-[#C1121F]/30 group-hover:bg-[#C1121F]/10 group-hover:text-[#C1121F]">
                     <PlusIcon />
-                    Ver más
+                    {t("services.details")}
                   </div>
                 </div>
 
@@ -370,7 +368,7 @@ const Mission = () => {
                 {selectedMission.gallery.length > 0 && (
                   <div className="mt-10">
                     <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-white/30">
-                      Galería
+                      {t("common.gallery")}
                     </p>
 
                     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -406,7 +404,7 @@ const Mission = () => {
                     onClick={() => setSelectedMission(null)}
                     className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-sm font-semibold tracking-wide text-white/70 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
                   >
-                    Cerrar
+                    {t("common.close")}
                   </button>
                 </div>
               </div>

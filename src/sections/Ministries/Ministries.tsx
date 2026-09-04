@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 const ministries = [
   {
@@ -133,6 +134,7 @@ const carouselItems = [
 ];
 
 const Ministries = () => {
+<<<<<<< HEAD
   const [paused, setPaused] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const pauseTimer = useRef<number | null>(null);
@@ -239,6 +241,9 @@ const Ministries = () => {
     pauseTimer.current = window.setTimeout(() => setPaused(false), 300);
   };
 
+=======
+  const { t } = useTranslation();
+>>>>>>> d53e3962eeca8061e31bfe332838cbc590b3f632
   return (
     <section className="overflow-hidden bg-[#F5F5F3] py-24 md:py-32">
       <div className="mx-auto mb-12 max-w-7xl px-6 md:mb-16 md:px-10">
@@ -249,15 +254,15 @@ const Ministries = () => {
           viewport={{ once: true }}
         >
           <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#737373]">
-            NUESTROS MINISTERIOS
+            {t("common.ministriesEyebrow")}
           </span>
 
           <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
-            Hay un lugar para ti.
+            {t("common.ministriesTitle")}
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-[#737373] md:text-lg">
-            Descubre diferentes espacios para conectar, crecer y formar parte de la comunidad.
+            {t("common.ministriesDescription")}
           </p>
         </motion.header>
       </div>

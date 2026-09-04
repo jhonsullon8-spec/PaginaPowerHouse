@@ -1,4 +1,5 @@
 import { getWordPressImageUrl } from "../../data/images";
+import { useTranslation } from "react-i18next";
 
 const primaryLinks = [
 	{ label: "Inicio", href: "/" },
@@ -59,6 +60,7 @@ const ArrowUpRight = () => (
 );
 
 const Footer = () => {
+	const { t } = useTranslation();
 	return (
 		<footer className="overflow-hidden bg-[#101010] text-white" aria-labelledby="footer-title">
 			<div className="mx-auto max-w-7xl px-5 pb-8 pt-16 sm:px-8 md:px-10 md:pt-20 lg:px-12">
@@ -76,10 +78,10 @@ const Footer = () => {
 							/>
 						</a>
 						<h2 id="footer-title" className="mt-8 max-w-sm text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
-							Un lugar para vivir tu propósito.
+							{t("common.footerTitle")}
 						</h2>
 						<p className="mt-5 max-w-sm text-sm leading-7 text-white/55 sm:text-base">
-							Una comunidad que cree en las personas, la fe y el impacto que podemos generar juntos.
+							{t("common.footerDescription")}
 						</p>
 						<div className="mt-8">
 							<p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Síguenos en nuestras redes</p>
@@ -113,7 +115,7 @@ const Footer = () => {
 					</div>
 
 					<nav aria-label="Navegación del pie de página">
-						<p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">Explora</p>
+						<p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">{t("common.explore")}</p>
 						<ul className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 lg:grid-cols-1 lg:gap-y-3">
 							{primaryLinks.map((link) => (
 								<li key={link.href}>
@@ -130,15 +132,15 @@ const Footer = () => {
 					</nav>
 
 					<div>
-						<p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">Conversemos</p>
+						<p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">{t("common.talk")}</p>
 						<p className="max-w-xs text-sm leading-7 text-white/55 sm:text-base">
-							¿Tienes alguna consulta? Estamos aquí para recibirte y acompañarte.
+							{t("common.contactDescription")}
 						</p>
 						<a
 							href="/contacto"
 							className="group mt-6 inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#E3424D] hover:shadow-[0_10px_25px_rgba(193,18,31,0.25)] active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#101010]"
 						>
-							Contáctanos
+							{t("common.contactUs")}
 							<ArrowUpRight />
 						</a>
 					</div>
@@ -150,7 +152,7 @@ const Footer = () => {
 						href="/"
 						className="group inline-flex w-fit items-center gap-2 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#101010]"
 					>
-						Volver al inicio
+							{t("common.backHome")}
 						<ArrowUpRight />
 					</a>
 				</div>
