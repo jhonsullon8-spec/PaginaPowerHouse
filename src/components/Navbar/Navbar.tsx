@@ -12,7 +12,7 @@ const navLinks = [
   { number: "05", key: "grupos", href: "/grupos-de-conexion" },
 ];
 
-const darkPaths = ["/nosotros", "/servicios", "/contacto", "/grupos-de-conexion"];
+const darkPaths = ["/", "/nosotros", "/servicios", "/contacto", "/grupos-de-conexion"];
 
 const Navbar = () => {
   const { t } = useTranslation();

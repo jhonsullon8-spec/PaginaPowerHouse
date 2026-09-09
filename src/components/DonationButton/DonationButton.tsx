@@ -63,6 +63,12 @@ const DonationButton = () => {
   }, [isOpen]);
 
   useEffect(() => {
+    const openDonation = () => setIsOpen(true);
+    window.addEventListener("powerhouse:open-donation", openDonation);
+    return () => window.removeEventListener("powerhouse:open-donation", openDonation);
+  }, []);
+
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
