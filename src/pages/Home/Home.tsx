@@ -113,38 +113,39 @@ const Home = () => {
 
 			<section id="programas" className="bg-[#F5F5F3] py-24 text-[#111111] md:py-32">
 				<div className="mx-auto max-w-7xl px-6 md:px-10">
-					<div className="mb-12 grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-					<motion.header className="max-w-2xl" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-						<span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E3424D]">{t("home.programsEyebrow")}</span>
-						<h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">{t("home.programsTitle")}</h2>
-						<p className="mt-5 max-w-xl text-base leading-7 text-[#737373]">{t("common.missionOrganization")}</p>
-					</motion.header>
-					<motion.div className="w-full overflow-hidden rounded-[1.5rem] bg-[#111111] shadow-[0_18px_50px_rgba(17,17,17,0.16)]" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-						<div className="relative w-full pt-[56.25%]">
-							<iframe
-								src={`https://www.youtube.com/embed/NGWDnF3hL-c?feature=oembed&rel=0&origin=${encodeURIComponent(window.location.origin)}`}
-								title={t("mission.videoTitle")}
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-								referrerPolicy="strict-origin-when-cross-origin"
-								allowFullScreen
-								className="absolute inset-0 h-full w-full"
-							/>
-						</div>
-						<a href="https://www.youtube.com/watch?v=NGWDnF3hL-c" target="_blank" rel="noopener noreferrer" className="block bg-[#111111] px-4 py-3 text-center text-xs font-medium text-white/70 transition-colors hover:text-white">{t("mission.viewYouTube")}</a>
-					</motion.div>
+					<div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+						<motion.header initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+							<span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E3424D]">{t("home.programsEyebrow")}</span>
+							<h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">{t("home.programsTitle")}</h2>
+							<p className="mt-6 max-w-xl text-lg leading-8 text-[#737373]">{t("common.missionOrganization")}</p>
+						</motion.header>
+						<motion.div className="w-full overflow-hidden rounded-[1.5rem] bg-[#111111] shadow-[0_18px_50px_rgba(17,17,17,0.16)]" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+							<div className="relative w-full pt-[56.25%]">
+								<iframe
+									src={`https://www.youtube.com/embed/NGWDnF3hL-c?feature=oembed&rel=0&origin=${encodeURIComponent(window.location.origin)}`}
+									title={t("mission.videoTitle")}
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									referrerPolicy="strict-origin-when-cross-origin"
+									allowFullScreen
+									className="absolute inset-0 h-full w-full"
+								/>
+							</div>
+							<a href="https://www.youtube.com/watch?v=NGWDnF3hL-c" target="_blank" rel="noopener noreferrer" className="block bg-[#111111] px-4 py-3 text-center text-xs font-medium text-white/70 transition-colors hover:text-white">{t("mission.viewYouTube")}</a>
+						</motion.div>
 					</div>
-					<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+					<div className="mt-16 grid gap-6 sm:grid-cols-2">
 						{fronts.map((front, index) => (
-							<motion.button key={front.number} type="button" onClick={() => setSelectedFront(front)} className={`group relative flex min-h-[390px] flex-col overflow-hidden rounded-[1.5rem] bg-[#171717] p-3 text-left text-white shadow-[0_18px_50px_rgba(0,0,0,0.16)] transition-transform duration-500 hover:-translate-y-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F5F5F3] ${index === 0 ? "lg:col-span-2" : ""}`} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08, duration: 0.5 }}>
-								<div className="relative min-h-[205px] overflow-hidden rounded-[1.15rem] bg-[#111111]">
-									<img src={front.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-									<div className="absolute inset-0 bg-gradient-to-t from-[#111111]/80 to-transparent" />
-									<span className="absolute left-5 top-5 text-sm font-semibold tracking-[0.2em] text-[#E3424D]">{front.number}</span>
+							<motion.button key={front.number} type="button" onClick={() => setSelectedFront(front)} className="group relative flex min-h-[420px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[#111111] to-[#1a1a1a] p-4 text-left text-white shadow-[0_20px_60px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_70px_rgba(193,18,31,0.2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F5F5F3]" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1, duration: 0.5 }}>
+								<div className="relative min-h-[220px] overflow-hidden rounded-[1.25rem] bg-[#0a0a0a]">
+									<img src={front.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+									<div className="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/20 to-transparent" />
+									<div className="absolute left-5 top-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#C1121F]/90 text-sm font-bold text-white backdrop-blur-sm">{front.number}</div>
 								</div>
-								<div className="flex flex-1 flex-col px-3 pb-3 pt-5">
-									<h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">{front.title}</h3>
-									<p className="mt-3 text-sm leading-6 text-white/65">{front.description}</p>
-									<span className="mt-auto inline-flex w-fit items-center gap-2 border-b border-[#C1121F]/60 pb-2 pt-6 text-sm font-semibold text-[#E3424D]">{t("services.details")} <ArrowUpRight /></span>
+								<div className="flex flex-1 flex-col px-3 pb-4 pt-6">
+									<h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{front.title}</h3>
+									<p className="mt-3 text-sm leading-6 text-white/60">{front.description}</p>
+									<span className="mt-auto inline-flex w-fit items-center gap-2 border-b-2 border-[#C1121F] pb-2 pt-6 text-sm font-semibold text-[#E3424D] transition-colors group-hover:border-[#E3424D]">{t("services.details")} <ArrowUpRight /></span>
 								</div>
 							</motion.button>
 						))}
@@ -152,15 +153,27 @@ const Home = () => {
 				</div>
 			</section>
 
-			<AnimatePresence>
+		<AnimatePresence>
 				{selectedFront && (
 					<motion.div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-4 py-8 sm:px-6 sm:py-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedFront(null)}>
-						<div className="fixed inset-0 bg-[#111111]/80 backdrop-blur-sm" aria-hidden="true" />
-						<motion.div role="dialog" aria-modal="true" aria-label={selectedFront.title} className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[1.75rem] bg-white shadow-[0_40px_100px_rgba(0,0,0,0.5)]" initial={{ opacity: 0, y: 30, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.97 }} onClick={(event) => event.stopPropagation()}>
-							<button type="button" onClick={() => setSelectedFront(null)} aria-label={t("common.close")} className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#111111]/75 text-xl text-white transition-colors hover:bg-[#C1121F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D]">×</button>
-							<div className="grid md:grid-cols-[0.9fr_1.1fr]">
-								<div className="relative min-h-[280px] bg-[#111111] md:min-h-full"><img src={selectedFront.image} alt="" className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#111111]/75 to-transparent" /></div>
-								<div className="p-7 sm:p-10"><span className="text-sm font-semibold tracking-[0.2em] text-[#C1121F]">{selectedFront.number}</span><h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{selectedFront.title}</h2><p className="mt-5 text-base leading-7 text-[#737373]">{selectedFront.expandedDescription}</p><div className="mt-8 grid grid-cols-3 gap-2">{selectedFront.gallery.map((image) => <img key={image} src={image} alt="" loading="lazy" className="aspect-square w-full rounded-lg object-cover" />)}</div></div>
+						<div className="fixed inset-0 bg-[#0a0a0a]/90 backdrop-blur-md" aria-hidden="true" />
+						<motion.div role="dialog" aria-modal="true" aria-label={selectedFront.title} className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#111111] to-[#1a1a1a] shadow-[0_40px_100px_rgba(0,0,0,0.7)]" initial={{ opacity: 0, y: 30, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.97 }} onClick={(event) => event.stopPropagation()}>
+							<button type="button" onClick={() => setSelectedFront(null)} aria-label={t("common.close")} className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#111111]/80 text-xl text-white backdrop-blur-sm transition-colors hover:bg-[#C1121F]">×</button>
+							<div className="relative min-h-[350px] sm:min-h-[420px]">
+								<img src={selectedFront.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
+								<div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#111111]/50 to-[#111111]" />
+								<div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
+									<span className="text-sm font-bold tracking-[0.2em] text-[#E3424D]">{selectedFront.number}</span>
+									<h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">{selectedFront.title}</h2>
+								</div>
+							</div>
+							<div className="p-8 sm:p-10">
+								<p className="text-base leading-8 text-white/70">{selectedFront.expandedDescription}</p>
+								<div className="mt-8 grid grid-cols-3 gap-3">
+									{selectedFront.gallery.map((image) => (
+										<img key={image} src={image} alt="" loading="lazy" className="aspect-square w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105" />
+									))}
+								</div>
 							</div>
 						</motion.div>
 					</motion.div>
