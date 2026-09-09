@@ -51,7 +51,25 @@ const WeeklyAgenda = () => {
         <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-white/10 sm:grid-cols-2 lg:grid-cols-5">
 
           <DayColumn shortLabel={t("agenda.tuesday_short")} label={t("agenda.tuesday_full")}>
-            <EventCard name="Reunión de chicas" imageSrc="https://perupowerhouse.com/wp-content/uploads/2022/01/Sin-titulo-1.png" timeBelowImage time="8 PM" />
+            <div className="flex flex-1 flex-col justify-between gap-4">
+              <div className="flex flex-col gap-2">
+                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/Diseno-imprimible-para-conocer-a-Dios-.png" alt="" className="w-full rounded-xl object-cover" />
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Oramos</span>
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">7 PM</span>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/Diseno-imprimible-para-conocer-a-Dios-1.png" alt="" className="w-full rounded-xl object-cover" />
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Discipulado</span>
+                <span className="text-right text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">7:30</span>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Reunión de chicas</span>
+                <img src="https://perupowerhouse.com/wp-content/uploads/2022/01/Sin-titulo-1.png" alt="" className="w-full rounded-xl object-cover" />
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">8 PM</span>
+              </div>
+            </div>
           </DayColumn>
 
           <DayColumn shortLabel={t("agenda.wednesday_short")} label={t("agenda.wednesday_full")}>
