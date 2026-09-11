@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Home from "./pages/Home/Home";
-import Nosotros from "./sections/About/About";
-import GruposDeConexion from "./sections/GruposDeConexion/GruposDeConexion";
-import Services from "./sections/Services/Services.tsx";
-import Contact from "./sections/Contact/Contact";
-import Beliefs from "./sections/Beliefs/Beliefs";
+import Home from "./views/Home/Home";
+import Nosotros from "./views/About/About";
+import GruposDeConexion from "./views/GruposDeConexion/GruposDeConexion";
+import Services from "./views/Services/Services.tsx";
+import Contact from "./views/Contact/Contact";
+import Beliefs from "./views/Beliefs/Beliefs";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/footer";
 import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";

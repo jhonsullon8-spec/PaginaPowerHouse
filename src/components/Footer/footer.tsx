@@ -65,12 +65,12 @@ const Footer = () => {
 	return (
 		<footer className="relative overflow-hidden bg-[#0D0D0D] text-white" aria-labelledby="footer-title">
 			<div className="pointer-events-none absolute right-[-8rem] top-[-8rem] h-72 w-72 rounded-full border border-[#C1121F]/20 shadow-[0_0_100px_rgba(193,18,31,0.14)]" />
-			<div className="mx-auto max-w-7xl px-5 pb-8 pt-14 sm:px-8 md:px-10 md:pt-20 lg:px-12">
-				<div className="mb-12 flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.3em] text-[#E3424D]">
+			<div className="mx-auto max-w-7xl px-5 pb-6 pt-10 sm:px-8 md:px-10 md:pt-14 lg:px-12">
+				<div className="mb-8 flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.3em] text-[#E3424D]">
 					<span className="h-px w-12 bg-[#C1121F]" />
 					<span>PowerHouse Servolution</span>
 				</div>
-				<div className="grid gap-14 border-b border-white/10 pb-14 lg:grid-cols-[1.45fr_0.75fr_0.95fr] lg:gap-20 lg:pb-16">
+				<div className="grid gap-10 border-b border-white/10 pb-10 lg:grid-cols-[1.45fr_0.75fr_0.95fr] lg:gap-12 lg:pb-12">
 					<div className="max-w-lg">
 						<a
 							href="/"
@@ -80,16 +80,16 @@ const Footer = () => {
 							<img
 								src={getWordPressImageUrl("2022/01/logo-powerhouse-negro.png")}
 								alt="PowerHouse"
-								className="h-10 w-auto brightness-0 invert sm:h-12"
+								className="h-9 w-auto brightness-0 invert sm:h-10"
 							/>
 						</a>
-						<h2 id="footer-title" className="mt-8 max-w-xl text-3xl font-semibold leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
+						<h2 id="footer-title" className="mt-6 max-w-xl text-2xl font-semibold leading-[1.1] tracking-tight sm:text-3xl lg:text-4xl">
 							{t("common.footerTitle")}
 						</h2>
-						<p className="mt-6 max-w-lg text-sm leading-7 text-white/55 sm:text-base">
+						<p className="mt-4 max-w-lg text-sm leading-7 text-white/55 sm:text-base">
 							{t("common.footerDescription")}
 						</p>
-						<div className="mt-9">
+						<div className="mt-6">
 							<p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Síguenos en nuestras redes</p>
 							<ul className="flex flex-wrap gap-3" aria-label="Redes sociales">
 								{socialLinks.map((social) => {
@@ -104,7 +104,7 @@ const Footer = () => {
 												rel="noopener noreferrer"
 												aria-label={social.ariaLabel}
 												aria-disabled={!hasUrl}
-														className={`group inline-flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D] ${
+												className={`group inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D] ${
 													hasUrl
 														? "border-white/15 bg-white/[0.03] text-white/70 hover:-translate-y-1 hover:border-[#C1121F] hover:bg-[#C1121F] hover:text-white"
 														: "cursor-not-allowed border-white/10 bg-white/[0.02] text-white/35"
@@ -121,16 +121,16 @@ const Footer = () => {
 					</div>
 
 					<nav aria-label="Navegación del pie de página">
-						<p className="mb-6 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">{t("common.explore")}</p>
-						<ul className="grid grid-cols-2 gap-x-6 gap-y-5 lg:grid-cols-1 lg:gap-y-4">
+						<p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">{t("common.explore")}</p>
+						<ul className="grid grid-cols-2 gap-x-6 gap-y-4 lg:grid-cols-1 lg:gap-y-3">
 							{primaryLinks.map((link) => (
 								<li key={link.href}>
 									<a
 										href={link.href}
-											className="group inline-flex items-center gap-2 text-sm text-white/70 transition-colors duration-300 hover:translate-x-1 hover:text-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D] sm:text-base"
+										className="group inline-flex items-center gap-2 text-sm text-white/70 transition-colors duration-300 hover:translate-x-1 hover:text-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D]"
 									>
 										<span className="h-px w-0 bg-[#E3424D] transition-all duration-300 group-hover:w-3" />
-																							{link.label}
+										{link.label}
 									</a>
 								</li>
 							))}
@@ -138,13 +138,13 @@ const Footer = () => {
 					</nav>
 
 					<div className="border-l border-[#C1121F]/40 pl-6 sm:pl-8">
-						<p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">{t("common.talk")}</p>
+						<p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">{t("common.talk")}</p>
 						<p className="max-w-xs text-sm leading-7 text-white/55 sm:text-base">
 							{t("common.contactDescription")}
 						</p>
 						<a
 							href="/contacto"
-							className="group mt-7 inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#E3424D] hover:shadow-[0_10px_25px_rgba(193,18,31,0.25)] active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D]"
+							className="group mt-6 inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-[#C1121F] px-5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#E3424D] hover:shadow-[0_10px_25px_rgba(193,18,31,0.25)] active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D]"
 						>
 							{t("common.contactUs")}
 							<ArrowUpRight />
@@ -152,13 +152,13 @@ const Footer = () => {
 					</div>
 				</div>
 
-				<div className="flex flex-col gap-5 pt-7 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+				<div className="flex flex-col gap-4 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
 					<p>© {new Date().getFullYear()} PowerHouse. Todos los derechos reservados.</p>
 					<a
 						href="/"
 						className="group inline-flex w-fit items-center gap-2 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D]"
 					>
-							{t("common.backHome")}
+						{t("common.backHome")}
 						<ArrowUpRight />
 					</a>
 				</div>
