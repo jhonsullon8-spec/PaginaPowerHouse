@@ -25,6 +25,7 @@ const ArrowUpRight = () => (
 );
 
 const AnimatedMetric = ({ metric }: { metric: Metric }) => {
+	const { i18n } = useTranslation();
 	const [count, setCount] = useState(() => {
 		if (typeof window === "undefined") return 0;
 		return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? metric.value : 0;
@@ -70,7 +71,7 @@ const AnimatedMetric = ({ metric }: { metric: Metric }) => {
 
 	return (
 		<div ref={ref} className="border-l border-white/15 pl-5">
-			<p className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">{count.toLocaleString("es-PE")}{metric.suffix}</p>
+			<p className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">{count.toLocaleString(i18n.language)}{metric.suffix}</p>
 			<p className="mt-2 max-w-[12rem] text-sm leading-6 text-white/55">{metric.label}</p>
 		</div>
 	);
@@ -104,7 +105,6 @@ const Home = () => {
 						<p className="mt-7 max-w-xl text-base leading-7 text-white/65 sm:text-lg">{t("home.heroDescription")}</p>
 						<div className="mt-9 flex flex-wrap gap-3">
 							<a href="/contacto" className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#111111]">{t("home.volunteer")} <ArrowUpRight /></a>
-							<a href="#programas" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-white/25 px-6 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-[#111111]">{t("home.discover")}</a>
 						</div>
 					</motion.div>
 					<p className="mt-20 text-xs font-semibold uppercase tracking-[0.22em] text-white/40">01 / {t("home.scroll")}</p>
@@ -189,14 +189,6 @@ const Home = () => {
 						</div>
 						<div className="grid gap-8 sm:grid-cols-3">{metrics.map((metric) => <AnimatedMetric key={metric.label} metric={metric} />)}</div>
 					</div>
-				</div>
-			</section>
-
-			<section className="bg-[#F5F5F3] px-6 py-24 md:px-10 md:py-32">
-				<div className="mx-auto max-w-4xl text-center">
-					<span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#C1121F]">{t("home.testimonialEyebrow")}</span>
-					<blockquote className="mt-7 font-serif text-3xl leading-tight text-[#111111] sm:text-5xl">“{t("home.testimonialText")}”</blockquote>
-					<p className="mt-7 text-xs font-semibold uppercase tracking-[0.22em] text-[#737373]">{t("home.testimonialAttribution")}</p>
 				</div>
 			</section>
 

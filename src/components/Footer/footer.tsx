@@ -28,10 +28,10 @@ const YouTubeIcon = () => (
 );
 
 const socialLinks = [
-	{ label: "TikTok", ariaLabel: "Visitar nuestro TikTok", href: "https://www.tiktok.com/@powerhouseperu", icon: TikTokIcon },
-	{ label: "Facebook", ariaLabel: "Visitar nuestra página de Facebook", href: "https://www.facebook.com/powerhouselatam", icon: FacebookIcon },
-	{ label: "Instagram", ariaLabel: "Visitar nuestro Instagram", href: "https://www.instagram.com/powerhouselatam", icon: InstagramIcon },
-	{ label: "YouTube", ariaLabel: "Visitar nuestro canal de YouTube", href: "https://www.youtube.com/@_powerhousechurchperu", icon: YouTubeIcon },
+	{ label: "TikTok", ariaLabelKey: "common.socialTikTok", href: "https://www.tiktok.com/@powerhouseperu", icon: TikTokIcon },
+	{ label: "Facebook", ariaLabelKey: "common.socialFacebook", href: "https://www.facebook.com/powerhouselatam", icon: FacebookIcon },
+	{ label: "Instagram", ariaLabelKey: "common.socialInstagram", href: "https://www.instagram.com/powerhouselatam", icon: InstagramIcon },
+	{ label: "YouTube", ariaLabelKey: "common.socialYouTube", href: "https://www.youtube.com/@_powerhousechurchperu", icon: YouTubeIcon },
 ];
 
 const ArrowUpRight = () => (
@@ -59,7 +59,7 @@ const Footer = () => {
 		{ label: t("nav.about"), href: "/nosotros" },
 		{ label: t("nav.beliefs"), href: "/creencias" },
 		{ label: t("nav.services"), href: "/servicios" },
-		{ label: t("nav.ministries"), href: "/ministerios" },
+		{ label: t("nav.grupos"), href: "/grupos-de-conexion" },
 	];
 
 	return (
@@ -74,7 +74,7 @@ const Footer = () => {
 					<div className="max-w-lg">
 						<a
 							href="/"
-							aria-label="PowerHouse, volver al inicio"
+							aria-label={t("common.ariaBackHome")}
 							className="inline-flex rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D]"
 						>
 							<img
@@ -90,8 +90,8 @@ const Footer = () => {
 							{t("common.footerDescription")}
 						</p>
 						<div className="mt-6">
-							<p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Síguenos en nuestras redes</p>
-							<ul className="flex flex-wrap gap-3" aria-label="Redes sociales">
+							<p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/45">{t("common.followUs")}</p>
+							<ul className="flex flex-wrap gap-3" aria-label={t("common.social")}>
 								{socialLinks.map((social) => {
 									const Icon = social.icon;
 									const hasUrl = social.href.length > 0;
@@ -102,7 +102,7 @@ const Footer = () => {
 												href={hasUrl ? social.href : undefined}
 												target="_blank"
 												rel="noopener noreferrer"
-												aria-label={social.ariaLabel}
+												aria-label={t(social.ariaLabelKey)}
 												aria-disabled={!hasUrl}
 												className={`group inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D] ${
 													hasUrl
@@ -120,7 +120,7 @@ const Footer = () => {
 						</div>
 					</div>
 
-					<nav aria-label="Navegación del pie de página">
+					<nav aria-label={t("common.footerNav")}>
 						<p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#E3424D]">{t("common.explore")}</p>
 						<ul className="grid grid-cols-2 gap-x-6 gap-y-4 lg:grid-cols-1 lg:gap-y-3">
 							{primaryLinks.map((link) => (
@@ -153,7 +153,7 @@ const Footer = () => {
 				</div>
 
 				<div className="flex flex-col gap-4 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-					<p>© {new Date().getFullYear()} PowerHouse. Todos los derechos reservados.</p>
+					<p>© {new Date().getFullYear()} PowerHouse. {t("common.copyright")}</p>
 					<a
 						href="/"
 						className="group inline-flex w-fit items-center gap-2 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0D0D0D]"

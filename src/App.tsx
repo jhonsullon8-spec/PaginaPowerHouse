@@ -40,6 +40,7 @@ function App() {
       const anchor = (event.target as HTMLElement).closest<HTMLAnchorElement>("a");
       if (!anchor || anchor.origin !== window.location.origin || !anchor.pathname.startsWith("/")) return;
       if (anchor.target === "_blank" || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (anchor.hash && anchor.pathname === window.location.pathname) return;
 
       const nextView = Object.values(paths).includes(anchor.pathname);
       if (!nextView) return;

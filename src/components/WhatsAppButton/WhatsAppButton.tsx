@@ -1,7 +1,11 @@
 import type { MouseEvent } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AnimatePresence, motion } from "motion/react";
 
 const WHATSAPP_NUMBER = "51951690209";
+
+const MOBILE_MENU_QUERY = window.matchMedia("(max-width: 767px)");
 
 const WhatsAppIcon = () => (
 	<svg aria-hidden="true" className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
@@ -11,6 +15,18 @@ const WhatsAppIcon = () => (
 
 const WhatsAppButton = () => {
 	const { t } = useTranslation();
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(() => false);
+
+	useEffect(() => {
+		const handleMobileMenuChange = (event: Event) => {
+			if (!MOBILE_MENU_QUERY.matches) return;
+			setIsMobileMenuOpen((event as CustomEvent<boolean>).detail);
+		};
+
+		window.addEventListener("powerhouse:mobile-menu", handleMobileMenuChange);
+		return () => window.removeEventListener("powerhouse:mobile-menu", handleMobileMenuChange);
+	}, []);
+
 	const WHATSAPP_MESSAGE = t("whatsapp.message");
 	const whatsappUrl = WHATSAPP_NUMBER
 		? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
@@ -23,28 +39,39 @@ const WhatsAppButton = () => {
 	};
 
 	return (
-		<div className="fixed bottom-5 right-5 z-50 sm:bottom-7 sm:right-7">
-			<a
-				href={whatsappUrl}
-				target="_blank"
-				rel="noopener noreferrer"
-				title={t("whatsapp.tooltip")}
-				aria-label={t("whatsapp.ariaLabel")}
-				aria-disabled={!whatsappUrl}
-				onClick={handleClick}
-				className={`group relative flex h-14 w-14 items-center justify-center rounded-full text-white shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:h-16 sm:w-16 ${
-					whatsappUrl
-						? "bg-[#25D366] hover:scale-105 hover:bg-[#20BD5A] hover:shadow-[0_12px_30px_rgba(37,211,102,0.35)]"
-						: "cursor-not-allowed bg-[#25D366]/70"
-				}`}
-			>
-				<span className="absolute inset-0 -z-10 rounded-full bg-[#25D366]/35 motion-safe:animate-ping motion-safe:[animation-duration:2.5s]" />
-				<WhatsAppIcon />
-				<span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md bg-[#101010] px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 md:block">
-					{t("whatsapp.tooltip")}
-				</span>
-			</a>
-		</div>
+		<AnimatePresence>
+			{!isMobileMenuOpen && (
+				<motion.div
+					key="whatsapp-button"
+					className="fixed bottom-5 right-5 z-50 sm:bottom-7 sm:right-7"
+					initial={{ opacity: 0, y: 20, scale: 0.6 }}
+					animate={{ opacity: 1, y: 0, scale: 1 }}
+					exit={{ opacity: 0, y: 14, scale: 0.7 }}
+					transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+				>
+					<a
+						href={whatsappUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						title={t("whatsapp.tooltip")}
+						aria-label={t("whatsapp.ariaLabel")}
+						aria-disabled={!whatsappUrl}
+						onClick={handleClick}
+						className={`group relative flex h-14 w-14 items-center justify-center rounded-full text-white shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:h-16 sm:w-16 ${
+							whatsappUrl
+								? "bg-[#25D366] hover:scale-105 hover:bg-[#20BD5A] hover:shadow-[0_12px_30px_rgba(37,211,102,0.35)]"
+								: "cursor-not-allowed bg-[#25D366]/70"
+						}`}
+					>
+						<span className="absolute inset-0 -z-10 rounded-full bg-[#25D366]/35 motion-safe:animate-ping motion-safe:[animation-duration:2.5s]" />
+						<WhatsAppIcon />
+						<span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md bg-[#101010] px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 md:block">
+							{t("whatsapp.tooltip")}
+						</span>
+					</a>
+				</motion.div>
+			)}
+		</AnimatePresence>
 	);
 };
 

@@ -60,6 +60,10 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("powerhouse:mobile-menu", { detail: isOpen }));
+  }, [isOpen]);
+
   const useLightHeader = isDarkView && !isScrolled;
 
   return (
@@ -116,6 +120,12 @@ const Navbar = () => {
             >
               {t("nav.visit")}
             </a>
+          </div>
+
+          <div className="flex items-center gap-2 md:hidden">
+            <LanguageSelector
+              className={`relative left-auto top-auto z-auto inline-flex min-w-[5rem] shrink-0 items-center rounded-full border p-1 text-left backdrop-blur-md transition-colors duration-300 hover:border-[#C1121F]/50 ${useLightHeader ? "border-white/20 bg-[#111111]/60 text-white" : "border-[#111111]/10 bg-white/80 text-[#111111]"}`}
+            />
           </div>
 
           <button
@@ -208,9 +218,14 @@ const Navbar = () => {
                   ))}
                 </ul>
 
-                <div className="mt-6">
-                  <LanguageSelector className="relative left-auto top-auto z-auto inline-flex min-w-[5.75rem] items-center rounded-full bg-white/10 p-1 text-left text-white shadow-none backdrop-blur-md" />
-                </div>
+                <motion.img
+                  src={getWordPressImageUrl("2022/01/logo-powerhouse-negro.png")}
+                  alt="PowerHouse"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.3 }}
+                  className="mx-auto h-14 w-auto brightness-0 invert"
+                />
 
                 <motion.a
                   href="/contacto"

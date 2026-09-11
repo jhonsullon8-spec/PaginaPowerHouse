@@ -105,7 +105,7 @@ const Ministries = () => {
     { id: "01", name: t("common.ministryName0"), description: t("common.ministryDesc0") },
     { id: "02", name: t("common.ministryName1"), description: t("common.ministryDesc1") },
     { id: "03", name: t("common.ministryName2"), description: t("common.ministryDesc2") },
-    { id: "04", name: t("common.ministryName4"), description: t("common.ministryDesc3") },
+    { id: "04", name: t("common.ministryName3"), description: t("common.ministryDesc3") },
   ], [t]);
 
   const carouselItems = useMemo(() => [

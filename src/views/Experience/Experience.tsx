@@ -1,35 +1,38 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { getWordPressImageUrl } from "../../data/images";
 
-const gallery = [
-  {
-    id: "01",
-    title: "Imagen PowerHouse",
-    className: "lg:row-span-2 lg:min-h-[560px]",
-    aspectClass: "aspect-[4/5] lg:aspect-auto lg:h-full",
-    image: getWordPressImageUrl("2026/02/diferencia1-scaled.jpg"),
-  },
-  {
-    id: "02",
-    title: "Imagen PowerHouse",
-    className: "",
-    aspectClass: "aspect-[4/3]",
-    image: getWordPressImageUrl(
-      "2026/01/1b769ac1-b724-4eb4-8506-c0976afc41c2.jpg",
-    ),
-  },
-  {
-    id: "03",
-    title: "Imagen PowerHouse",
-    className: "",
-    aspectClass: "aspect-[4/3]",
-    image: getWordPressImageUrl(
-      "2022/01/189299167_4233682296695495_2672356163720843427_n.jpg",
-    ),
-  },
-];
-
 const Experience = () => {
+  const { t } = useTranslation();
+
+  const gallery = [
+    {
+      id: "01",
+      title: t("common.experienceImage"),
+      className: "lg:row-span-2 lg:min-h-[560px]",
+      aspectClass: "aspect-[4/5] lg:aspect-auto lg:h-full",
+      image: getWordPressImageUrl("2026/02/diferencia1-scaled.jpg"),
+    },
+    {
+      id: "02",
+      title: t("common.experienceImage"),
+      className: "",
+      aspectClass: "aspect-[4/3]",
+      image: getWordPressImageUrl(
+        "2026/01/1b769ac1-b724-4eb4-8506-c0976afc41c2.jpg",
+      ),
+    },
+    {
+      id: "03",
+      title: t("common.experienceImage"),
+      className: "",
+      aspectClass: "aspect-[4/3]",
+      image: getWordPressImageUrl(
+        "2022/01/189299167_4233682296695495_2672356163720843427_n.jpg",
+      ),
+    },
+  ];
+
   return (
     <section className="bg-[#F5F5F3] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -41,15 +44,15 @@ const Experience = () => {
           viewport={{ once: true }}
         >
           <span className="text-sm font-semibold uppercase tracking-[0.32em] text-[#737373]">
-            LA EXPERIENCIA
+            {t("common.experienceEyebrow")}
           </span>
 
           <h2 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
-            Vive la experiencia PowerHouse
+            {t("common.experienceTitle")}
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#737373] md:text-lg">
-            Un espacio para crecer, conectarte y descubrir tu propósito en comunidad.
+            {t("common.experienceDescription")}
           </p>
         </motion.header>
 

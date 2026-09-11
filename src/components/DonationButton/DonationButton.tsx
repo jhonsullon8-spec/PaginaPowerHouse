@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
+const MOBILE_MENU_QUERY = window.matchMedia("(max-width: 767px)");
+
 const QR_IMAGE = "https://perupowerhouse.com/wp-content/uploads/2026/03/QR-yape-plin.jpeg";
 
 const HeartIcon = () => (
@@ -37,6 +39,17 @@ const CloseIcon = () => (
 const DonationButton = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(() => false);
+
+  useEffect(() => {
+    const handleMobileMenuChange = (event: Event) => {
+      if (!MOBILE_MENU_QUERY.matches) return;
+      setIsMobileMenuOpen((event as CustomEvent<boolean>).detail);
+    };
+
+    window.addEventListener("powerhouse:mobile-menu", handleMobileMenuChange);
+    return () => window.removeEventListener("powerhouse:mobile-menu", handleMobileMenuChange);
+  }, []);
 
   const bankAccounts = [
     {
@@ -86,21 +99,32 @@ const DonationButton = () => {
   return (
     <>
       {/* Floating button — positioned above WhatsApp button */}
-      <div className="fixed bottom-[88px] right-5 z-50 sm:bottom-[108px] sm:right-7">
-        <button
-          type="button"
-          onClick={() => setIsOpen(true)}
-          title={t("donate.ariaOpen")}
-          aria-label={t("donate.ariaOpen")}
-          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#C1121F] text-white shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition-all duration-300 hover:scale-105 hover:bg-[#8F0D17] hover:shadow-[0_12px_30px_rgba(193,18,31,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:h-16 sm:w-16"
-        >
-          <span className="absolute inset-0 -z-10 rounded-full bg-[#C1121F]/35 motion-safe:animate-ping motion-safe:[animation-duration:2.5s]" />
-          <HeartIcon />
-          <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md bg-[#101010] px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 md:block">
-           {t("donate.tooltipDonate")}
-          </span>
-        </button>
-      </div>
+      <AnimatePresence>
+        {!isMobileMenuOpen && (
+          <motion.div
+            key="donation-button"
+            className="fixed bottom-[88px] right-5 z-50 sm:bottom-[108px] sm:right-7"
+            initial={{ opacity: 0, y: 20, scale: 0.6 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 14, scale: 0.7 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <button
+              type="button"
+              onClick={() => setIsOpen(true)}
+              title={t("donate.ariaOpen")}
+              aria-label={t("donate.ariaOpen")}
+              className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#C1121F] text-white shadow-[0_8px_24px_rgba(0,0,0,0.22)] transition-all duration-300 hover:scale-105 hover:bg-[#8F0D17] hover:shadow-[0_12px_30px_rgba(193,18,31,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:h-16 sm:w-16"
+            >
+              <span className="absolute inset-0 -z-10 rounded-full bg-[#C1121F]/35 motion-safe:animate-ping motion-safe:[animation-duration:2.5s]" />
+              <HeartIcon />
+              <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md bg-[#101010] px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 md:block">
+               {t("donate.tooltipDonate")}
+              </span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Modal */}
       <AnimatePresence>

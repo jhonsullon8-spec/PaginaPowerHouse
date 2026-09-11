@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 const GOOGLE_MAPS_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.06849040459!2d-80.635!3d-5.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a1008c1a636fb%3A0x28a04e6724afb097!2sPowerHouse%20Church%20Peru!5e0!3m2!1ses!2spe!4v1";
 
-const COMPANY_EMAIL = "";
+const COMPANY_EMAIL = "PowerHouseChurchperu@gmail.com";
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${COMPANY_EMAIL}`;
 
 const fieldControlClasses = "mt-1 w-full rounded-xl border border-[#DADAD6] bg-[#FAFAF8] px-4 py-3 text-sm text-[#222222] outline-none transition-colors placeholder:text-[#A0A0A0] focus:border-[#C1121F] focus:ring-2 focus:ring-[#C1121F]/10";
 
@@ -22,34 +23,41 @@ const Contact = () => {
     t("contact.discoveryOption6"),
   ];
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSent(false);
     setError("");
 
-    if (!COMPANY_EMAIL) {
-      setError(t("contact.emailNotConfig"));
-      return;
-    }
-
     const formData = new FormData(event.currentTarget);
-    const subject = t("contact.emailSubject");
-    const body = [
-      `${t("contact.firstVisit")}: ${formData.get("firstVisit")}`,
-      `${t("contact.discovery")}: ${formData.get("discovery")}`,
-      `${t("contact.fullName")}: ${formData.get("name")}`,
-      `${t("contact.faithDecision")}: ${formData.get("faithDecision")}`,
-      `${t("contact.age")}: ${formData.get("age")}`,
-      `${t("contact.maritalStatus")}: ${formData.get("maritalStatus")}`,
-      `${t("contact.phone")}: ${formData.get("phone")}`,
-      `${t("contact.address")}: ${formData.get("address")}`,
-      `${t("contact.growCourse")}: ${formData.get("growCourse")}`,
-      `${t("contact.volunteer")}: ${formData.get("volunteer")}`,
-    ].join("\n");
 
-    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
-    event.currentTarget.reset();
+    const payload: Record<string, string> = {
+      subject: t("contact.emailSubject"),
+      [t("contact.firstVisit")]: String(formData.get("firstVisit") ?? ""),
+      [t("contact.discovery")]: String(formData.get("discovery") ?? ""),
+      [t("contact.fullName")]: String(formData.get("name") ?? ""),
+      [t("contact.faithDecision")]: String(formData.get("faithDecision") ?? ""),
+      [t("contact.age")]: String(formData.get("age") ?? ""),
+      [t("contact.maritalStatus")]: String(formData.get("maritalStatus") ?? ""),
+      [t("contact.phone")]: String(formData.get("phone") ?? ""),
+      [t("contact.address")]: String(formData.get("address") ?? ""),
+      [t("contact.growCourse")]: String(formData.get("growCourse") ?? ""),
+      [t("contact.volunteer")]: String(formData.get("volunteer") ?? ""),
+    };
+
+    try {
+      const res = await fetch(FORMSUBMIT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("network");
+
+      setSent(true);
+      event.currentTarget.reset();
+    } catch {
+      setError(t("contact.emailNotConfig"));
+    }
   };
 
   return (

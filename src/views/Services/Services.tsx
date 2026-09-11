@@ -68,7 +68,7 @@ const ServiceCard = ({ service, index, isFullWidth = false, onSelect }: { servic
     <p className="relative mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">{t(`services.categories.${service.categoryKey}`)}</p>
     <h2 className="relative mt-3 max-w-xs text-2xl font-semibold tracking-tight md:text-3xl">{title}</h2>
     <p className="relative mt-4 max-w-md text-sm leading-7 text-white/50 md:text-base">{description}</p>
-    <button type="button" onClick={() => onSelect(service)} className="group relative mt-8 inline-flex min-h-11 w-fit items-center gap-3 border-b border-[#C1121F]/50 pb-2 text-sm font-semibold text-white transition-colors hover:border-[#E3424D] hover:text-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#171717]" aria-label={`${t("services.details")} de ${title}`}>
+    <button type="button" onClick={() => onSelect(service)} className="group relative mt-8 inline-flex min-h-11 w-fit items-center gap-3 border-b border-[#C1121F]/50 pb-2 text-sm font-semibold text-white transition-colors hover:border-[#E3424D] hover:text-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#171717]" aria-label={`${title} · ${t("services.details")}`}>
       {t("services.details")} <ArrowUpRight />
     </button>
   </motion.article>

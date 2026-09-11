@@ -1,25 +1,11 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 const GOOGLE_MAPS_URL =
   "https://www.google.com/maps/place/PowerHouse+Church+Peru/@-5.173431,-80.621328,7155m/data=!3m1!1e3!4m6!3m5!1s0x904a1008c1a636fb:0x28a04e6724afb097!8m2!3d-5.1700499!4d-80.628796!16s%2Fg%2F11b_00pw6f?hl=es-PE&entry=ttu&g_ep=EgoyMDI2MDgyMy4wIKXMDSoASAFQAw%3D%3D";
 
 const GOOGLE_MAPS_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.06849040459!2d-80.635!3d-5.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a1008c1a636fb%3A0x28a04e6724afb097!2sPowerHouse%20Church%20Peru!5e0!3m2!1ses!2spe!4v1";
-
-const infoItems = [
-  {
-    label: "Dirección",
-    value: "[Dirección pendiente de actualizar]",
-  },
-  {
-    label: "Horarios",
-    value: "[Horarios pendientes de actualizar]",
-  },
-  {
-    label: "Contacto",
-    value: "[Teléfono / Email pendiente de actualizar]",
-  },
-];
 
 const LocationPin = ({ className }: { className?: string }) => (
   <svg
@@ -85,6 +71,23 @@ const ArrowIcon = ({ className }: { className?: string }) => (
 );
 
 const MapLocation = () => {
+  const { t } = useTranslation();
+
+  const infoItems = [
+    {
+      label: t("map.addressLabel"),
+      value: t("map.addressValue"),
+    },
+    {
+      label: t("map.hoursLabel"),
+      value: t("map.hoursValue"),
+    },
+    {
+      label: t("map.contactLabel"),
+      value: t("map.contactValue"),
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-[#180F10] py-24 md:py-32">
       {/* Subtle background glow */}
@@ -102,11 +105,11 @@ const MapLocation = () => {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-[#C1121F]/20 bg-[#C1121F]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C1121F]">
             <LocationPin className="h-3.5 w-3.5" />
-            Encuéntranos
+            {t("map.eyebrow")}
           </span>
 
           <h2 className="mt-6 text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
-            Estamos más cerca de ti
+            {t("map.title")}
           </h2>
         </motion.div>
 
@@ -125,16 +128,15 @@ const MapLocation = () => {
             <div className="mb-8 hidden lg:block">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#C1121F]/20 bg-[#C1121F]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#C1121F]">
                 <LocationPin className="h-3.5 w-3.5" />
-                Encuéntranos
+                {t("map.eyebrow")}
               </span>
 
               <h2 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-white xl:text-5xl">
-                Estamos más cerca de ti
+                {t("map.title")}
               </h2>
 
               <p className="mt-5 max-w-md text-base leading-7 text-neutral-400 md:text-lg">
-                Visítanos, comparte con nuestra comunidad y sé parte de lo que
-                estamos construyendo juntos.
+                {t("map.description")}
               </p>
             </div>
 
@@ -144,10 +146,10 @@ const MapLocation = () => {
               <div className="mb-8 flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C1121F]">
-                    Tu visita
+                    {t("map.yourVisit")}
                   </p>
                   <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                    Planifica tu visita
+                    {t("map.planVisit")}
                   </h3>
                 </div>
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#C1121F]/25 bg-[#C1121F]/10 text-[#C1121F]">
@@ -197,8 +199,7 @@ const MapLocation = () => {
 
               {/* Mobile-only description (shown below info on small screens) */}
               <p className="mb-6 text-sm leading-7 text-neutral-400 lg:hidden">
-                Visítanos, comparte con nuestra comunidad y sé parte de lo que
-                estamos construyendo juntos.
+                {t("map.description")}
               </p>
 
               {/* Button */}
@@ -209,7 +210,7 @@ const MapLocation = () => {
                   rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#C1121F] px-7 py-3.5 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:bg-[#8F0D17] hover:shadow-[0_0_30px_rgba(193,18,31,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111]"
                 >
-                  Cómo llegar
+                  {t("map.howToGet")}
                   <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </a>
               </div>
@@ -227,10 +228,10 @@ const MapLocation = () => {
             <div className="mb-5 flex items-center justify-between gap-4 px-1">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C1121F]">
-                  Ubicación
+                  {t("map.location")}
                 </p>
                 <h3 className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl">
-                  Encuéntranos en el mapa
+                  {t("map.findUsMap")}
                 </h3>
               </div>
               <LocationPin className="h-5 w-5 shrink-0 text-[#C1121F]" />
@@ -245,7 +246,7 @@ const MapLocation = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de PowerHouse Church Peru en Google Maps"
+                title={t("map.iframeTitle")}
                 className="h-[400px] w-full md:h-[500px] lg:h-[580px]"
               />
 
@@ -261,7 +262,7 @@ const MapLocation = () => {
                         PowerHouse Church Peru
                       </p>
                       <p className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.18em] text-white/40">
-                        Nuestra ubicación
+                        {t("map.ourLocation")}
                       </p>
                     </div>
                   </div>
