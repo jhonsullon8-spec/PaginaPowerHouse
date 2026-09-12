@@ -19,25 +19,19 @@ export const languageOptions: Array<{ code: SupportedLanguage; label: string; fl
   { code: "pt", label: "Português", flag: "PT", flagSrc: "https://flagcdn.com/w40/pt.png" },
 ];
 
-const savedLanguage = localStorage.getItem("powerhouse-language");
-const initialLanguage: SupportedLanguage = supportedLanguages.includes(savedLanguage as SupportedLanguage)
-  ? (savedLanguage as SupportedLanguage)
-  : "es";
-
 void i18n.use(initReactI18next).init({
   resources: { es: { translation: es }, en: { translation: en }, fr: { translation: fr }, de: { translation: de }, it: { translation: it }, pt: { translation: pt } },
-  lng: initialLanguage,
+  lng: "es",
   fallbackLng: "es",
   interpolation: { escapeValue: false },
 });
 
 i18n.on("languageChanged", (language: string) => {
   if (supportedLanguages.includes(language as SupportedLanguage)) {
-    localStorage.setItem("powerhouse-language", language);
     document.documentElement.lang = language;
   }
 });
 
-document.documentElement.lang = initialLanguage;
+document.documentElement.lang = "es";
 
 export default i18n;

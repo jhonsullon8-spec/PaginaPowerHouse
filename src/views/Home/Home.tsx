@@ -95,7 +95,7 @@ const Home = () => {
 	return (
 		<div className="overflow-hidden bg-[#F5F5F3] text-[#111111]">
 			<section className="relative flex min-h-[min(820px,100svh)] items-end overflow-hidden bg-[#111111] pb-16 pt-36 text-white sm:pb-20 md:pb-28">
-				<img src={getWordPressImageUrl("2026/02/diferencia1-scaled.jpg")} alt="" className="absolute inset-0 h-full w-full object-cover opacity-35" />
+				<img src={getWordPressImageUrl("2026/02/diferencia1-scaled.jpg")} alt="" fetchPriority="high" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-35" />
 				<div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/90 to-[#111111]/35" />
 				<div className="pointer-events-none absolute -right-40 top-24 h-96 w-96 rounded-full border border-[#C1121F]/35 shadow-[0_0_100px_rgba(193,18,31,0.2)]" />
 				<div className="relative mx-auto w-full max-w-7xl px-6 md:px-10">
@@ -127,6 +127,7 @@ const Home = () => {
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 									referrerPolicy="strict-origin-when-cross-origin"
 									allowFullScreen
+									loading="lazy"
 									className="absolute inset-0 h-full w-full"
 								/>
 							</div>
@@ -160,7 +161,7 @@ const Home = () => {
 						<motion.div role="dialog" aria-modal="true" aria-label={selectedFront.title} className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#111111] to-[#1a1a1a] shadow-[0_40px_100px_rgba(0,0,0,0.7)]" initial={{ opacity: 0, y: 30, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.97 }} onClick={(event) => event.stopPropagation()}>
 							<button type="button" onClick={() => setSelectedFront(null)} aria-label={t("common.close")} className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#111111]/80 text-xl text-white backdrop-blur-sm transition-colors hover:bg-[#C1121F]">×</button>
 							<div className="relative min-h-[350px] sm:min-h-[420px]">
-								<img src={selectedFront.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
+								<img src={selectedFront.image} alt="" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
 								<div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#111111]/50 to-[#111111]" />
 								<div className="absolute bottom-0 left-0 right-0 p-8 sm:p-10">
 									<span className="text-sm font-bold tracking-[0.2em] text-[#E3424D]">{selectedFront.number}</span>

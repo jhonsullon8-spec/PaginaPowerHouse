@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
-import Home from "./views/Home/Home";
-import Nosotros from "./views/About/About";
-import GruposDeConexion from "./views/GruposDeConexion/GruposDeConexion";
-import Services from "./views/Services/Services.tsx";
-import Contact from "./views/Contact/Contact";
-import Beliefs from "./views/Beliefs/Beliefs";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/footer";
 import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
 import DonationButton from "./components/DonationButton/DonationButton";
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
+
+const Home = lazy(() => import("./views/Home/Home"));
+const About = lazy(() => import("./views/About/About"));
+const Beliefs = lazy(() => import("./views/Beliefs/Beliefs"));
+const Services = lazy(() => import("./views/Services/Services"));
+const GruposDeConexion = lazy(() => import("./views/GruposDeConexion/GruposDeConexion"));
+const Contact = lazy(() => import("./views/Contact/Contact"));
 
 type View = "home" | "about" | "beliefs" | "services" | "grupos" | "contact";
 
@@ -60,7 +61,7 @@ function App() {
 
   const views = {
     home: <Home />,
-    about: <Nosotros />,
+    about: <About />,
     beliefs: <Beliefs />,
     services: <Services />,
     grupos: <GruposDeConexion />,
@@ -70,7 +71,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <main key={view}>{views[view]}</main>
+      <main key={view}>
+        <Suspense fallback={<PageFallback />}>{views[view]}</Suspense>
+      </main>
       <Footer />
       <DonationButton />
       <WhatsAppButton />
@@ -78,5 +81,11 @@ function App() {
     </>
   );
 }
+
+const PageFallback = () => (
+  <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Cargando">
+    <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#C1121F]/20 border-t-[#C1121F]" />
+  </div>
+);
 
 export default App;

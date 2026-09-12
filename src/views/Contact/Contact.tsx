@@ -11,8 +11,7 @@ const fieldControlClasses = "mt-1 w-full rounded-xl border border-[#DADAD6] bg-[
 
 const Contact = () => {
   const { t } = useTranslation();
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState("");
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const discoveryOptions = [
     t("contact.discoveryOption1"),
@@ -25,13 +24,16 @@ const Contact = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSent(false);
-    setError("");
+    const form = event.currentTarget;
+    setStatus("idle");
 
     const formData = new FormData(event.currentTarget);
 
     const payload: Record<string, string> = {
-      subject: t("contact.emailSubject"),
+      _subject: t("contact.emailSubject"),
+      _captcha: "false",
+      _template: "table",
+      _honey: String(formData.get("_honey") ?? ""),
       [t("contact.firstVisit")]: String(formData.get("firstVisit") ?? ""),
       [t("contact.discovery")]: String(formData.get("discovery") ?? ""),
       [t("contact.fullName")]: String(formData.get("name") ?? ""),
@@ -47,16 +49,24 @@ const Contact = () => {
     try {
       const res = await fetch(FORMSUBMIT_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error("network");
+      const data = await res.json().catch(() => null);
 
-      setSent(true);
-      event.currentTarget.reset();
+      if (data?.success === "true") {
+        setStatus("success");
+        form.reset();
+        return;
+      }
+
+      setStatus("error");
     } catch {
-      setError(t("contact.emailNotConfig"));
+      setStatus("error");
     }
   };
 
@@ -82,6 +92,7 @@ const Contact = () => {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
+            <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
             <Field label={t("contact.firstVisit")} name="firstVisit" required>
               <select name="firstVisit" required className={fieldControlClasses}>
                 <option value="">{t("contact.selectOption")}</option>
@@ -136,8 +147,8 @@ const Contact = () => {
             </Field>
           </div>
 
-          {error && <p className="mt-6 rounded-xl border border-[#C1121F]/20 bg-[#C1121F]/5 p-4 text-sm text-[#8F0D17]" role="alert">{error}</p>}
-          {sent && <p className="mt-6 rounded-xl border border-[#18864B]/20 bg-[#18864B]/5 p-4 text-sm text-[#126A3B]" role="status">{t("contact.emailReady")}</p>}
+          {status === "error" && <p className="mt-6 rounded-xl border border-[#C1121F]/20 bg-[#C1121F]/5 p-4 text-sm text-[#8F0D17]" role="alert">{t("contact.emailNotConfig")}</p>}
+          {status === "success" && <p className="mt-6 rounded-xl border border-[#18864B]/20 bg-[#18864B]/5 p-4 text-sm text-[#126A3B]" role="status">{t("contact.emailReady")}</p>}
 
           <button type="submit" className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 sm:w-auto">
             {t("common.send")}
