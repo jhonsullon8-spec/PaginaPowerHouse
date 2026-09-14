@@ -43,20 +43,20 @@ const WeeklyAgenda = () => {
           <DayColumn shortLabel={t("agenda.tuesday_short")} label={t("agenda.tuesday_full")}>
             <div className="flex flex-1 flex-col justify-between gap-4">
               <div className="flex flex-col gap-2">
-                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/Diseno-imprimible-para-conocer-a-Dios-.png" alt="" loading="lazy" decoding="async" className="w-full rounded-xl object-cover" />
+                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/Diseno-imprimible-para-conocer-a-Dios-.png" alt="" loading="lazy" decoding="async" className="mx-auto w-full max-w-[18rem] rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t("agenda.tue_pray_label")}</span>
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">7 PM</span>
               </div>
 
               <div className="flex flex-col gap-2">
-                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/Diseno-imprimible-para-conocer-a-Dios-1.png" alt="" loading="lazy" decoding="async" className="w-full rounded-xl object-cover" />
+                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/Diseno-imprimible-para-conocer-a-Dios-1.png" alt="" loading="lazy" decoding="async" className="mx-auto w-full max-w-[18rem] rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t("agenda.tue_discipline_label")}</span>
-                <span className="text-right text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">7:30</span>
+                <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">7:30</span>
               </div>
 
               <div className="flex flex-col gap-2">
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t("agenda.tue_girls_label")}</span>
-                <img src="https://perupowerhouse.com/wp-content/uploads/2022/01/Sin-titulo-1.png" alt="" loading="lazy" decoding="async" className="w-full rounded-xl object-cover" />
+                <img src="https://perupowerhouse.com/wp-content/uploads/2022/01/Sin-titulo-1.png" alt="" loading="lazy" decoding="async" className="mx-auto w-full max-w-[18rem] rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">8 PM</span>
               </div>
             </div>
@@ -68,15 +68,15 @@ const WeeklyAgenda = () => {
                 <span className="block">{t("agenda.wed_men_line1")}</span>
                 <span className="block">{t("agenda.wed_men_line2")}</span>
               </h4>
-              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2836-copia.png" alt="Manchurch" loading="lazy" decoding="async" className="w-full rounded-xl object-cover" />
-              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2848-1.png" alt="" loading="lazy" decoding="async" className="mt-2 w-full rounded-xl object-cover" />
+              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2836-copia.png" alt="Manchurch" loading="lazy" decoding="async" className="mx-auto w-full max-w-[18rem] rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
+              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2848-1.png" alt="" loading="lazy" decoding="async" className="mx-auto mt-2 w-full max-w-[18rem] rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
               <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">7 PM</span>
             </div>
           </DayColumn>
 
           <DayColumn shortLabel={t("agenda.thursday_short")} label={t("agenda.thursday_full")}>
             <div className="flex h-full w-full flex-col justify-center gap-2">
-              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2842.png" alt="" loading="lazy" decoding="async" className="w-full rounded-xl object-cover" />
+              <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2842.png" alt="" loading="lazy" decoding="async" className="mx-auto w-full max-w-[18rem] rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
               <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">8 PM</span>
               <span className="text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">{t("agenda.thu_piura_l1")}</span>
               <span className="text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60">{t("agenda.thu_piura_l2")}</span>
@@ -87,19 +87,19 @@ const WeeklyAgenda = () => {
           <DayColumn shortLabel={t("agenda.saturday_short")} label={t("agenda.saturday_full")}>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-2">
-                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2838.png" alt="" loading="lazy" decoding="async" className="w-full rounded-xl object-cover" />
+                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2838.png" alt="" loading="lazy" decoding="async" className="mx-auto w-full max-w-[18rem] rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t("agenda.sat_gen180_label")}</span>
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">4-6pm</span>
               </div>
 
               <div className="flex flex-col gap-2">
-                <img src="https://perupowerhouse.com/wp-content/uploads/2022/02/LOGO.png" alt="" loading="lazy" decoding="async" className="w-full rounded-xl object-cover" />
+                <img src="https://perupowerhouse.com/wp-content/uploads/2022/02/LOGO.png" alt="" loading="lazy" decoding="async" className="mx-auto w-full max-w-[18rem] brightness-0 invert rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t("agenda.sat_focus_label")}</span>
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">6-8pm</span>
               </div>
 
               <div className="flex flex-col gap-2">
-                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2830.png" alt="" loading="lazy" decoding="async" className="w-full rounded-xl object-cover" />
+                <img src="https://perupowerhouse.com/wp-content/uploads/2026/09/IMG_2830.png" alt="" loading="lazy" decoding="async" className="mx-auto w-full max-w-[18rem] rounded-xl object-cover sm:max-w-[15rem] lg:max-w-none" />
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">{t("agenda.sat_relevant_label")}</span>
                 <span className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">8-10pm</span>
               </div>
@@ -108,7 +108,7 @@ const WeeklyAgenda = () => {
 
           <DayColumn shortLabel={t("agenda.sunday_short")} label={t("agenda.sunday_full")}>
             <div className="flex h-full w-full flex-col items-center justify-center gap-5">
-              <h4 className="-mt-12 text-center text-2xl font-bold uppercase leading-tight tracking-tight text-white">{t("agenda.sun_services_title")}</h4>
+              <h4 className="text-center text-2xl font-bold uppercase leading-tight tracking-tight text-white lg:-mt-12">{t("agenda.sun_services_title")}</h4>
               <div className="flex w-full max-w-[14rem] flex-col items-center gap-8">
                 <div className="flex w-full flex-col items-center gap-1 rounded-2xl border border-white/10 bg-[#2563EB] px-5 py-4 text-center shadow-[0_10px_30px_rgba(37,99,235,0.25)]">
                   <span className="block w-full text-sm font-bold uppercase tracking-[0.18em] text-white">{t("agenda.sun_service1_l1")}</span>

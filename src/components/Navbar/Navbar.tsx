@@ -12,7 +12,7 @@ const navLinks = [
   { number: "05", key: "grupos", href: "/grupos-de-conexion" },
 ];
 
-const darkPaths = ["/", "/nosotros", "/servicios", "/contacto", "/grupos-de-conexion"];
+const darkPaths = ["/", "/nosotros", "/servicios", "/contacto"];
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -78,8 +78,8 @@ const Navbar = () => {
         transition={{ duration: 0.25, ease: "easeOut" }}
         className={`mx-auto max-w-7xl rounded-full border transition-all duration-300 ${
           isScrolled
-            ? "border-[#1A1A1A]/10 bg-white/80 shadow-[0_20px_40px_rgba(17,17,17,0.08)] backdrop-blur-md"
-            : "border-white/10 bg-[#111111]/20 shadow-[0_10px_30px_rgba(17,17,17,0.06)] backdrop-blur-sm"
+            ? "border-[#1A1A1A]/10 bg-white/60 shadow-[0_20px_40px_rgba(17,17,17,0.08)] backdrop-blur-lg"
+            : "border-white/10 bg-[#111111]/10 shadow-[0_10px_30px_rgba(17,17,17,0.06)] backdrop-blur-md"
         }`}
       >
         <div className="flex items-center justify-between px-4 py-3 sm:px-5 md:px-7">
