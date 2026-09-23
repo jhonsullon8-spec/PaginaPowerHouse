@@ -26,10 +26,12 @@ describe("routes", () => {
     for (const path of values) expect(path.startsWith("/")).toBe(true);
   });
 
-  it("darkPaths incluye las vistas de portada oscura", () => {
+  it("darkPaths incluye solo las vistas de portada oscura", () => {
     expect(darkPaths).toContain("/");
     expect(darkPaths).toContain("/nosotros");
     expect(darkPaths).toContain("/servicios");
-    expect(darkPaths).toContain("/contacto");
+    expect(darkPaths).not.toContain("/creencias");
+    expect(darkPaths).not.toContain("/grupos-de-conexion");
+    expect(darkPaths).not.toContain("/contacto");
   });
 });

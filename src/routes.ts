@@ -12,7 +12,7 @@ export const paths: Record<View, string> = {
 
 export const validPaths = Object.values(paths);
 
-export const darkPaths = ["/", "/nosotros", "/servicios", "/contacto"];
+export const darkPaths = ["/", "/nosotros", "/servicios"];
 
 export const normalizePath = (pathname: string) => {
   const path = pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;

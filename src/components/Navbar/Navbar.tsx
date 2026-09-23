@@ -35,12 +35,16 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const handlePopState = () => {
+    const handleRouteChange = () => {
       setIsDarkView(darkPaths.includes(normalizePath(window.location.pathname)));
     };
 
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
+    window.addEventListener("popstate", handleRouteChange);
+    window.addEventListener("powerhouse:route-change", handleRouteChange);
+    return () => {
+      window.removeEventListener("popstate", handleRouteChange);
+      window.removeEventListener("powerhouse:route-change", handleRouteChange);
+    };
   }, []);
 
   useEffect(() => {

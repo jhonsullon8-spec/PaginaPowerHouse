@@ -34,6 +34,7 @@ function App() {
     const handlePopState = () => {
       setView(viewFromPath(window.location.pathname));
       window.scrollTo({ top: 0, behavior: "smooth" });
+      window.dispatchEvent(new Event("powerhouse:route-change"));
     };
 
     const handleInternalLink = (event: MouseEvent) => {
@@ -52,6 +53,7 @@ function App() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
       setView(viewFromPath(targetPath));
+      window.dispatchEvent(new Event("powerhouse:route-change"));
     };
 
     window.addEventListener("popstate", handlePopState);
