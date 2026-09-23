@@ -2,8 +2,7 @@ import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion } from "motion/react";
-
-const WHATSAPP_NUMBER = "51951690209";
+import { WHATSAPP_NUMBER } from "../../data/contact";
 
 const MOBILE_MENU_QUERY = window.matchMedia("(max-width: 767px)");
 

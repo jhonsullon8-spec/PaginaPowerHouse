@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getWordPressImageUrl } from "../../data/images";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
+import { darkPaths, normalizePath } from "../../routes";
 
 const navLinks = [
   { number: "01", key: "home", href: "/" },
@@ -12,14 +13,12 @@ const navLinks = [
   { number: "05", key: "grupos", href: "/grupos-de-conexion" },
 ];
 
-const darkPaths = ["/", "/nosotros", "/servicios", "/contacto"];
-
 const Navbar = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkView, setIsDarkView] = useState(() =>
-    darkPaths.includes(window.location.pathname),
+    darkPaths.includes(normalizePath(window.location.pathname)),
   );
 
   useEffect(() => {
@@ -36,12 +35,12 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setIsDarkView(darkPaths.includes(window.location.pathname));
+    const handlePopState = () => {
+      setIsDarkView(darkPaths.includes(normalizePath(window.location.pathname)));
     };
 
-    window.addEventListener("popstate", handleHashChange);
-    return () => window.removeEventListener("popstate", handleHashChange);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   useEffect(() => {

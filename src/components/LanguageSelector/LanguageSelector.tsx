@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { languageOptions, type SupportedLanguage } from "../../i18n";
+import { languageOptions, setLanguage, type SupportedLanguage } from "../../i18n";
 
 type LanguageSelectorProps = {
   className?: string;
@@ -11,7 +11,7 @@ const LanguageSelector = ({ className }: LanguageSelectorProps) => {
   const selectedLanguage = languageOptions.find((language) => language.code === i18n.language) ?? languageOptions[0];
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    void i18n.changeLanguage(event.target.value as SupportedLanguage);
+    void setLanguage(event.target.value as SupportedLanguage);
   };
 
   const baseDesktop = "fixed left-6 top-5 z-[70] hidden min-w-[5.75rem] items-center rounded-full bg-white/90 p-1 text-left text-[#111111] shadow-[0_8px_24px_rgba(17,17,17,0.16)] backdrop-blur-md md:inline-flex md:left-8";

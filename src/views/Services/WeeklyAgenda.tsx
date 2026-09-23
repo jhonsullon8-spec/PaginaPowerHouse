@@ -1,6 +1,7 @@
+import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 
-const DayColumn = ({ shortLabel, label, children }: { shortLabel: string; label: string; children?: React.ReactNode }) => (
+const DayColumn = ({ shortLabel, label, children }: { shortLabel: string; label: string; children?: ReactNode }) => (
   <div className="flex flex-col border-b border-white/10 p-5 sm:p-6 lg:border-b-0 lg:border-r lg:last:border-r-0">
     <div className="mb-6 border-b border-[#2563EB]/25 pb-5">
       <span className="block text-xs font-bold uppercase tracking-[0.2em] text-[#38BDF8]">{shortLabel}</span>

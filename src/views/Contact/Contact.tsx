@@ -1,17 +1,20 @@
-import { useState, type FormEvent, type ReactNode } from "react";
+import { cloneElement, useState, type FormEvent, type ReactElement } from "react";
 import { useTranslation } from "react-i18next";
+import { COMPANY_EMAIL } from "../../data/contact";
 
 const GOOGLE_MAPS_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.06849040459!2d-80.635!3d-5.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a1008c1a636fb%3A0x28a04e6724afb097!2sPowerHouse%20Church%20Peru!5e0!3m2!1ses!2spe!4v1";
 
-const COMPANY_EMAIL = "PowerHouseChurchperu@gmail.com";
 const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${COMPANY_EMAIL}`;
+
+const MIN_SUBMIT_TIME_MS = 3000;
 
 const fieldControlClasses = "mt-1 w-full rounded-xl border border-[#DADAD6] bg-[#FAFAF8] px-4 py-3 text-sm text-[#222222] outline-none transition-colors placeholder:text-[#A0A0A0] focus:border-[#C1121F] focus:ring-2 focus:ring-[#C1121F]/10";
 
 const Contact = () => {
   const { t } = useTranslation();
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const discoveryOptions = [
     t("contact.discoveryOption1"),
@@ -24,14 +27,22 @@ const Contact = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.currentTarget;
-    setStatus("idle");
+    if (isSubmitting) return;
 
+    const form = event.currentTarget;
+    const startedAt = Date.now();
     const formData = new FormData(event.currentTarget);
+
+    if (String(formData.get("_honey") ?? "") !== "") {
+      setStatus("success");
+      return;
+    }
+
+    setStatus("idle");
+    setIsSubmitting(true);
 
     const payload: Record<string, string> = {
       _subject: t("contact.emailSubject"),
-      _captcha: "false",
       _template: "table",
       _honey: String(formData.get("_honey") ?? ""),
       [t("contact.firstVisit")]: String(formData.get("firstVisit") ?? ""),
@@ -47,6 +58,11 @@ const Contact = () => {
     };
 
     try {
+      if (Date.now() - startedAt < MIN_SUBMIT_TIME_MS) {
+        setStatus("error");
+        return;
+      }
+
       const res = await fetch(FORMSUBMIT_URL, {
         method: "POST",
         headers: {
@@ -67,6 +83,8 @@ const Contact = () => {
       setStatus("error");
     } catch {
       setStatus("error");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -150,8 +168,8 @@ const Contact = () => {
           {status === "error" && <p className="mt-6 rounded-xl border border-[#C1121F]/20 bg-[#C1121F]/5 p-4 text-sm text-[#8F0D17]" role="alert">{t("contact.emailNotConfig")}</p>}
           {status === "success" && <p className="mt-6 rounded-xl border border-[#18864B]/20 bg-[#18864B]/5 p-4 text-sm text-[#126A3B]" role="status">{t("contact.emailReady")}</p>}
 
-          <button type="submit" className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 sm:w-auto">
-            {t("common.send")}
+          <button type="submit" disabled={isSubmitting} className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#8F0D17] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C1121F] focus-visible:ring-offset-4 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
+            {isSubmitting ? t("common.sending") : t("common.send")}
           </button>
         </form>
       </div>
@@ -173,12 +191,12 @@ const Contact = () => {
   );
 };
 
-type FieldProps = { label: string; name: string; required?: boolean; children: ReactNode };
+type FieldProps = { label: string; name: string; required?: boolean; children: ReactElement<{ id?: string }> };
 
 const Field = ({ label, name, required = false, children }: FieldProps) => (
   <label htmlFor={name} className="block">
     <span className="mb-2 block text-sm font-medium text-[#333333]">{label}{required && <span className="ml-1 text-[#C1121F]">*</span>}</span>
-    {children}
+    {cloneElement(children, { id: name })}
   </label>
 );
 

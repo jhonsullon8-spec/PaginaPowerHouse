@@ -1,13 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { getWordPressImageUrl } from "../../data/images";
-
-const WHATSAPP_NUMBER = "51951690209";
+import { WHATSAPP_NUMBER } from "../../data/contact";
+import QrCode from "../../components/QRCode/QrCode";
 
 const GROUPS_IMAGE =
   "https://perupowerhouse.com/wp-content/uploads/2022/02/89226359_1819160668217692_3004242886687457280_n.jpg";
-
-const qrSource = (data: string) =>
-  `https://api.qrserver.com/v1/create-qr-code/?size=150x150&margin=6&data=${encodeURIComponent(data)}`;
 
 type GroupBlockProps = {
   qrData: string;
@@ -19,7 +16,7 @@ type GroupBlockProps = {
 
 const GroupBlock = ({ qrData, location, hosts, time, address }: GroupBlockProps) => (
   <div className="flex items-start gap-4 border-t-2 border-[#111111] pt-5 sm:gap-5">
-    <img src={qrSource(qrData)} alt={`QR ${location}`} width={108} height={108} className="h-[100px] w-[100px] shrink-0 object-contain sm:h-[108px] sm:w-[108px]" />
+    <QrCode data={qrData} label={`QR ${location}`} size={108} className="h-[100px] w-[100px] shrink-0 object-contain sm:h-[108px] sm:w-[108px]" />
     <div>
       <h3 className="text-xl font-black uppercase leading-tight tracking-tight text-[#111111] sm:text-2xl">{location}</h3>
       {hosts && <p className="mt-1 text-sm font-bold uppercase text-[#111111]">{hosts}</p>}

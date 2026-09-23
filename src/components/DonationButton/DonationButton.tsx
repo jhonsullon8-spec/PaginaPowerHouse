@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef, type MouseEvent } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import { useFocusTrap } from "../../hooks/useFocusTrap";
 
 const MOBILE_MENU_QUERY = window.matchMedia("(max-width: 767px)");
 
@@ -65,15 +66,22 @@ const DonationButton = () => {
   ];
   const [imageExpanded, setImageExpanded] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+  const expandedRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(modalRef, isOpen && !imageExpanded);
+  useFocusTrap(expandedRef, isOpen && imageExpanded);
 
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
+      if (e.key === "Escape") {
+        if (imageExpanded) setImageExpanded(false);
+        else setIsOpen(false);
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
+  }, [isOpen, imageExpanded]);
 
   useEffect(() => {
     const openDonation = () => setIsOpen(true);
@@ -91,10 +99,6 @@ const DonationButton = () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-
-  const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) setIsOpen(false);
-  };
 
   return (
     <>
@@ -135,7 +139,7 @@ const DonationButton = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            onClick={handleBackdropClick}
+            onClick={() => setIsOpen(false)}
           >
             {/* Backdrop */}
             <motion.div
@@ -157,6 +161,7 @@ const DonationButton = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.97 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(event) => event.stopPropagation()}
             >
               {/* Close button */}
               <button
@@ -254,6 +259,7 @@ const DonationButton = () => {
       <AnimatePresence>
         {imageExpanded && (
           <motion.div
+            ref={expandedRef}
             className="fixed inset-0 z-[110] flex items-center justify-center px-4 py-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

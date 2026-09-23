@@ -1,14 +1,87 @@
 {
-  "nav": { "home": "Startseite", "about": "Über uns", "beliefs": "Glauben", "services": "Angebote", "grupos": "Verbindungsgruppen", "visit": "Besuche uns", "openMenu": "Menü öffnen", "closeMenu": "Menü schließen", "language": "Sprache", "ariaMain": "Hauptnavigation", "ariaHome": "Zur Startseite", "menu": "Menü" },
-  "services": { "eyebrow": "Was wir tun", "title": "Ein Ort zum Wachsen, Dienen und Verbinden.", "description": "PowerHouse begleitet dich in jeder Lebensphase und hilft dir, einen sinnvollen Glauben zu leben.", "all": "Alle", "community": "Gemeinschaft", "formation": "Bildung", "families": "Familien", "impact": "Wirkung", "details": "Details ansehen", "talk": "Lass uns reden", "nextStep": "Mach den nächsten Schritt und entdecke, wie du Teil von PowerHouse werden kannst.", "category": { "community": "Gemeinschaft", "purpose": "Bildung", "family": "Familien", "impact": "Wirkung" }, "items": { "community": { "title": "Mit der Gemeinschaft verbinden", "description": "Finde einen Ort zum Teilen, Wachsen und für Beziehungen über den Sonntag hinaus.", "details": "Nimm an Gruppen und Treffen teil, lerne Menschen kennen und gehe gemeinsam durch die Woche.", "action": "Gemeinschaft kennenlernen" }, "purpose": { "title": "Deine Berufung entdecken", "description": "Erkenne deine Gaben und finde konkrete Wege, sie für etwas Größeres einzusetzen.", "details": "Wir helfen dir, deine Talente durch Begleitung, Bildung und Unterstützung zu erkennen und auszurichten.", "action": "Über meine Berufung sprechen" }, "family": { "title": "Als Familie wachsen", "description": "Erfahrungen, in denen jede Generation ihren Platz findet.", "details": "Räume für Kinder, Jugendliche, Erwachsene und Familien, um gemeinsam zu wachsen und Beziehungen aufzubauen.", "action": "Meinen Platz finden" }, "impact": { "title": "Dienen und Wirkung schaffen", "description": "Nimm an Initiativen teil, die Glauben in konkrete Taten für unsere Stadt verwandeln.", "details": "Engagiere dich in Initiativen, die auf echte Bedürfnisse reagieren und unsere Stadt verändern.", "action": "Ich möchte dienen" } },     "close": "Details schließen", "ariaFilter": "Angebote nach Kategorie filtern",
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "beliefs": "Glauben",
+    "services": "Angebote",
+    "grupos": "Verbindungsgruppen",
+    "visit": "Besuche uns",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "language": "Sprache",
+    "ariaMain": "Hauptnavigation",
+    "ariaHome": "Zur Startseite",
+    "menu": "Menü"
+  },
+  "services": {
+    "eyebrow": "Was wir tun",
+    "title": "Ein Ort zum Wachsen, Dienen und Verbinden.",
+    "description": "PowerHouse begleitet dich in jeder Lebensphase und hilft dir, einen sinnvollen Glauben zu leben.",
+    "details": "Details ansehen",
+    "talk": "Lass uns reden",
+    "nextStep": "Mach den nächsten Schritt und entdecke, wie du Teil von PowerHouse werden kannst.",
+    "close": "Details schließen",
+    "ariaFilter": "Angebote nach Kategorie filtern",
     "specific": {
-      "prayer": { "title": "Gebetsabende", "description": "Ein Ort für Gebet und die Suche nach Gott in der Gemeinschaft, gestärkt im Glauben und gemeinsam im Glauben wachsen.", "details": "Gebetsabende bringen Menschen zusammen, die Gott suchen, ihre Beziehung zu ihm vertiefen und eine Zeit des geistlichen Wachstums in der Gemeinschaft erleben möchten.", "action": "Am Gebet teilnehmen" },
-      "manChurch": { "title": "Man Church International", "description": "Ein Ort für Männer, die sich treffen, ihre Beziehung zu Gott stärken und in ihrem geistlichen und persönlichen Wachstum voranschreiten möchten.", "details": "Man Church International ist speziell für Männer gedacht, die in ihrem Glauben wachsen, ihren Charakter stärken und ein festigeres geistliches Leben neben anderen entwickeln möchten.", "action": "Man Church kennenlernen" },
-      "connectionGroups": { "title": "Verbindungsgruppen", "description": "Kleine Gruppen, um sich zu verbinden, das Leben zu teilen, gemeinsam zu wachsen und eine enge Gemeinschaft aufzubauen.", "details": "Verbindungsgruppen schaffen Räume der Gemeinschaft, in denen Menschen sich kennenlernen, teilen, sich gegenseitig unterstützen und Beziehungen aufbauen können.", "action": "Gruppe beitreten" },
-      "powerhouseKids": { "title": "Powerhouse Kids", "description": "Ein Ort, an dem Kinder Gott näherkommen, lernen und im Glauben wachsen können, durch Erfahrungen, die auf jede Entwicklungsphase vorbereitet sind.", "details": "Powerhouse Kids begleitet Kinder mit altersgerechten Aktivitäten und Erfahrungen, hilft ihnen zu lernen, ihre Beziehung zu Gott zu entwickeln und in einem auf sie vorbereiteten Umfeld zu wachsen.", "action": "Powerhouse Kids kennenlernen", "kidsStages": { "cuna": { "title": "Kinderkrippe", "ageRange": "0-5 Jahre", "description": "Ein Ort, um Gott durch altersgerechte Aktivitäten für kleine Kinder näherzukommen, in einem auf Lernen und Entwicklung vorbereiteten Umfeld." }, "parvulos": { "title": "Kleinkinder", "ageRange": "1. bis 3. Klasse", "description": "Eine Phase, um Prinzipien und Werte auf Basis des Wortes Gottes durch altersgerechte Aktivitäten und Erfahrungen zu lernen." }, "powerhouseKids": { "title": "Powerhouse Kids", "ageRange": "4. bis 6. Klasse", "description": "Ein Ort, der ihr Wachstum begleitet, ihre Beziehung zu Gott stärkt und ihnen hilft, das Wort in ihrem Alltag anzuwenden." } } },
-      "gen180": { "title": "GEN180", "description": "Ein Ort für Schüler der Sekundarstufe im Alter von 12 bis 17 Jahren, geschaffen, um sie in ihrem Wachstum und ihrer geistlichen Formation während einer Schlüsselphase ihres Lebens zu begleiten.", "details": "GEN180 begleitet Schüler im Alter von 12 bis 17 Jahren durch einen Raum des geistlichen Wachstums und der Formation, hilft ihnen, ihren Glauben in dieser Phase zu stärken.", "action": "GEN180 kennenlernen" },
-      "focus": { "title": "FOCUS", "description": "Eine Gemeinschaft für junge Erwachsene von 17 bis 24 Jahren, die die Sekundarstufe abgeschlossen haben und eine Phase des Studiums oder persönlichen Wachstums durchlaufen.", "details": "FOCUS begleitet junge Erwachsene von 17 bis 24 Jahren bei ihren aktuellen Herausforderungen und bietet einen Ort zum Wachsen und zur Vertiefung der Beziehung zu Gott.", "action": "FOCUS kennenlernen" },
-      "relevant": { "title": "RELEVANT", "description": "Ein Ort für junge Erwachsene von 25 bis 35 Jahren, die ihre Beziehung zu Gott stärken, spirituelle Grundlagen aufbauen und gemeinsam mit anderen wachsen möchten.", "details": "RELEVANT begleitet junge Erwachsene von 25 bis 35 Jahren durch Beziehungen und spirituelle Grundlagen, die ihnen helfen, ihren Glauben zu leben und in dieser Phase zu wachsen.", "action": "RELEVANT kennenlernen" }
+      "prayer": {
+        "title": "Gebetsabende",
+        "description": "Ein Ort für Gebet und die Suche nach Gott in der Gemeinschaft, gestärkt im Glauben und gemeinsam im Glauben wachsen.",
+        "details": "Gebetsabende bringen Menschen zusammen, die Gott suchen, ihre Beziehung zu ihm vertiefen und eine Zeit des geistlichen Wachstums in der Gemeinschaft erleben möchten.",
+        "action": "Am Gebet teilnehmen"
+      },
+      "manChurch": {
+        "title": "Man Church International",
+        "description": "Ein Ort für Männer, die sich treffen, ihre Beziehung zu Gott stärken und in ihrem geistlichen und persönlichen Wachstum voranschreiten möchten.",
+        "details": "Man Church International ist speziell für Männer gedacht, die in ihrem Glauben wachsen, ihren Charakter stärken und ein festigeres geistliches Leben neben anderen entwickeln möchten.",
+        "action": "Man Church kennenlernen"
+      },
+      "connectionGroups": {
+        "title": "Verbindungsgruppen",
+        "description": "Kleine Gruppen, um sich zu verbinden, das Leben zu teilen, gemeinsam zu wachsen und eine enge Gemeinschaft aufzubauen.",
+        "details": "Verbindungsgruppen schaffen Räume der Gemeinschaft, in denen Menschen sich kennenlernen, teilen, sich gegenseitig unterstützen und Beziehungen aufbauen können.",
+        "action": "Gruppe beitreten"
+      },
+      "powerhouseKids": {
+        "title": "Powerhouse Kids",
+        "description": "Ein Ort, an dem Kinder Gott näherkommen, lernen und im Glauben wachsen können, durch Erfahrungen, die auf jede Entwicklungsphase vorbereitet sind.",
+        "details": "Powerhouse Kids begleitet Kinder mit altersgerechten Aktivitäten und Erfahrungen, hilft ihnen zu lernen, ihre Beziehung zu Gott zu entwickeln und in einem auf sie vorbereiteten Umfeld zu wachsen.",
+        "action": "Powerhouse Kids kennenlernen",
+        "kidsStages": {
+          "cuna": {
+            "title": "Kinderkrippe",
+            "ageRange": "0-5 Jahre",
+            "description": "Ein Ort, um Gott durch altersgerechte Aktivitäten für kleine Kinder näherzukommen, in einem auf Lernen und Entwicklung vorbereiteten Umfeld."
+          },
+          "parvulos": {
+            "title": "Kleinkinder",
+            "ageRange": "1. bis 3. Klasse",
+            "description": "Eine Phase, um Prinzipien und Werte auf Basis des Wortes Gottes durch altersgerechte Aktivitäten und Erfahrungen zu lernen."
+          },
+          "powerhouseKids": {
+            "title": "Powerhouse Kids",
+            "ageRange": "4. bis 6. Klasse",
+            "description": "Ein Ort, der ihr Wachstum begleitet, ihre Beziehung zu Gott stärkt und ihnen hilft, das Wort in ihrem Alltag anzuwenden."
+          }
+        }
+      },
+      "gen180": {
+        "title": "GEN180",
+        "description": "Ein Ort für Schüler der Sekundarstufe im Alter von 12 bis 17 Jahren, geschaffen, um sie in ihrem Wachstum und ihrer geistlichen Formation während einer Schlüsselphase ihres Lebens zu begleiten.",
+        "details": "GEN180 begleitet Schüler im Alter von 12 bis 17 Jahren durch einen Raum des geistlichen Wachstums und der Formation, hilft ihnen, ihren Glauben in dieser Phase zu stärken.",
+        "action": "GEN180 kennenlernen"
+      },
+      "focus": {
+        "title": "FOCUS",
+        "description": "Eine Gemeinschaft für junge Erwachsene von 17 bis 24 Jahren, die die Sekundarstufe abgeschlossen haben und eine Phase des Studiums oder persönlichen Wachstums durchlaufen.",
+        "details": "FOCUS begleitet junge Erwachsene von 17 bis 24 Jahren bei ihren aktuellen Herausforderungen und bietet einen Ort zum Wachsen und zur Vertiefung der Beziehung zu Gott.",
+        "action": "FOCUS kennenlernen"
+      },
+      "relevant": {
+        "title": "RELEVANT",
+        "description": "Ein Ort für junge Erwachsene von 25 bis 35 Jahren, die ihre Beziehung zu Gott stärken, spirituelle Grundlagen aufbauen und gemeinsam mit anderen wachsen möchten.",
+        "details": "RELEVANT begleitet junge Erwachsene von 25 bis 35 Jahren durch Beziehungen und spirituelle Grundlagen, die ihnen helfen, ihren Glauben zu leben und in dieser Phase zu wachsen.",
+        "action": "RELEVANT kennenlernen"
+      }
     },
     "categories": {
       "all": "Alle",
@@ -21,16 +94,266 @@
       "relevant": "RELEVANT"
     }
   },
-  "common": { "missionEyebrow": "PowerHouse Servolución Peru · Unsere Mission", "missionTitle": "Wir verwandeln Chancen in neue Wege.", "missionLead": "Ein verändertes Leben kann andere verändern.", "missionText": "Du hast Gaben, Talente und eine einzigartige Persönlichkeit. Wir möchten dir helfen, deine Berufung zu entdecken.", "missionOrganization": "Wir sind eine gemeinnützige Organisation für Bildung, soziale Inklusion und Kompetenzentwicklung.", "education": "Bildung", "inclusion": "Soziale Inklusion", "skills": "Kompetenzentwicklung", "action": "Von Worten zu Taten", "gallery": "Galerie", "close": "Schließen", "aboutEyebrow": "Über uns", "aboutTitle": "Menschen, die unsere Gemeinschaft begleiten und führen.", "aboutDescription": "Wir begleiten Menschen, Familien und Leiter mit einer Vision von Glauben, Dienst und Gemeinschaft.", "learnMore": "Mehr erfahren", "beliefsEyebrow": "Unsere Lehre", "beliefsTitle": "Unser Glaube.", "beliefsDescription": "Das heilige Fundament unseres Glaubens und Lebens in Gemeinschaft.", "ministriesEyebrow": "Unsere Bereiche", "ministriesTitle": "Es gibt einen Platz für dich.", "ministriesDescription": "Entdecke Räume zum Verbinden, Wachsen und Mitmachen.", "contactEyebrow": "Willkommen bei PowerHouse", "contactTitle": "Wir möchten dich kennenlernen.", "contactDescription": "Danke, dass du dir Zeit nimmst, deinen ersten Schritt mit unserer Gemeinschaft zu gehen.", "formTitle": "Willkommensformular", "required": "Mit * markierte Felder sind Pflichtfelder.", "send": "Informationen senden", "footerTitle": "Ein Ort, an dem du deine Berufung lebst.", "footerDescription": "Eine Gemeinschaft, die an Menschen, Glauben und unsere gemeinsame Wirkung glaubt.", "explore": "Entdecken", "talk": "Sprechen wir", "contactUs": "Kontakt", "backHome": "Zur Startseite", "ministryName0": "Power Kids", "ministryDesc0": "Die Kleinen lernen, haben Spaß und wachsen in einer sicheren und liebevollen Umgebung.", "ministryName1": "Jugend", "ministryDesc1": "Verbinde dich, entdecke deine Berufung und entwickle Führungskompetenz mit anderen jungen Menschen.", "ministryName2": "Gemeinschaft", "ministryDesc2": "Verbindungsgruppen, um gemeinsam zu gehen, das Leben zu teilen und einander zu unterstützen.", "ministryName3": "Dienst", "ministryDesc3": "Entdecke, wie du dienen und einen echten Unterschied machen kannst.", "ariaPrev": "Zurück", "ariaNext": "Weiter", "followUs": "Folge uns in unseren Netzwerken", "social": "Soziale Netzwerke", "footerNav": "Fußzeilennavigation", "copyright": "Alle Rechte vorbehalten.", "ariaBackHome": "PowerHouse, zurück zur Startseite", "socialTikTok": "Unser TikTok besuchen", "socialFacebook": "Unsere Facebook-Seite besuchen", "socialInstagram": "Unser Instagram besuchen", "socialYouTube": "Unseren YouTube-Kanal besuchen", "experienceEyebrow": "DAS ERLEBNIS", "experienceTitle": "Erlebe PowerHouse", "experienceDescription": "Ein Ort zum Wachsen, Vernetzen und Entdecken deines Zwecks in Gemeinschaft.", "experienceImage": "PowerHouse-Bild" },
-  "about": { "pastorName": "Pastoren Jose und Kathryn Lopez", "pastorInfo": "Seniorpastoren der PowerHouse Kirche in Lateinamerika", "photoCaption": "PowerHouse Fotografie", "bio1": "Seniorpastoren der PowerHouse Kirche in Lateinamerika. Geistliche Söhne von G.F. Watkins und dem Genesis-Team. Kirchenführer in Peru für 14 Jahre, sie haben mehr als 500.000 Menschen in ihrer Region erreicht.", "bio2": "Im Jahr 2020 gründeten sie Alpha Men International, ein Männerministerium mit drei Hauptpfeilern: Identität, Bestätigung und Autorität.", "bio3": "Sie gründeten das internationale Alpha Men Modell und haben es in Lateinamerika, Europa und Südafrika verbreitet." },
-  "beliefs": { "group1": "Grundlagen der Wahrheit", "belief1_1_title": "Die Heilige Bibel", "belief1_1_desc": "Sie ist das Wort Gottes mit Autorität. Die einzige endgültige Autorität zur Bestimmung aller doktrinellen Wahrheit. Inspiriert, fehlbar und makellos.", "belief1_1_ref": "2 TIMOTHEUS 3:16 · 2 PETRUS 1:20-21 · SPRÜCHE 30:5", "belief1_2_title": "Die Dreieinigkeit", "belief1_2_desc": "Ein einziger Gott, ewig existierend in drei Personen: Vater, Sohn und Heiliger Geist. Gleich und ewig in Macht und Herrlichkeit.", "belief1_2_ref": "1 JOHANNES 5:7 · MATTHÄUS 28:19 · LUKAS 1:35", "belief1_3_title": "Die Jungfrauengeburt", "belief1_3_desc": "Jesus Christus wurde von Gott dem Vater durch den Heiligen Geist empfangen im Leib der Jungfrau Maria; daher ist Er der Sohn Gottes.", "belief1_3_ref": "MATTHÄUS 1:18, 23-25 · JESAJA 7:14", "group2": "Erlösung und Heil", "belief2_1_title": "Jesus Christus — Herr und Heiland", "belief2_1_desc": "Gott der Sohn, 100% Gott und 100% Mensch. Er lebte ohne Sünde, vollbrachte Wunder und starb am Kreuz zur Sühne unserer Sünden.", "belief2_1_ref": "JOHANNES 1:1, 14 · PHILIPPER 2:5-6 · 1 TIMOTHEUS 2:5", "belief2_2_title": "Heil durch Gnade", "belief2_2_desc": "Wir werden errettet durch Gnade durch den Glauben an Sein vollbrachtes Werk. Es ist ein Geschenk Gottes, kein Ergebnis menschlicher Anstrengungen.", "belief2_2_ref": "EPHESER 2:8-9 · RÖMER 10:9-10 · TITUS 3:5", "belief2_3_title": "Buße und Wiedergeburt", "belief2_3_desc": "Ein Engagement, sich von der Sünde abzuwenden, um Christus zu folgen. Wesentlich zur Erlösung und Wiedergeburt durch den Heiligen Geist.", "belief2_3_ref": "APOSTELGESCHICHTE 2:21 · 1 JOHANNES 1:9 · JOHANNES 6:44", "belief2_4_title": "Heiligung", "belief2_4_desc": "Ein kontinuierlicher Prozess der Unterwerfung unter das Wort und den Geist, um den Charakter Christi zu entwickeln.", "belief2_4_ref": "1 THESSALONICHER 4:3 · RÖMER 12:1-2", "group3": "Heiliger Geist und Kirche", "belief3_1_title": "Taufe im Heiligen Geist", "belief3_1_desc": "Die Verheißung des Vaters, die Kirche zu befähigen, das Evangelium mit Macht zu predigen.", "belief3_1_ref": "APOSTELGESCHICHTE 1:5, 2:1-4 · JOEL 2:28-29", "belief3_2_title": "Geistesgaben", "belief3_2_desc": "Manifestationen zur Erbauung der Kirche und Bestätigung des Evangeliums.", "belief3_2_ref": "1 KORINTHER 12:1-31 · HEBRÄER 2:4", "belief3_3_title": "Die Kirche", "belief3_3_desc": "Der Leib Christi und Wohnort Gottes, vereint im Geist, um den Großen Auftrag Jesu zu erfüllen.", "belief3_3_ref": "EPHESER 1:22 · JOHANNES 17:11, 20-23", "group4": "Sakramente und Versorgung", "belief4_1_title": "Taufe und Heiliges Abendmahl", "belief4_1_desc": "Taufe durch Tauchung als Ordnung und das Abendmahl als besondere Gemeinschaft zum Gedächtnis Seines Opfers.", "belief4_1_ref": "MATTHÄUS 28:19 · 1 KORINTHER 11:23-25", "belief4_2_title": "Göttliche Heilung", "belief4_2_desc": "Die Heilung der Kranken ist Teil des Werkes Jesu am Kreuz und ein Zeichen, das die Gläbegleitet.", "belief4_2_ref": "JESAJA 53:5 · JAKOBUS 5:14-16 · MATTHÄUS 8:16-17", "belief4_3_title": "Fülle und Versorgung", "belief4_3_desc": "Es ist der Wille des Vaters, dass wir Gesundheit, Erfolg und geistige, geistige und finanzielle Fülle erreichen.", "belief4_3_ref": "3 JOHANNES 1:2 · 2 KORINTHER 9:6-10 · JOSUA 1:8", "group5": "Ewigkeit und Werte", "belief5_1_title": "Auferstehung und Ewigkeit", "belief5_1_desc": "Physische Auferstehung der Geretteten zum ewigen Leben (Himmel) und der Ungläubigen zur ewigen Verdammnis (Hölle).", "belief5_1_ref": "JOHANNES 5:29 · OFFENBARUNG 20:12-15 · MATTHÄUS 25:34", "belief5_2_title": "Zweite Wiederkunft", "belief5_2_desc": "Jesus Christus wird physisch und sichtbar zum zweiten Mal wiederkommen, um Sein Königreich auf der Erde zu errichten.", "belief5_2_ref": "APOSTELGESCHICHTE 1:9-11 · OFFENBARUNG 1:7", "belief5_3_title": "Ehe und Sexualität", "belief5_3_desc": "Ein Bund, der ausschließlich einem Mann und einer Frau vorbehalten ist.", "belief5_3_ref": "1 MOSE 2:18-24 · EPHESER 5:31 · 1 KORINTHER 6:18", "beliefPassion": "Unsere Leidenschaft ist es, Familien durch Jesus gerettet zu sehen." },
-  "mission": { "stage": "Phase", "imageLabel": "Bild", "viewYouTube": "Video direkt auf YouTube ansehen", "videoTitle": "Einführungsvideo von PowerHouse Church Peru", "actionTitle": "Von Worten zu Taten", "powerKids": "Power Kids", "powerKidsSubtitle": "Eine Chance kann auch einen Weg in die Zukunft eröffnen.", "powerKidsInitiative": "Initiative in Piura · 2025", "powerKidsTitle": "Power Kids: Lernen, Wachsen und Spaß haben zusammen", "powerKidsText1": "Unser Ziel ist es, dass jedes Kind Werte, Identität und eine solide Grundlage von klein auf entwickelt.", "powerKidsText2": "Wir haben Räume, in denen sie lernen, Spaß haben und in einer sicheren Umgebung wachsen können.", "missionCard1Title": "Gott kennenlernen", "missionCard1Short": "Gott hat nicht mit dir improvisiert. Du hast Gaben, Talente und eine einzigartige Persönlichkeit.", "missionCard1Expanded": "Gott hat nicht mit dir improvisiert. Wir helfen dir, alles für etwas wirklich Wichtiges zu nutzen.", "missionCard2Title": "Freiheit finden", "missionCard2Short": "Wahre Freiheit ist nicht, zu tun was du willst, sondern ohne emotionale Ketten zu leben...", "missionCard2Expanded": "Wahre Freiheit ist nicht, zu tun was du willst, sondern ohne emotionale, geistige und seelische Ketten zu leben.", "missionCard3Title": "Deine Berufung entdecken", "missionCard3Short": "Du wurdest nicht durch Zufall erschaffen. Es gibt einen spezifischen Zweck für dein Leben...", "missionCard3Expanded": "Du wurdest nicht durch Zufall erschaffen. Wir helfen dir, deine Gaben zu identifizieren.", "missionCard4Title": "Einen Unterschied machen", "missionCard4Short": "Wir wurden nicht nur persönlich zu wachsen berufen, sondern die Welt um uns herum zu beeinflussen...", "missionCard4Expanded": "Wir wurden nicht nur persönlich zu wachsen berufen, sondern die Welt um uns herum zu beeinflussen." },
-  "contact": { "firstVisit": "Besuchen Sie uns zum ersten Mal?", "selectOption": "Wählen Sie eine Option", "yes": "Ja", "no": "Nein", "discovery": "Wie sind Sie auf PowerHouse aufmerksam geworden oder wer hat Sie eingeladen?", "fullName": "Vollständiger Name", "placeholder": "Ihre Antwort", "faithDecision": "Haben Sie sich heute entschieden, Jesus zu folgen?", "iamChristian": "Ich bin Christ", "age": "Alter", "maritalStatus": "Familienstand", "single": "Ledig", "married": "Verheiratet", "other": "Andere", "phone": "Telefonnummer", "address": "Wohnadresse", "growCourse": "Möchten Sie WACHSTUM besuchen?", "later": "Später", "volunteer": "Freiwilliger der registriert hat", "greeting": "Gott segne dich reichlich.", "emailReady": "Vielen Dank! Wir haben Ihre Informationen erhalten. Wir melden uns bald bei Ihnen.", "emailNotConfig": "Wir konnten Ihre Informationen nicht senden. Bitte versuchen Sie es in einigen Augenblicken erneut.", "emailSubject": "Neue Willkommen bei PowerHouse", "discoveryOption1": "Freunde", "discoveryOption2": "Soziale Medien", "discoveryOption3": "Familie", "discoveryOption4": "Flyer (Einladungskarte)", "discoveryOption5": "Verbindungsgruppe", "discoveryOption6": "Andere", "ariaMaps": "PowerHouse Church Peru Standort auf Google Maps" },
-  "calendar": { "eyebrow": "UNSERE WOCHE", "title": "Wöchentlicher Aktivitätskalender.", "description": "Es gibt einen Ort für jede Phase und jeden Moment deiner Woche. Schau ihn an, plane und begleite uns.", "notice": "Die Zeiten können je nach Saison variieren. Wir warten auf dich, es gibt einen Platz für dich!", "mon": "MO", "tue": "DI", "wed": "MI", "thu": "DO", "fri": "FR", "sat": "SA", "sun": "SO", "monday": "Montag", "tuesday": "Dienstag", "wednesday": "Mittwoch", "thursday": "Donnerstag", "friday": "Freitag", "saturday": "Samstag", "sunday": "Sonntag", "event_prayer": "Familiengebet", "event_prayer_desc": "Ein Ort, um für unsere Familien und Gemeinschaft zu beten.", "event_bible": "Bibelstudium", "event_bible_desc": "Wir vertiefen das Wort auf praktische Weise.", "event_worship": "Anbetungsproben", "event_worship_desc": "Wir üben die Lieder für das Wochenende.", "event_kids": "Power Kids", "event_kids_desc": "Die Kleinen lernen und haben Spaß.", "event_leaders": "Leitermeeting", "event_leaders_desc": "Schulung und Nachverfolgung des Ministeriumsteams.", "event_youth": "Jugend", "event_youth_desc": "Wir verbinden uns, wachsen und teilen den Glauben.", "event_groups": "Verbindungsgruppen", "event_groups_desc": "Kleine Gruppen zu Hause, um gemeinsam zu wachsen.", "event_community": "Gemeinschaftsdienst", "event_community_desc": "Wir beeinflussen unsere Gemeinschaft mit konkreten Aktionen.", "event_rehearsal": "Generalprobe", "event_rehearsal_desc": "Letzte Vorbereitung für die Feier.", "event_service1": "Erster Gottesdienst", "event_service1_desc": "Feier mit der Gemeinschaft.", "event_service2": "Zweiter Gottesdienst", "event_service2_desc": "Live-Feier für alle.", "event_service3": "Abendgottesdienst", "event_service3_desc": "Abschluss der Woche mit Anbetung." },
-  "donate": { "title": "Spende", "subtitle": "Unterstützen Sie unser Projekt", "bankTransfer": "Sie können auch per Banküberweisung spenden", "accountLabel": "Konto", "accountNumber": "Kontonummer", "close": "Schließen", "closeImage": "Bild schließen", "ariaOpen": "Spendemodal öffnen", "ariaExpand": "QR-Codes vergrößern", "tooltipDonate": "Spenden", "currencySoles": "Soles (S/.)", "currencyDollars": "Dollar ($)" },
-  "whatsapp": { "message": "Hallo PowerHouse 😄 Ich möchte mehr Informationen über Sie, Ihre Servicebereiche, Kurse usw. Gott segne Sie.", "tooltip": "Kontaktieren Sie uns auf WhatsApp", "ariaLabel": "PowerHouse auf WhatsApp kontaktieren" },
-"agenda": { "eyebrow": "Wochenplan", "title": "Unsere Woche", "title2": "bei PowerHouse", "description": "Verbinde dich, wachse und diene. Jeden Tag gibt es einen Platz für dich.", "tuesday_short": "DIE", "tuesday_full": "Dienstag", "tue_prayer": "Gebets-Dienstag", "tue_discipleship": "Jüngerschafts-Dienstag", "tue_radiant": "Strahlend", "wednesday_short": "MIT", "wednesday_full": "Mittwoch", "wed_men": "Männerabend", "thursday_short": "DON", "thursday_full": "Donnerstag", "thu_groups": "Verbindungsgruppen", "thu_piura": "Piura: 26. Oktober - Castilla (Virtuell)", "saturday_short": "SAM", "saturday_full": "Samstag", "sat_gen180_desc": "Gegen Kultur / Jugendliche", "sat_focus_desc": "Studentenjugend", "sat_relevant_desc": "Junge Erwachsene", "sunday_short": "SON", "sunday_full": "Sonntag", "sun_service1": "Erster Gottesdienst", "sun_service2": "Zweiter Gottesdienst", "tue_pray_label": "Wir beten", "tue_discipline_label": "Jüngerschaft", "tue_girls_label": "Mädchentreffen", "wed_men_line1": "Männer-", "wed_men_line2": "Abend", "thu_piura_l1": "Piura, 26.", "thu_piura_l2": "Oktober – Castilla", "thu_piura_l3": "Virtuell", "sat_gen180_label": "Teenager", "sat_focus_label": "Studenten", "sat_relevant_label": "Junge Erwachsene", "sun_services_title": "Gottesdienste", "sun_service1_l1": "Erster", "sun_service1_l2": "Gottesdienst", "sun_service2_l1": "Zweiter", "sun_service2_l2": "Gottesdienst" }
-  ,"home": { "heroTitle": "Dienen ist die stille Revolution, die ganze Viertel verändert.", "heroDescription": "Eine Gemeinschaft, die Glauben, Gaben und Chancen in Wege der Veränderung verwandelt.", "volunteer": "Ich möchte helfen", "scroll": "Entdecken", "programsEyebrow": "Unsere Bereiche", "programsTitle": "Ein Ort zum Wachsen, Dienen und Verbinden.", "impactEyebrow": "Wirkung mit Sinn", "impactTitle": "Was wir tun, wächst, wenn wir es gemeinsam tun.", "metrics": { "years": "Jahre für Gemeinschaften", "people": "Erreichte Menschen in unserer Region", "leaders": "Ausgebildete Pastoren und Leiter" }, "volunteerEyebrow": "Auch deine Zeit verändert", "volunteerTitle": "Werde ehrenamtlich aktiv.", "volunteerButton": "Ich möchte dienen", "donationEyebrow": "Unterstütze diese Mission", "donationTitle": "Spende machen.", "donationDescription": "Dein Beitrag unterstützt Projekte und Räume für Menschen.", "donationButton": "Spendenbutton verwenden" }
-  ,"map": { "eyebrow": "Finde uns", "title": "Wir sind näher bei dir als du denkst", "description": "Besuche uns, teile mit unserer Gemeinschaft und sei Teil dessen, was wir gemeinsam aufbauen.", "yourVisit": "Dein Besuch", "planVisit": "Plane deinen Besuch", "addressLabel": "Adresse", "addressValue": "[Adresse wird aktualisiert]", "hoursLabel": "Öffnungszeiten", "hoursValue": "[Öffnungszeiten werden aktualisiert]", "contactLabel": "Kontakt", "contactValue": "[Telefon / E-Mail wird aktualisiert]", "howToGet": "So kommst du hin", "location": "Standort", "findUsMap": "Finde uns auf der Karte", "iframeTitle": "Standort von PowerHouse Church Peru auf Google Maps", "ourLocation": "Unser Standort" }
-  ,"grupos": { "allThursdays": "Jeden Donnerstag", "headerTime": "Donnerstag · 20 Uhr", "thursdayTime": "DONNERSTAG - 20 UHR", "groupTitle1": "Connect", "groupTitle2": "Gruppe", "imageAlt": "PowerHouse-Gemeinschaft" }
+  "common": {
+    "missionOrganization": "Wir sind eine gemeinnützige Organisation für Bildung, soziale Inklusion und Kompetenzentwicklung.",
+    "close": "Schließen",
+    "aboutEyebrow": "Über uns",
+    "aboutTitle": "Menschen, die unsere Gemeinschaft begleiten und führen.",
+    "aboutDescription": "Wir begleiten Menschen, Familien und Leiter mit einer Vision von Glauben, Dienst und Gemeinschaft.",
+    "learnMore": "Mehr erfahren",
+    "beliefsEyebrow": "Unsere Lehre",
+    "beliefsTitle": "Unser Glaube.",
+    "beliefsDescription": "Das heilige Fundament unseres Glaubens und Lebens in Gemeinschaft.",
+    "contactEyebrow": "Willkommen bei PowerHouse",
+    "contactTitle": "Wir möchten dich kennenlernen.",
+    "contactDescription": "Danke, dass du dir Zeit nimmst, deinen ersten Schritt mit unserer Gemeinschaft zu gehen.",
+    "formTitle": "Willkommensformular",
+    "required": "Mit * markierte Felder sind Pflichtfelder.",
+    "send": "Informationen senden",
+    "footerTitle": "Ein Ort, an dem du deine Berufung lebst.",
+    "footerDescription": "Eine Gemeinschaft, die an Menschen, Glauben und unsere gemeinsame Wirkung glaubt.",
+    "explore": "Entdecken",
+    "talk": "Sprechen wir",
+    "contactUs": "Kontakt",
+    "backHome": "Zur Startseite",
+    "followUs": "Folge uns in unseren Netzwerken",
+    "social": "Soziale Netzwerke",
+    "footerNav": "Fußzeilennavigation",
+    "copyright": "Alle Rechte vorbehalten.",
+    "ariaBackHome": "PowerHouse, zurück zur Startseite",
+    "socialTikTok": "Unser TikTok besuchen",
+    "socialFacebook": "Unsere Facebook-Seite besuchen",
+    "socialInstagram": "Unser Instagram besuchen",
+    "socialYouTube": "Unseren YouTube-Kanal besuchen",
+    "sending": "Wird gesendet…"
+  },
+  "about": {
+    "pastorName": "Pastoren Jose und Kathryn Lopez",
+    "pastorInfo": "Seniorpastoren der PowerHouse Kirche in Lateinamerika",
+    "photoCaption": "PowerHouse Fotografie",
+    "bio1": "Seniorpastoren der PowerHouse Kirche in Lateinamerika. Geistliche Söhne von G.F. Watkins und dem Genesis-Team. Kirchenführer in Peru für 14 Jahre, sie haben mehr als 500.000 Menschen in ihrer Region erreicht.",
+    "bio2": "Im Jahr 2020 gründeten sie Alpha Men International, ein Männerministerium mit drei Hauptpfeilern: Identität, Bestätigung und Autorität.",
+    "bio3": "Sie gründeten das internationale Alpha Men Modell und haben es in Lateinamerika, Europa und Südafrika verbreitet."
+  },
+  "beliefs": {
+    "group1": "Grundlagen der Wahrheit",
+    "belief1_1_title": "Die Heilige Bibel",
+    "belief1_1_desc": "Sie ist das Wort Gottes mit Autorität. Die einzige endgültige Autorität zur Bestimmung aller doktrinellen Wahrheit. Inspiriert, fehlbar und makellos.",
+    "belief1_1_ref": "2 TIMOTHEUS 3:16 · 2 PETRUS 1:20-21 · SPRÜCHE 30:5",
+    "belief1_2_title": "Die Dreieinigkeit",
+    "belief1_2_desc": "Ein einziger Gott, ewig existierend in drei Personen: Vater, Sohn und Heiliger Geist. Gleich und ewig in Macht und Herrlichkeit.",
+    "belief1_2_ref": "1 JOHANNES 5:7 · MATTHÄUS 28:19 · LUKAS 1:35",
+    "belief1_3_title": "Die Jungfrauengeburt",
+    "belief1_3_desc": "Jesus Christus wurde von Gott dem Vater durch den Heiligen Geist empfangen im Leib der Jungfrau Maria; daher ist Er der Sohn Gottes.",
+    "belief1_3_ref": "MATTHÄUS 1:18, 23-25 · JESAJA 7:14",
+    "group2": "Erlösung und Heil",
+    "belief2_1_title": "Jesus Christus — Herr und Heiland",
+    "belief2_1_desc": "Gott der Sohn, 100% Gott und 100% Mensch. Er lebte ohne Sünde, vollbrachte Wunder und starb am Kreuz zur Sühne unserer Sünden.",
+    "belief2_1_ref": "JOHANNES 1:1, 14 · PHILIPPER 2:5-6 · 1 TIMOTHEUS 2:5",
+    "belief2_2_title": "Heil durch Gnade",
+    "belief2_2_desc": "Wir werden errettet durch Gnade durch den Glauben an Sein vollbrachtes Werk. Es ist ein Geschenk Gottes, kein Ergebnis menschlicher Anstrengungen.",
+    "belief2_2_ref": "EPHESER 2:8-9 · RÖMER 10:9-10 · TITUS 3:5",
+    "belief2_3_title": "Buße und Wiedergeburt",
+    "belief2_3_desc": "Ein Engagement, sich von der Sünde abzuwenden, um Christus zu folgen. Wesentlich zur Erlösung und Wiedergeburt durch den Heiligen Geist.",
+    "belief2_3_ref": "APOSTELGESCHICHTE 2:21 · 1 JOHANNES 1:9 · JOHANNES 6:44",
+    "belief2_4_title": "Heiligung",
+    "belief2_4_desc": "Ein kontinuierlicher Prozess der Unterwerfung unter das Wort und den Geist, um den Charakter Christi zu entwickeln.",
+    "belief2_4_ref": "1 THESSALONICHER 4:3 · RÖMER 12:1-2",
+    "group3": "Heiliger Geist und Kirche",
+    "belief3_1_title": "Taufe im Heiligen Geist",
+    "belief3_1_desc": "Die Verheißung des Vaters, die Kirche zu befähigen, das Evangelium mit Macht zu predigen.",
+    "belief3_1_ref": "APOSTELGESCHICHTE 1:5, 2:1-4 · JOEL 2:28-29",
+    "belief3_2_title": "Geistesgaben",
+    "belief3_2_desc": "Manifestationen zur Erbauung der Kirche und Bestätigung des Evangeliums.",
+    "belief3_2_ref": "1 KORINTHER 12:1-31 · HEBRÄER 2:4",
+    "belief3_3_title": "Die Kirche",
+    "belief3_3_desc": "Der Leib Christi und Wohnort Gottes, vereint im Geist, um den Großen Auftrag Jesu zu erfüllen.",
+    "belief3_3_ref": "EPHESER 1:22 · JOHANNES 17:11, 20-23",
+    "group4": "Sakramente und Versorgung",
+    "belief4_1_title": "Taufe und Heiliges Abendmahl",
+    "belief4_1_desc": "Taufe durch Tauchung als Ordnung und das Abendmahl als besondere Gemeinschaft zum Gedächtnis Seines Opfers.",
+    "belief4_1_ref": "MATTHÄUS 28:19 · 1 KORINTHER 11:23-25",
+    "belief4_2_title": "Göttliche Heilung",
+    "belief4_2_desc": "Die Heilung der Kranken ist Teil des Werkes Jesu am Kreuz und ein Zeichen, das die Gläbegleitet.",
+    "belief4_2_ref": "JESAJA 53:5 · JAKOBUS 5:14-16 · MATTHÄUS 8:16-17",
+    "belief4_3_title": "Fülle und Versorgung",
+    "belief4_3_desc": "Es ist der Wille des Vaters, dass wir Gesundheit, Erfolg und geistige, geistige und finanzielle Fülle erreichen.",
+    "belief4_3_ref": "3 JOHANNES 1:2 · 2 KORINTHER 9:6-10 · JOSUA 1:8",
+    "group5": "Ewigkeit und Werte",
+    "belief5_1_title": "Auferstehung und Ewigkeit",
+    "belief5_1_desc": "Physische Auferstehung der Geretteten zum ewigen Leben (Himmel) und der Ungläubigen zur ewigen Verdammnis (Hölle).",
+    "belief5_1_ref": "JOHANNES 5:29 · OFFENBARUNG 20:12-15 · MATTHÄUS 25:34",
+    "belief5_2_title": "Zweite Wiederkunft",
+    "belief5_2_desc": "Jesus Christus wird physisch und sichtbar zum zweiten Mal wiederkommen, um Sein Königreich auf der Erde zu errichten.",
+    "belief5_2_ref": "APOSTELGESCHICHTE 1:9-11 · OFFENBARUNG 1:7",
+    "belief5_3_title": "Ehe und Sexualität",
+    "belief5_3_desc": "Ein Bund, der ausschließlich einem Mann und einer Frau vorbehalten ist.",
+    "belief5_3_ref": "1 MOSE 2:18-24 · EPHESER 5:31 · 1 KORINTHER 6:18",
+    "beliefPassion": "Unsere Leidenschaft ist es, Familien durch Jesus gerettet zu sehen."
+  },
+  "mission": {
+    "viewYouTube": "Video direkt auf YouTube ansehen",
+    "videoTitle": "Einführungsvideo von PowerHouse Church Peru",
+    "missionCard1Title": "Gott kennenlernen",
+    "missionCard1Short": "Gott hat nicht mit dir improvisiert. Du hast Gaben, Talente und eine einzigartige Persönlichkeit.",
+    "missionCard1Expanded": "Gott hat nicht mit dir improvisiert. Wir helfen dir, alles für etwas wirklich Wichtiges zu nutzen.",
+    "missionCard2Title": "Freiheit finden",
+    "missionCard2Short": "Wahre Freiheit ist nicht, zu tun was du willst, sondern ohne emotionale Ketten zu leben...",
+    "missionCard2Expanded": "Wahre Freiheit ist nicht, zu tun was du willst, sondern ohne emotionale, geistige und seelische Ketten zu leben.",
+    "missionCard3Title": "Deine Berufung entdecken",
+    "missionCard3Short": "Du wurdest nicht durch Zufall erschaffen. Es gibt einen spezifischen Zweck für dein Leben...",
+    "missionCard3Expanded": "Du wurdest nicht durch Zufall erschaffen. Wir helfen dir, deine Gaben zu identifizieren.",
+    "missionCard4Title": "Einen Unterschied machen",
+    "missionCard4Short": "Wir wurden nicht nur persönlich zu wachsen berufen, sondern die Welt um uns herum zu beeinflussen...",
+    "missionCard4Expanded": "Wir wurden nicht nur persönlich zu wachsen berufen, sondern die Welt um uns herum zu beeinflussen."
+  },
+  "contact": {
+    "firstVisit": "Besuchen Sie uns zum ersten Mal?",
+    "selectOption": "Wählen Sie eine Option",
+    "yes": "Ja",
+    "no": "Nein",
+    "discovery": "Wie sind Sie auf PowerHouse aufmerksam geworden oder wer hat Sie eingeladen?",
+    "fullName": "Vollständiger Name",
+    "placeholder": "Ihre Antwort",
+    "faithDecision": "Haben Sie sich heute entschieden, Jesus zu folgen?",
+    "iamChristian": "Ich bin Christ",
+    "age": "Alter",
+    "maritalStatus": "Familienstand",
+    "single": "Ledig",
+    "married": "Verheiratet",
+    "other": "Andere",
+    "phone": "Telefonnummer",
+    "address": "Wohnadresse",
+    "growCourse": "Möchten Sie WACHSTUM besuchen?",
+    "later": "Später",
+    "volunteer": "Freiwilliger der registriert hat",
+    "greeting": "Gott segne dich reichlich.",
+    "emailReady": "Vielen Dank! Wir haben Ihre Informationen erhalten. Wir melden uns bald bei Ihnen.",
+    "emailNotConfig": "Wir konnten Ihre Informationen nicht senden. Bitte versuchen Sie es in einigen Augenblicken erneut.",
+    "emailSubject": "Neue Willkommen bei PowerHouse",
+    "discoveryOption1": "Freunde",
+    "discoveryOption2": "Soziale Medien",
+    "discoveryOption3": "Familie",
+    "discoveryOption4": "Flyer (Einladungskarte)",
+    "discoveryOption5": "Verbindungsgruppe",
+    "discoveryOption6": "Andere",
+    "ariaMaps": "PowerHouse Church Peru Standort auf Google Maps"
+  },
+  "donate": {
+    "title": "Spende",
+    "subtitle": "Unterstützen Sie unser Projekt",
+    "bankTransfer": "Sie können auch per Banküberweisung spenden",
+    "accountLabel": "Konto",
+    "accountNumber": "Kontonummer",
+    "close": "Schließen",
+    "closeImage": "Bild schließen",
+    "ariaOpen": "Spendemodal öffnen",
+    "ariaExpand": "QR-Codes vergrößern",
+    "tooltipDonate": "Spenden",
+    "currencySoles": "Soles (S/.)",
+    "currencyDollars": "Dollar ($)"
+  },
+  "whatsapp": {
+    "message": "Hallo PowerHouse 😄 Ich möchte mehr Informationen über Sie, Ihre Servicebereiche, Kurse usw. Gott segne Sie.",
+    "tooltip": "Kontaktieren Sie uns auf WhatsApp",
+    "ariaLabel": "PowerHouse auf WhatsApp kontaktieren"
+  },
+  "agenda": {
+    "eyebrow": "Wochenplan",
+    "title": "Unsere Woche",
+    "title2": "bei PowerHouse",
+    "description": "Verbinde dich, wachse und diene. Jeden Tag gibt es einen Platz für dich.",
+    "tuesday_short": "DIE",
+    "tuesday_full": "Dienstag",
+    "wednesday_short": "MIT",
+    "wednesday_full": "Mittwoch",
+    "thursday_short": "DON",
+    "thursday_full": "Donnerstag",
+    "saturday_short": "SAM",
+    "saturday_full": "Samstag",
+    "sunday_short": "SON",
+    "sunday_full": "Sonntag",
+    "tue_pray_label": "Wir beten",
+    "tue_discipline_label": "Jüngerschaft",
+    "tue_girls_label": "Mädchentreffen",
+    "wed_men_line1": "Männer-",
+    "wed_men_line2": "Abend",
+    "thu_piura_l1": "Piura, 26.",
+    "thu_piura_l2": "Oktober – Castilla",
+    "thu_piura_l3": "Virtuell",
+    "sat_gen180_label": "Teenager",
+    "sat_focus_label": "Studenten",
+    "sat_relevant_label": "Junge Erwachsene",
+    "sun_services_title": "Gottesdienste",
+    "sun_service1_l1": "Erster",
+    "sun_service1_l2": "Gottesdienst",
+    "sun_service2_l1": "Zweiter",
+    "sun_service2_l2": "Gottesdienst"
+  },
+  "home": {
+    "heroTitle": "Dienen ist die stille Revolution, die ganze Viertel verändert.",
+    "heroDescription": "Eine Gemeinschaft, die Glauben, Gaben und Chancen in Wege der Veränderung verwandelt.",
+    "volunteer": "Ich möchte helfen",
+    "scroll": "Entdecken",
+    "programsEyebrow": "Unsere Bereiche",
+    "programsTitle": "Ein Ort zum Wachsen, Dienen und Verbinden.",
+    "impactEyebrow": "Wirkung mit Sinn",
+    "impactTitle": "Was wir tun, wächst, wenn wir es gemeinsam tun.",
+    "metrics": {
+      "years": "Jahre für Gemeinschaften",
+      "people": "Erreichte Menschen in unserer Region",
+      "leaders": "Ausgebildete Pastoren und Leiter"
+    },
+    "volunteerEyebrow": "Auch deine Zeit verändert",
+    "volunteerTitle": "Werde ehrenamtlich aktiv.",
+    "volunteerButton": "Ich möchte dienen",
+    "donationEyebrow": "Unterstütze diese Mission",
+    "donationTitle": "Spende machen.",
+    "donationDescription": "Dein Beitrag unterstützt Projekte und Räume für Menschen.",
+    "donationButton": "Spendenbutton verwenden"
+  },
+  "grupos": {
+    "allThursdays": "Jeden Donnerstag",
+    "headerTime": "Donnerstag · 20 Uhr",
+    "thursdayTime": "DONNERSTAG - 20 UHR",
+    "groupTitle1": "Connect",
+    "groupTitle2": "Gruppe",
+    "imageAlt": "PowerHouse-Gemeinschaft"
+  },
+  "seo": {
+    "home": {
+      "title": "PowerHouse Church Peru | Kirchen in Piura",
+      "description": "PowerHouse Church Peru: eine Gemeinde, um Gott kennenzulernen, in Gemeinschaft zu wachsen und mit Berufung zu leben. Wir erwarten dich in Piura."
+    },
+    "about": {
+      "title": "Über uns | PowerHouse Church Peru",
+      "description": "Lerne die Pastoren von PowerHouse Church in Lateinamerika und ihre Vision von Glauben, Dienst und Gemeinschaft in Piura kennen."
+    },
+    "beliefs": {
+      "title": "Glaube | PowerHouse Church Peru",
+      "description": "Das heilige Fundament unseres Glaubens und Lebens in Gemeinschaft."
+    },
+    "services": {
+      "title": "Dienste | PowerHouse Church Peru",
+      "description": "Entdecke unsere Dienste und Räume zum Verbinden, Wachsen und Mitmachen."
+    },
+    "grupos": {
+      "title": "Verbindungsgruppen | PowerHouse Church Peru",
+      "description": "Kleine Gruppen zu Hause, um gemeinsam zu wachsen. Donnerstags um 20 Uhr in Piura, Castilla, 26 de Octubre und online."
+    },
+    "contact": {
+      "title": "Kontakt | PowerHouse Church Peru",
+      "description": "Wir möchten dich kennenlernen. Erzähl uns von dir und mach deinen ersten Schritt mit unserer Gemeinde in Piura."
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden | PowerHouse Church Peru",
+      "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Zurück zur Startseite von PowerHouse Church Peru."
+    }
+  },
+  "notFound": {
+    "eyebrow": "Fehler 404",
+    "title": "Seite nicht gefunden",
+    "description": "Entschuldigung, die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "cta": "Zur Startseite"
+  }
 }

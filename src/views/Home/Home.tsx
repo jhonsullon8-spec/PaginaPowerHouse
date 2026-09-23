@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { getWordPressImageUrl } from "../../data/images";
+import { useFocusTrap } from "../../hooks/useFocusTrap";
 
 interface Metric {
+	id: string;
 	value: number;
 	suffix: string;
 	label: string;
@@ -80,9 +82,9 @@ const AnimatedMetric = ({ metric }: { metric: Metric }) => {
 const Home = () => {
 	const { t } = useTranslation();
 	const metrics: Metric[] = [
-		{ value: 14, suffix: "+", label: t("home.metrics.years") },
-		{ value: 500000, suffix: "+", label: t("home.metrics.people") },
-		{ value: 1000, suffix: "+", label: t("home.metrics.leaders") },
+		{ id: "years", value: 14, suffix: "+", label: t("home.metrics.years") },
+		{ id: "people", value: 500000, suffix: "+", label: t("home.metrics.people") },
+		{ id: "leaders", value: 1000, suffix: "+", label: t("home.metrics.leaders") },
 	];
 	const fronts: Front[] = [
 		{ number: "01", title: t("mission.missionCard1Title"), description: t("mission.missionCard1Short"), expandedDescription: t("mission.missionCard1Expanded"), image: getWordPressImageUrl("2026/01/in1.jpg"), gallery: [getWordPressImageUrl("2026/02/4-1-scaled.jpg"), getWordPressImageUrl("2026/02/5-scaled.jpg"), getWordPressImageUrl("2026/02/3-scaled.jpg")] },
@@ -91,6 +93,25 @@ const Home = () => {
 		{ number: "04", title: t("mission.missionCard4Title"), description: t("mission.missionCard4Short"), expandedDescription: t("mission.missionCard4Expanded"), image: getWordPressImageUrl("2022/02/89226359_1819160668217692_3004242886687457280_n.jpg"), gallery: [getWordPressImageUrl("2026/02/diferencia3-scaled.jpg"), getWordPressImageUrl("2026/02/diferencia4-scaled.jpg"), getWordPressImageUrl("2026/02/diferencia5-scaled.jpg")] },
 	];
 	const [selectedFront, setSelectedFront] = useState<Front | null>(null);
+	const modalRef = useRef<HTMLDivElement>(null);
+
+	useFocusTrap(modalRef, selectedFront !== null);
+
+	useEffect(() => {
+		if (!selectedFront) return;
+		const previousOverflow = document.body.style.overflow;
+		document.body.style.overflow = "hidden";
+
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") setSelectedFront(null);
+		};
+		window.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			document.body.style.overflow = previousOverflow;
+			window.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [selectedFront]);
 
 	return (
 		<div className="overflow-hidden bg-[#F5F5F3] text-[#111111]">
@@ -107,11 +128,11 @@ const Home = () => {
 							<a href="/contacto" className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#C1121F] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#E3424D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#111111]">{t("home.volunteer")} <ArrowUpRight /></a>
 						</div>
 					</motion.div>
-					<p className="mt-20 text-xs font-semibold uppercase tracking-[0.22em] text-white/40">01 / {t("home.scroll")}</p>
+					<a href="#programas" className="mt-20 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-white/40 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3424D] focus-visible:ring-offset-4 focus-visible:ring-offset-[#111111]">01 / {t("home.scroll")} ↓</a>
 				</div>
 			</section>
 
-			<section id="programas" className="bg-[#F5F5F3] py-24 text-[#111111] md:py-32">
+			<section id="programas" className="scroll-mt-24 bg-[#F5F5F3] py-24 text-[#111111] md:py-32">
 				<div className="mx-auto max-w-7xl px-6 md:px-10">
 					<div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
 						<motion.header initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -158,7 +179,7 @@ const Home = () => {
 				{selectedFront && (
 					<motion.div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-4 py-8 sm:px-6 sm:py-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedFront(null)}>
 						<div className="fixed inset-0 bg-[#0a0a0a]/90 backdrop-blur-md" aria-hidden="true" />
-						<motion.div role="dialog" aria-modal="true" aria-label={selectedFront.title} className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#111111] to-[#1a1a1a] shadow-[0_40px_100px_rgba(0,0,0,0.7)]" initial={{ opacity: 0, y: 30, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.97 }} onClick={(event) => event.stopPropagation()}>
+						<motion.div ref={modalRef} role="dialog" aria-modal="true" aria-label={selectedFront.title} className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#111111] to-[#1a1a1a] shadow-[0_40px_100px_rgba(0,0,0,0.7)]" initial={{ opacity: 0, y: 30, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.97 }} onClick={(event) => event.stopPropagation()}>
 							<button type="button" onClick={() => setSelectedFront(null)} aria-label={t("common.close")} className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#111111]/80 text-xl text-white backdrop-blur-sm transition-colors hover:bg-[#C1121F]">×</button>
 							<div className="relative min-h-[350px] sm:min-h-[420px]">
 								<img src={selectedFront.image} alt="" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
@@ -188,7 +209,7 @@ const Home = () => {
 							<span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E3424D]">{t("home.impactEyebrow")}</span>
 							<h2 className="mt-5 max-w-md text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">{t("home.impactTitle")}</h2>
 						</div>
-						<div className="grid gap-8 sm:grid-cols-3">{metrics.map((metric) => <AnimatedMetric key={metric.label} metric={metric} />)}</div>
+						<div className="grid gap-8 sm:grid-cols-3">{metrics.map((metric) => <AnimatedMetric key={metric.id} metric={metric} />)}</div>
 					</div>
 				</div>
 			</section>

@@ -1,11 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import de from "./locales/de.json";
-import en from "./locales/en.json";
 import es from "./locales/es.json";
-import fr from "./locales/fr.json";
-import it from "./locales/it.json";
-import pt from "./locales/pt.json";
 
 export const supportedLanguages = ["es", "en", "fr", "de", "it", "pt"] as const;
 export type SupportedLanguage = (typeof supportedLanguages)[number];
@@ -19,19 +14,53 @@ export const languageOptions: Array<{ code: SupportedLanguage; label: string; fl
   { code: "pt", label: "Português", flag: "PT", flagSrc: "https://flagcdn.com/w40/pt.png" },
 ];
 
+const STORAGE_KEY = "powerhouse:lang";
+
+const isSupportedLanguage = (language: string): language is SupportedLanguage =>
+  (supportedLanguages as readonly string[]).includes(language);
+
+export const getInitialLanguage = (): SupportedLanguage => {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  return stored && isSupportedLanguage(stored) ? stored : "es";
+};
+
+export const persistLanguage = (language: SupportedLanguage) => {
+  localStorage.setItem(STORAGE_KEY, language);
+};
+
+const loaders: Record<Exclude<SupportedLanguage, "es">, () => Promise<{ default: typeof es }>> = {
+  en: () => import("./locales/en.json"),
+  fr: () => import("./locales/fr.json"),
+  de: () => import("./locales/de.json"),
+  it: () => import("./locales/it.json"),
+  pt: () => import("./locales/pt.json"),
+};
+
+export const loadLanguageResources = async (language: SupportedLanguage) => {
+  if (language === "es" || i18n.hasResourceBundle(language, "translation")) return;
+  const module = await loaders[language]();
+  i18n.addResourceBundle(language, "translation", module.default);
+};
+
+export const setLanguage = async (language: SupportedLanguage) => {
+  await loadLanguageResources(language);
+  await i18n.changeLanguage(language);
+  persistLanguage(language);
+};
+
 void i18n.use(initReactI18next).init({
-  resources: { es: { translation: es }, en: { translation: en }, fr: { translation: fr }, de: { translation: de }, it: { translation: it }, pt: { translation: pt } },
+  resources: { es: { translation: es } },
   lng: "es",
   fallbackLng: "es",
   interpolation: { escapeValue: false },
 });
 
 i18n.on("languageChanged", (language: string) => {
-  if (supportedLanguages.includes(language as SupportedLanguage)) {
+  if (isSupportedLanguage(language)) {
     document.documentElement.lang = language;
   }
 });
 
-document.documentElement.lang = "es";
+document.documentElement.lang = getInitialLanguage();
 
 export default i18n;
